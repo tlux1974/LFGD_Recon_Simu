@@ -1,0 +1,4 @@
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 20.0 >
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 1 >

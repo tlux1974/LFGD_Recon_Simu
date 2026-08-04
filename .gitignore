@@ -1,0 +1,41 @@
+# CMake and ND280 build products
+/build/
+/Linux-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.o
+*.so
+*.pcm
+
+# Generated ND280 package-version sources
+/inc/LFGDReconSimu_version.h
+/inc/TLFGDReconSimu_version.hxx
+/inc/TLFGDReconSimu_version_LinkDef.h
+/src/TLFGDReconSimu_version.cxx
+/doc/footer.html
+
+# Simulation, reconstruction, and plotting output
+/output/
+*.root
+*.log
+*.png
+*.pdf
+*.csv
+core
+core.*
+
+# Python caches and local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+*~
+*.swp
+
+# Documentation and study summaries are source files.  Keep them visible even
+# if a broader user-level Git exclude rule ignores README or text files.
+!README.md
+!readme*.txt
