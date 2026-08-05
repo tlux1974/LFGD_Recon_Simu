@@ -1,0 +1,12 @@
+# Student comparison C: current best-looking experimental HOMO/LFGD result.
+# Local 2D clusters own fibres uniquely; the 3D charge is the mean of the
+# accepted view charges. Projected 2D-view reuse is still unresolved, so total
+# event charge is diagnostic rather than a final calibrated dE/dx observable.
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 1 >
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 10.0 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 2 >
+< hfgRecon.Hits3D.VoxelPositionMode.homo = 2 >
+< hfgRecon.SelectHits3D.Enable.homo = 1 >
+< hfgRecon.SelectHits3D.ChargeCut.homo = 10.0 >

@@ -33,6 +33,27 @@ def main() -> None:
 /t2k/OA/Magnet/Basket/PlusPlusTracker/NoHFGCMD false
 /t2k/OA/Magnet/Basket/PlusPlusTracker/NoHomoCMD true"""
 
+    # This is a focused HOMO/HFG comparison.  Avoid constructing unrelated
+    # upgrade detectors, particularly when the 6.07-million-node HOMO virtual
+    # lattice is present.  Keeping them all enabled can exhaust memory before
+    # the first event.  TPC3 deliberately remains enabled because the current
+    # detector-response initialization expects its drift volumes to exist even
+    # when TPC response is disabled.
+    focused_geometry_commands = """\
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoInactiveWaterCMD true
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoTPC3CMD false
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoSWDCMD true
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoSciFiCMD true
+/t2k/OA/Magnet/Basket/SFG/enable false
+/t2k/OA/Magnet/Basket/TopHAT/enable false
+/t2k/OA/Magnet/Basket/BottomHAT/enable false
+/t2k/OA/Magnet/Basket/UTOF/enable false
+/t2k/OA/Magnet/Basket/DTOF/enable false
+/t2k/OA/Magnet/Basket/BTOF/enable false
+/t2k/OA/Magnet/Basket/TTOF/enable false
+/t2k/OA/Magnet/Basket/NTOF/enable false
+/t2k/OA/Magnet/Basket/STOF/enable false"""
+
     input_px, input_py, input_pz = args.position_mm
     if args.position_frame == "plusplus":
         # Placement of PlusPlusTracker in baseline-2024-plusplus, verified
@@ -51,6 +72,7 @@ def main() -> None:
     text = f"""\
 /t2k/control {args.baseline} 1.0
 {detector_commands}
+{focused_geometry_commands}
 /t2k/update
 /gps/source/clear
 /gps/source/multiplevertex true

@@ -1,0 +1,4 @@
+# Experimental LFGD charge mode: average the accepted 2D-view charges while
+# allowing projected-view reuse.  This can overcount charge and is not the
+# production/default reconstruction mode.
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 2 >

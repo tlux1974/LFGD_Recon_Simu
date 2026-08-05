@@ -1,0 +1,4 @@
+# Experimental mode-2 comparison for detector-response samples generated
+# without HOMO fibre attenuation.
+< hfgRecon.Hits3D.ApplyAttenuationCorrection.homo = 0 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 2 >

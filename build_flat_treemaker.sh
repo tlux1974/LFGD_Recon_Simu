@@ -19,7 +19,11 @@ if [[ -z "${CMAKE_PREFIX_PATH:-}" ]]; then
     exit 1
 fi
 
-cmake -S "${SCRIPT_DIR}/cmake" -B "$BUILD_DIR"
+cmake_args=(-S "${SCRIPT_DIR}/cmake" -B "$BUILD_DIR")
+[[ -n "${OAEVENTROOT:-}" ]] && cmake_args+=("-DoaEvent_DIR=${OAEVENTROOT}/cmake")
+[[ -n "${OAGEOMINFOROOT:-}" ]] && cmake_args+=("-DoaGeomInfo_DIR=${OAGEOMINFOROOT}/cmake")
+[[ -n "${HFGRECONROOT:-}" ]] && cmake_args+=("-DhfgRecon_DIR=${HFGRECONROOT}/cmake")
+cmake "${cmake_args[@]}"
 cmake --build "$BUILD_DIR" -j"${JOBS:-4}"
 echo "Built under $BUILD_DIR"
 echo "Add its bin directory to PATH:"

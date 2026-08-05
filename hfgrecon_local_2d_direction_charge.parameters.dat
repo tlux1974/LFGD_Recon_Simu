@@ -1,0 +1,23 @@
+// Comparison configuration: local 2D fibre clustering followed by
+// direction-aware 3D charge reconstruction.
+
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 10.0 >
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 1 >
+
+// Use the SFGD charge-sharing solver after removing a fibre view that is
+// locally too parallel to the track.  The result is normalized to the
+// three-view charge convention.
+< hfgRecon.Hits3D.SharingAlgo.homo = 1 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 1 >
+< hfgRecon.Hits3D.ChargeDirectionNeighbours.homo = 4 >
+< hfgRecon.Hits3D.ChargeMinimumDirectionNeighbours.homo = 2 >
+< hfgRecon.Hits3D.ChargeDirectionMaximumDistance.homo = 30.0 mm >
+< hfgRecon.Hits3D.ChargeViewMaximumParallelCosine.homo = 0.80 >
+< hfgRecon.Hits3D.ChargeMinimumViews.homo = 2 >
+< hfgRecon.Hits3D.VoxelPositionMode.homo = 1 >
+
+// Temporary low 3D-hit threshold for the direction-aware comparison.
+< hfgRecon.SelectHits3D.Enable.homo = 1 >
+< hfgRecon.SelectHits3D.ChargeCut.homo = 10.0 >

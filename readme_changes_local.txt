@@ -4,6 +4,43 @@ LOCAL LFGD_Recon_Simu CHANGES
 Date: 2026-08-04
 Scope: /home/tlux/HK/ND280++/LFGD_Recon_Simu
 
+Update 2026-08-05: the local hfgRecon default now uses
+`VoxelPositionMode.homo = 2`.  It assigns each continuous reconstructed hit a
+virtual-cube identity and resolves multiple candidates in that cube without
+moving the selected hit to the cube centre.  The ten-event validation is in
+`output/homo_mu700_virtual_geometry_100ev_20260805_145407/voxel_dedup_test10b`.
+It reduced 3974 3D-hit entries in 2420 occupied voxels to 1997 entries in 1997
+voxels, while retaining continuous reconstructed tracks.
+
+The event overlays now use only exact `mc_virtual_segments` truth.  Sparse
+Geant4 trajectory points are no longer drawn or required by the plotting
+script.  The charge-sum plot is labelled as measured fibre charge versus
+fitted, attenuation-corrected 3D deposit; their numerical ratio is not a
+charge-conservation test.
+
+Each standard wide event view is now accompanied by an LFGD-focused virtual-
+voxel classification view (`eventN_zx_voxel_match.png`, and likewise for ZY
+and XY).  It shows all exact MC voxels, matched reconstructed voxels, missing
+MC voxels, and unmatched/off-track reconstructed voxels with separate marker
+styles.  These images are linked directly from the generated HTML event scan.
+
+Additional `eventN_*_track_match.png` views classify reconstructed 3D voxels
+according to whether a fitted track node occupies the same voxel.  The CSV
+also records the number of 3D voxels with and without track nodes and any
+track-node-only voxels.
+
+`voxel_residuals.csv` contains a row for every MC/reconstruction matched cube.
+Multiple exact MC segments in one cube are combined into an energy-weighted
+true crossing position (track-length weighting is the zero-energy fallback).
+It stores the true and reconstructed positions, dx/dy/dz/dr, summed MC energy
+deposit, fitted 3D deposit, and a sample-normalized charge-response residual.
+Aggregate position and charge plots are written as
+`voxel_position_residuals.png` and `voxel_charge_response.png`.
+
+For controlled no-attenuation validation, `run_pipeline.sh` accepts
+`DISABLE_HOMO_ATTENUATION=1`.  This applies coordinated parameter overrides to
+both detResponseSim and hfgRecon.  Normal runs retain attenuation.
+
 These changes belong to the local diagnostic study and can be submitted as
 one set. They do not include the nd280Geant4Sim container/package change.
 
@@ -371,3 +408,18 @@ Two small parameter override files were added to LFGD_Recon_Simu for direct
 comparison. hfgrecon_original_2d.parameters.dat selects mode 0, while
 hfgrecon_local_2d.parameters.dat selects mode 1 and enables use of its
 charge-weighted 2D position in the 3D matching stage.
+# Virtual truth overlay and reconstructed-coordinate validation (2026-08-05)
+
+`LFGDFlatTree.cxx` now writes `mc_virtual_segments`, containing the exact
+entry/exit points, energy deposit, track length, contributor information and
+derived HOMO virtual-cube index for every `truth/g4Hits/homoVirtualCube`
+segment.  `plot_overlay.py` overlays these segments in cyan and uses their cube
+indices for the reconstruction-efficiency comparison instead of interpolating
+the MC trajectory.
+
+The overlay was used to isolate a HOMO projection-convention mismatch and an
+invalid geometry-node transform in the hfgRecon 2D peak positions.  After the
+oaEvent/hfgRecon fixes, events 16, 29 and 32 follow the MC trajectory in all
+three views.  The exact cube-matching efficiency remains deliberately stricter
+than visual alignment because reconstructed positions are charge weighted and
+are not forced to voxel centres.

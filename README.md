@@ -3,18 +3,23 @@
 This directory provides a reproducible diagnostic chain for fixed 700 MeV
 muons originating inside either detector design.
 
-## Setup
+For the supported three-way student comparison and a plain-language summary
+of all coordinated local changes, start with [STUDENT_GUIDE.md](STUDENT_GUIDE.md)
+and `run_student_sample.sh`.
 
-Enter the normal ND280++ container/login environment first. Then change to this
-directory, select the local `hfgRecon`, and build the diagnostic tree maker:
+## Setup
 
 ```bash
 cd ~/HK/ND280++/LFGD_Recon_Simu
 source <ND280 setup>
+source ~/HK/ND280++/switch-nd280geant4sim.sh local
 source ~/HK/ND280++/switch-hfgrecon.sh local
 ./build_flat_treemaker.sh
 export PATH="$PWD/$ND280_SYSTEM/bin:$PATH"
 ```
+
+Use `original` instead of `local` with either switch to select the installed
+container package for a direct comparison.
 
 The package-level `bin/setup.sh` is not sufficient in a fresh shell: the base
 container/login environment must already provide `nd280-system` and
@@ -132,13 +137,23 @@ Each run writes to `output/<detector>_mu700_fixed/`:
 - `g4.root`: Geant4 truth and energy deposits;
 - `detresponse.root`: calibrated fibre/MPPC hits;
 - `reco.root`: `hfg_3d` hits and `THFGRecon` tracks;
-- `flat.root`: `fiber_hits`, `hits3d`, `track_nodes`, and `mc_track_points` TTrees;
+- `flat.root`: `fiber_hits`, `hits3d`, `hit3d_views`, `track_nodes`,
+  `track_node_hits`, `mc_virtual_segments`, and `mc_track_points` TTrees;
 - `plots/`: ZX, ZY, and XY overlays;
 - numbered logs for each processing stage.
 
 The reconstruction executable is named HFGRECON for both models. Internally it
 selects `THomoHits3D` for the `homo` collection and `THFGHits3D` for `hfg`, then
 runs the shared HFG clustering and tracking chain.
+
+`mc_virtual_segments` keeps its old name for file compatibility, but is now a
+common per-cube truth table. It stores LFGD Geant4 segments in 10 mm virtual
+cubes and HFGD segments in their physical cubes. `detector=0` means LFGD/HOMO
+and `detector=1` means HFGD. The HFGD cube ID is read from the exact
+`hfg_truth` cube-to-segment relationship rather than reconstructed by rounding
+coordinates. Consequently the same flat-tree and plotting workflow can be
+used for voxel-by-voxel MC/reconstructed-hit position and charge comparisons
+for either detector.
 
 The detector-response command disables response simulation for unrelated
 SciFi, SWD, SFG, ECAL, SMRD, TOF, TPC, and HAT subsystems.  The broad ND280+

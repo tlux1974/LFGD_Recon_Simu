@@ -1,0 +1,11 @@
+# Student comparison B: historical HOMO/LFGD peak reconstruction, but with
+# the lowered thresholds that recovered substantially more track nodes.
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 0 >
+< hfgRecon.Hits3D.OriginalPeakNeighbourDistance.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 0 >
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 10.0 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 0 >
+< hfgRecon.Hits3D.VoxelPositionMode.homo = 2 >
+< hfgRecon.SelectHits3D.Enable.homo = 1 >
+< hfgRecon.SelectHits3D.ChargeCut.homo = 10.0 >

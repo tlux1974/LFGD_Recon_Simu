@@ -1,0 +1,3 @@
+# Strict LFGD validation mode: average accepted view charges and require
+# unique ownership of every locally non-parallel 2D view cluster.
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 3 >

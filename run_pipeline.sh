@@ -17,7 +17,9 @@ Defaults come from config.sh and can be overridden, for example:
   DIRECTION_MODE=isotropic $0 homo 1000
 
 Run this after sourcing the normal ND280++ environment and then selecting the
-desired hfgRecon build with switch-hfgrecon.sh.
+desired simulation and reconstruction builds, for example:
+  source ../switch-nd280geant4sim.sh local
+  source ../switch-hfgrecon.sh local
 EOF
 }
 
@@ -90,11 +92,39 @@ detresponse_args=(
     -O disable-hat
     -o "$detresp"
 )
+detresponse_parameter_file="${DETRESPONSE_PARAMETER_FILE:-}"
+if [[ "${DISABLE_HOMO_ATTENUATION:-0}" == "1" ]]; then
+    echo "Detector-response HOMO fibre attenuation disabled for validation"
+    detresponse_parameter_file="${SCRIPT_DIR}/detresponse_no_homo_attenuation.parameters.dat"
+fi
+if [[ -n "$detresponse_parameter_file" ]]; then
+    [[ -f "$detresponse_parameter_file" ]] || {
+        echo "Missing detector-response parameter file: $detresponse_parameter_file" >&2
+        exit 2
+    }
+    echo "Detector-response parameters: $detresponse_parameter_file"
+    detresponse_args+=(-O "par_override=$detresponse_parameter_file")
+fi
 DETRESPONSESIM.exe "${detresponse_args[@]}" "$g4" \
     2>&1 | tee "${OUTPUT_DIR}/02_detresponse.log"
 
 echo "[3/5] HomoFGD/HFGD 3D-hit and track reconstruction"
-HFGRECON.exe -R -o "$reco" "$detresp" \
+hfgrecon_args=(-R -o "$reco")
+hfgrecon_parameter_file="${HFGRECON_PARAMETER_FILE:-}"
+if [[ "${DISABLE_HOMO_ATTENUATION:-0}" == "1"
+      && -z "$hfgrecon_parameter_file" ]]; then
+    echo "hfgRecon HOMO attenuation correction disabled for validation"
+    hfgrecon_parameter_file="${SCRIPT_DIR}/hfgrecon_no_homo_attenuation.parameters.dat"
+fi
+if [[ -n "$hfgrecon_parameter_file" ]]; then
+    [[ -f "$hfgrecon_parameter_file" ]] || {
+        echo "Missing hfgRecon parameter file: $hfgrecon_parameter_file" >&2
+        exit 2
+    }
+    echo "hfgRecon parameters: $hfgrecon_parameter_file"
+    hfgrecon_args+=(-O "par_override=$hfgrecon_parameter_file")
+fi
+HFGRECON.exe "${hfgrecon_args[@]}" "$detresp" \
     2>&1 | tee "${OUTPUT_DIR}/03_hfgrecon.log"
 
 echo "[4/5] Flat diagnostic tree"
@@ -102,6 +132,11 @@ LFGDFLATTREE.exe -R -O outfile="$flat" "$reco" \
     2>&1 | tee "${OUTPUT_DIR}/04_flat_tree.log"
 
 echo "[5/5] Overlay plots"
-python3 "${SCRIPT_DIR}/plot_overlay.py" "$flat" --output-dir "${OUTPUT_DIR}/plots"
+plot_args=("$flat" --output-dir "${OUTPUT_DIR}/plots")
+if [[ -n "${PLOT_EVENT_RANGE:-}" ]]; then
+    read -r plot_first plot_last <<<"$PLOT_EVENT_RANGE"
+    plot_args+=(--event-range "$plot_first" "$plot_last")
+fi
+python3 "${SCRIPT_DIR}/plot_overlay.py" "${plot_args[@]}"
 
 echo "Done: $OUTPUT_DIR"
