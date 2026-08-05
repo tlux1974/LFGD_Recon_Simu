@@ -86,11 +86,29 @@ source /usr/local/t2k/current/nd280SoftwareMaster_14.36-plusplus.0.3/bin/setup.s
 set -u
 
 # Use the coordinated local geometry, response, and reconstruction packages.
-source "${WORKSPACE_DIR}/switch-oaevent.sh" local
-source "${WORKSPACE_DIR}/switch-oageominfo.sh" local
-source "${WORKSPACE_DIR}/switch-nd280geant4sim.sh" local
-source "${WORKSPACE_DIR}/switch-detresponsesim.sh" local
-source "${WORKSPACE_DIR}/switch-hfgrecon.sh" local
+# Set these paths directly so a fresh checkout does not depend on private
+# switch scripts outside this repository.
+select_local_package() {
+    local root_name="$1"
+    local package_dir="$2"
+    local package_root="${WORKSPACE_DIR}/SoftProj/${package_dir}"
+    [[ -d "$package_root" ]] || {
+        echo "Missing local package: $package_root" >&2
+        echo "Follow REPOSITORY_SETUP.md before running samples." >&2
+        exit 1
+    }
+    export "${root_name}ROOT=${package_root}"
+    export "${root_name}CONFIG=${ND280_SYSTEM}"
+    PATH="${package_root}/${ND280_SYSTEM}/bin:${PATH}"
+    LD_LIBRARY_PATH="${package_root}/${ND280_SYSTEM}/lib:${LD_LIBRARY_PATH:-}"
+}
+select_local_package OAEVENT oaEvent
+select_local_package OAGEOMINFO oaGeomInfo
+select_local_package ND280GEANT4SIM nd280Geant4Sim
+select_local_package DETRESPONSESIM detResponseSim
+select_local_package HFGRECON hfgrecon
+export PATH LD_LIBRARY_PATH
+unset -f select_local_package
 export PATH="${SCRIPT_DIR}/${ND280_SYSTEM}/bin:${PATH}"
 export LD_LIBRARY_PATH="${SCRIPT_DIR}/${ND280_SYSTEM}/lib:${LD_LIBRARY_PATH:-}"
 

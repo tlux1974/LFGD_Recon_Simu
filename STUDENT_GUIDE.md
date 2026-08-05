@@ -4,6 +4,10 @@ This guide assumes no detailed knowledge of the ND280++ reconstruction.  Its
 purpose is to produce comparable samples without editing commands or parameter
 files by hand.
 
+For a fresh installation, including every repository URL, required branch,
+verified commit, build order, and environment check, first follow
+[`REPOSITORY_SETUP.md`](REPOSITORY_SETUP.md).
+
 ## What was changed, in plain language
 
 The HFGD is made from physical scintillator cubes.  The LFGD is homogeneous,

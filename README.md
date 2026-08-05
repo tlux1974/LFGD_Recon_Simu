@@ -1,5 +1,9 @@
 # LFGD reconstruction and simulation
 
+Fresh checkout and build instructions for all coordinated repositories are in
+[`REPOSITORY_SETUP.md`](REPOSITORY_SETUP.md). The student-facing physics and
+run instructions are in [`STUDENT_GUIDE.md`](STUDENT_GUIDE.md).
+
 This directory provides a reproducible diagnostic chain for fixed 700 MeV
 muons originating inside either detector design.
 
