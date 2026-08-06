@@ -40,7 +40,7 @@ mkdir -p "$HOME/HK/ND280++/SoftProj"
 cd "$HOME/HK/ND280++"
 
 git clone --branch main --single-branch \
-  git@github.com:tlux1974/ND280pp_Tools.git LFGD_Recon_Simu
+  git@github.com:tlux1974/LFGD_Recon_Simu.git LFGD_Recon_Simu
 
 git clone --branch LFGD_tlux --single-branch \
   git@git.t2k.org:nd280/base/oaEvent.git SoftProj/oaEvent
@@ -164,6 +164,30 @@ select_package HFGRECON hfgrecon
 cd "$LFGD_WORKSPACE/LFGD_Recon_Simu"
 ./build_flat_treemaker.sh
 ```
+
+### Install `LFGD_Recon_Simu`
+
+The final two commands above configure and build the executable supplied by
+this repository. They can also be run separately after all five dependencies
+have been built and selected:
+
+```bash
+cd "$HOME/HK/ND280++/LFGD_Recon_Simu"
+./build_flat_treemaker.sh
+export PATH="$PWD/$ND280_SYSTEM/bin:$PATH"
+```
+
+The build script creates a separate CMake build tree under
+`build/$ND280_SYSTEM` and installs the runnable `LFGDFLATTREE.exe` into
+`$ND280_SYSTEM/bin` within this repository. Confirm that the installation is
+available in the current shell:
+
+```bash
+command -v LFGDFLATTREE.exe
+```
+
+Re-run `./build_flat_treemaker.sh` after changing
+`src/LFGDFlatTree.cxx` or its build dependencies.
 
 Warnings about package directory names, Git version strings, modified
 installed dependencies, or missing optional PYTORCH support are expected in
