@@ -19,8 +19,8 @@ Defaults come from config.sh and can be overridden, for example:
 
 Run this after sourcing the normal ND280++ environment and then selecting the
 desired simulation and reconstruction builds, for example:
-  source ../switch-nd280geant4sim.sh local
-  source ../switch-hfgrecon.sh local
+  source "${SCRIPT_DIR}/switch-nd280geant4sim.sh" local
+  source "${SCRIPT_DIR}/switch-hfgrecon.sh" local
 EOF
 }
 

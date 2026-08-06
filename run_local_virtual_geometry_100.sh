@@ -26,11 +26,11 @@ set -u
 
 # Select the coordinated local versions. hfgRecon was configured and rebuilt
 # against the local oaEvent and oaGeomInfo packages.
-source "${WORKSPACE_DIR}/switch-oaevent.sh" local
-source "${WORKSPACE_DIR}/switch-oageominfo.sh" local
-source "${WORKSPACE_DIR}/switch-nd280geant4sim.sh" local
-source "${WORKSPACE_DIR}/switch-detresponsesim.sh" local
-source "${WORKSPACE_DIR}/switch-hfgrecon.sh" local
+source "${SCRIPT_DIR}/switch-oaevent.sh" local
+source "${SCRIPT_DIR}/switch-oageominfo.sh" local
+source "${SCRIPT_DIR}/switch-nd280geant4sim.sh" local
+source "${SCRIPT_DIR}/switch-detresponsesim.sh" local
+source "${SCRIPT_DIR}/switch-hfgrecon.sh" local
 
 # The diagnostic flat-tree executable is built directly in LFGD_Recon_Simu.
 export PATH="${SCRIPT_DIR}/${ND280_SYSTEM}/bin:${PATH}"

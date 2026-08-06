@@ -20,8 +20,8 @@ and `run_student_sample.sh`.
 ```bash
 cd ~/HK/ND280++/LFGD_Recon_Simu
 source <ND280 setup>
-source ~/HK/ND280++/switch-nd280geant4sim.sh local
-source ~/HK/ND280++/switch-hfgrecon.sh local
+source ./switch-nd280geant4sim.sh local
+source ./switch-hfgrecon.sh local
 ./build_flat_treemaker.sh
 export PATH="$PWD/$ND280_SYSTEM/bin:$PATH"
 ```
@@ -221,7 +221,7 @@ green, so primary and secondary truth tracks are not accidentally connected.
 cd ~/HK/ND280++/LFGD_Recon_Simu
 
 # Enter/source the normal ND280++ environment first.
-source ~/HK/ND280++/switch-hfgrecon.sh local
+source ./switch-hfgrecon.sh local
 
 # Build once, then expose the diagnostic executable.
 ./build_flat_treemaker.sh
