@@ -2,6 +2,7 @@
 """Generate a fixed-point ND280 Geant4 GPS macro."""
 
 import argparse
+import csv
 from pathlib import Path
 
 
@@ -20,6 +21,8 @@ def main() -> None:
     parser.add_argument("--direction", nargs=3, type=float,
                         default=(0.0, 0.0, 1.0))
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--primary-input", type=Path,
+                        help="CSV with explicit per-event primaries")
     args = parser.parse_args()
 
     # baseline-2024-plusplus has the two alternative detectors at the same
@@ -62,7 +65,21 @@ def main() -> None:
     else:
         px, py, pz = input_px, input_py, input_pz
     dx, dy, dz = args.direction
-    if args.direction_mode == "isotropic":
+    primary_rows = []
+    if args.primary_input:
+        with args.primary_input.open(newline="", encoding="utf-8") as stream:
+            primary_rows = list(csv.DictReader(stream))
+        required = {"event", "particle", "pdg", "kinetic_energy_mev",
+                    "x_mm", "y_mm", "z_mm", "dx", "dy", "dz"}
+        if not primary_rows or not required.issubset(primary_rows[0]):
+            parser.error("primary input has missing columns or no events")
+        if len(primary_rows) < args.events:
+            parser.error("primary input contains fewer rows than --events")
+        primary_rows = primary_rows[:args.events]
+        if [int(row["event"]) for row in primary_rows] != list(range(args.events)):
+            parser.error("primary input event numbers must be consecutive from zero")
+        angular_commands = "# Directions are set explicitly before each event."
+    elif args.direction_mode == "isotropic":
         angular_commands = """\
 /gps/ang/type iso
 /gps/ang/mintheta 0 deg
@@ -86,8 +103,19 @@ def main() -> None:
 /gps/position {px:g} {py:g} {pz:g} mm
 /gps/pos/type Point
 /generator/add
-/run/beamOn {args.events}
 """
+    if primary_rows:
+        text += f"# Explicit primaries read from: {args.primary_input}\n"
+        for row in primary_rows:
+            text += f"""# Primary event {row['event']}, PDG {row['pdg']}
+/gps/particle {row['particle']}
+/gps/ene/mono {row['kinetic_energy_mev']} MeV
+/gps/position {row['x_mm']} {row['y_mm']} {row['z_mm']} mm
+/gps/direction {row['dx']} {row['dy']} {row['dz']}
+/run/beamOn 1
+"""
+    else:
+        text += f"/run/beamOn {args.events}\n"
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(text, encoding="utf-8")
     print(args.output)

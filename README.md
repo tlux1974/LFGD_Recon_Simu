@@ -4,6 +4,10 @@ Fresh checkout and build instructions for all coordinated repositories are in
 [`REPOSITORY_SETUP.md`](REPOSITORY_SETUP.md). The student-facing physics and
 run instructions are in [`STUDENT_GUIDE.md`](STUDENT_GUIDE.md).
 
+The ready-made `input/primary_mu700_center_isotropic_seed12345_1000.csv` file
+allows exact event-by-event replay of up to 1,000 standard 700 MeV isotropic
+muons in either detector.
+
 This directory provides a reproducible diagnostic chain for fixed 700 MeV
 muons originating inside either detector design.
 

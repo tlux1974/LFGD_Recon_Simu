@@ -23,6 +23,8 @@ Makefile
 *.png
 *.pdf
 *.csv
+!/input/
+!/input/primary_mu700_center_isotropic_seed12345_1000.csv
 core
 core.*
 

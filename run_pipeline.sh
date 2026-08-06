@@ -15,6 +15,7 @@ Defaults come from config.sh and can be overridden, for example:
   POSITION_FRAME=plusplus POSITION_MM="0 0 1800" DIRECTION="1 0 1" $0 homo 20
   POSITION_FRAME=global POSITION_MM="0 30 910" $0 homo 20
   DIRECTION_MODE=isotropic $0 homo 1000
+  PRIMARY_INPUT_FILE=input/primary_mu700_center_isotropic_seed12345_1000.csv $0 homo 10
 
 Run this after sourcing the normal ND280++ environment and then selecting the
 desired simulation and reconstruction builds, for example:
@@ -59,13 +60,22 @@ flat="${OUTPUT_DIR}/flat.root"
 
 read -r px py pz <<<"$POSITION_MM"
 read -r dx dy dz <<<"$DIRECTION"
-python3 "${SCRIPT_DIR}/generate_gps_macro.py" \
-    --detector "$DETECTOR" --baseline "$BASELINE" --events "$EVENTS" \
-    --particle "$PARTICLE" --energy-mev "$ENERGY_MEV" \
-    --position-mm "$px" "$py" "$pz" --position-frame "$POSITION_FRAME" \
-    --direction-mode "$DIRECTION_MODE" \
-    --direction "$dx" "$dy" "$dz" \
+gps_args=(
+    --detector "$DETECTOR" --baseline "$BASELINE" --events "$EVENTS"
+    --particle "$PARTICLE" --energy-mev "$ENERGY_MEV"
+    --position-mm "$px" "$py" "$pz" --position-frame "$POSITION_FRAME"
+    --direction-mode "$DIRECTION_MODE"
+    --direction "$dx" "$dy" "$dz"
     --output "$macro"
+)
+if [[ -n "${PRIMARY_INPUT_FILE:-}" ]]; then
+    [[ -f "$PRIMARY_INPUT_FILE" ]] || {
+        echo "Missing primary input file: $PRIMARY_INPUT_FILE" >&2
+        exit 2
+    }
+    gps_args+=(--primary-input "$PRIMARY_INPUT_FILE")
+fi
+python3 "${SCRIPT_DIR}/generate_gps_macro.py" "${gps_args[@]}"
 
 echo "[1/5] Geant4: $DETECTOR, $EVENTS x $PARTICLE at ${ENERGY_MEV} MeV, ${DIRECTION_MODE} directions, vertex $POSITION_MM mm ($POSITION_FRAME frame), seed $SEED"
 ND280GEANT4SIM.exe -s "$SEED" -o "${g4%.root}" "$macro" \

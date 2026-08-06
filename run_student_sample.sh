@@ -81,6 +81,13 @@ fi
 
 export ND280_SYSTEM
 export PATH="/usr/local/t2k/current/nd280SoftwarePilot/scripts:/usr/local/t2k/current/nd280SoftwarePilot/${ND280_SYSTEM}/bin:${PATH}"
+# The installed detResponseSim setup checks this even when HAT response is not
+# used.  Match the value configured by the container's software pilot.
+export ND280_DOWNLOADS="${ND280_DOWNLOADS:-http://nd280.lancs.ac.uk/downloads}"
+# Point the setup fragment at the writable local build.  Otherwise it tries to
+# refresh templates.index inside the read-only installed container package.
+export DETRESPONSESIMROOT="${WORKSPACE_DIR}/SoftProj/detResponseSim"
+export DETRESPONSESIMCONFIG="${ND280_SYSTEM}"
 set +u
 source /usr/local/t2k/current/nd280SoftwareMaster_14.36-plusplus.0.3/bin/setup.sh
 set -u
@@ -119,19 +126,11 @@ for program in ND280GEANT4SIM.exe DETRESPONSESIM.exe HFGRECON.exe LFGDFLATTREE.e
     }
 done
 
-output_dir="${SCRIPT_DIR}/output/student_${configuration}_${run_name}"
-if [[ -e "$output_dir" ]]; then
-    echo "Refusing to overwrite existing output: $output_dir" >&2
-    echo "Choose a different RUN_NAME." >&2
-    exit 2
-fi
-
 plot_last=$((events - 1))
 (( plot_last > 9 )) && plot_last=9
 
 export DETECTOR="$detector"
 export EVENTS="$events"
-export OUTPUT_DIR="$output_dir"
 export SIM_NAME="student_${configuration}_${run_name}"
 export DIRECTION_MODE="${DIRECTION_MODE:-isotropic}"
 export POSITION_FRAME="${POSITION_FRAME:-plusplus}"
@@ -140,15 +139,45 @@ export SEED="${SEED:-12345}"
 export HFGRECON_PARAMETER_FILE="$parameter_file"
 export PLOT_EVENT_RANGE="0 $plot_last"
 
+# Freeze the generator state event by event. A shared Geant4 seed alone is
+# insufficient: different detector transport consumes different numbers of
+# random values and would change later isotropic GPS directions.
+actual_output_dir="${SCRIPT_DIR}/output/${detector}_${SIM_NAME}"
+if [[ -e "$actual_output_dir" ]]; then
+    echo "Refusing to overwrite existing output: $actual_output_dir" >&2
+    echo "Choose a different RUN_NAME." >&2
+    exit 2
+fi
+mkdir -p "$actual_output_dir"
+if [[ -n "${PRIMARY_INPUT_FILE:-}" ]]; then
+    PRIMARY_INPUT_FILE="$(readlink -f "$PRIMARY_INPUT_FILE")"
+    [[ -f "$PRIMARY_INPUT_FILE" ]] || {
+        echo "Missing primary input file: $PRIMARY_INPUT_FILE" >&2
+        exit 2
+    }
+else
+    PRIMARY_INPUT_FILE="${actual_output_dir}/primary_events.csv"
+    read -r primary_x primary_y primary_z <<<"$POSITION_MM"
+    read -r primary_dx primary_dy primary_dz <<<"${DIRECTION:-0 0 1}"
+    python3 "${SCRIPT_DIR}/generate_primary_events.py" \
+        --events "$events" --seed "$SEED" --particle "${PARTICLE:-mu-}" \
+        --energy-mev "${ENERGY_MEV:-700}" \
+        --position-mm "$primary_x" "$primary_y" "$primary_z" \
+        --position-frame "$POSITION_FRAME" --direction-mode "$DIRECTION_MODE" \
+        --direction "$primary_dx" "$primary_dy" "$primary_dz" \
+        --output "$PRIMARY_INPUT_FILE"
+fi
+export PRIMARY_INPUT_FILE
+
 echo "Configuration: $configuration"
 echo "Detector:      $detector"
 echo "Events:        $events"
 echo "Parameters:    ${parameter_file:-standard package parameters}"
-echo "Output:        $output_dir"
+echo "Output:        $actual_output_dir"
 
 "${SCRIPT_DIR}/run_pipeline.sh" "$detector" "$events"
 
 echo
 echo "Finished successfully."
-echo "ROOT analysis file: $output_dir/flat.root"
-echo "Event display:      $output_dir/plots/index.html"
+echo "ROOT analysis file: $actual_output_dir/flat.root"
+echo "Event display:      $actual_output_dir/plots/index.html"

@@ -135,6 +135,33 @@ DIRECTION_MODE=fixed DIRECTION="0 0 1" \
 For a fair comparison, use the same event count, particle, energy, direction
 mode, vertex, and seed for all three configurations.
 
+### Replaying exactly the same primary particles
+
+A common Geant4 seed alone does not guarantee the same isotropic direction in
+later HFGD and LFGD events: detector transport consumes different numbers of
+random values. The student runner therefore writes `primary_events.csv` and
+replays every primary explicitly. Each row fixes the particle name, PDG code,
+kinetic energy, global ND280 vertex, and direction.
+
+A ready-made 1,000-event list is provided at
+`input/primary_mu700_center_isotropic_seed12345_1000.csv`. It contains 700 MeV
+isotropic `mu-` primaries from `(0,30,910) mm` in global ND280 coordinates,
+equivalent to the detector centre `(0,0,1800) mm` in PlusPlusTracker
+coordinates. To process only its first 10 events in all three configurations:
+
+```bash
+PRIMARY_INPUT_FILE="$PWD/input/primary_mu700_center_isotropic_seed12345_1000.csv" \
+  ./run_student_sample.sh hfg-standard 10 shared_input
+PRIMARY_INPUT_FILE="$PWD/input/primary_mu700_center_isotropic_seed12345_1000.csv" \
+  ./run_student_sample.sh lfg-original-low 10 shared_input
+PRIMARY_INPUT_FILE="$PWD/input/primary_mu700_center_isotropic_seed12345_1000.csv" \
+  ./run_student_sample.sh lfg-best 10 shared_input
+```
+
+`EVENTS=N` always consumes the first N rows. The command stops if the file has
+fewer than N rows. Use the same file for HFGD and every LFGD reconstruction
+comparison when event-by-event identity is required.
+
 ## What the script runs
 
 The five stages are:
