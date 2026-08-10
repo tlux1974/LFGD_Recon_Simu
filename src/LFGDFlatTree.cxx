@@ -29,6 +29,7 @@
 class LFGDFlatTree : public ND::TND280EventLoopFunction {
 public:
     LFGDFlatTree() : fEvent(0), fOutput(nullptr), fFiberTree(nullptr),
+                     fHomoRawTree(nullptr), fHomoTruthTree(nullptr),
                      fHitTree(nullptr), fHitViewTree(nullptr),
                      fTrackTree(nullptr), fTrackHitTree(nullptr),
                      fMCTrackTree(nullptr),
@@ -57,6 +58,14 @@ public:
         fFiberTree->Branch("projection", &fProjection);
         fFiberTree->Branch("u", &fU);
         fFiberTree->Branch("v", &fV);
+
+        fHomoRawTree = new TTree(
+            "homo_raw", "HOMO fibre photons before MPPC and electronics");
+        BranchFiber(fHomoRawTree);
+
+        fHomoTruthTree = new TTree(
+            "homo_truth", "HOMO light-map fibre truth hits");
+        BranchFiber(fHomoTruthTree);
 
         fHitTree = new TTree("hits3d", "Reconstructed 3D hits");
         BranchCommon(fHitTree);
@@ -159,6 +168,9 @@ public:
             }
             fFiberTree->Fill();
         }
+
+        FillHomoFiberTree(event.GetHitSelection("homo_raw"), fHomoRawTree);
+        FillHomoFiberTree(event.GetHitSelection("homo_truth"), fHomoTruthTree);
 
         auto hits3d = event.GetHitSelection("hfg_3d");
         fHit3D = 0;
@@ -338,7 +350,9 @@ public:
 
     void Finalize(ND::TND280Output* const) override {
         fOutput->cd();
-        fFiberTree->Write(); fHitTree->Write(); fHitViewTree->Write();
+        fFiberTree->Write();
+        fHomoRawTree->Write(); fHomoTruthTree->Write();
+        fHitTree->Write(); fHitViewTree->Write();
         fTrackTree->Write();
         fTrackHitTree->Write();
         fMCTrackTree->Write();
@@ -347,6 +361,31 @@ public:
     }
 
 private:
+    void BranchFiber(TTree* tree) {
+        BranchCommon(tree);
+        tree->Branch("projection", &fProjection);
+        tree->Branch("u", &fU);
+        tree->Branch("v", &fV);
+    }
+
+    void FillHomoFiberTree(ND::THandle<ND::THitSelection> hits,
+                           TTree* tree) {
+        if (!hits) return;
+        for (const auto& hit : *hits) {
+            const auto geomId = hit->GetGeomId();
+            if (!ND::GeomId::Homo::IsFiber(geomId)) continue;
+            const TVector3 position
+                = ND::TGeomInfo::Get().HOMO().GetFiber(geomId).GetPosition();
+            fX = position.X(); fY = position.Y(); fZ = position.Z();
+            fTime = hit->GetTime(); fCharge = hit->GetCharge();
+            fGeomId = geomId.AsInt();
+            fProjection = ND::GeomId::Homo::GetFiberDirection(geomId);
+            fU = ND::GeomId::Homo::GetFiberU(geomId);
+            fV = ND::GeomId::Homo::GetFiberV(geomId);
+            tree->Fill();
+        }
+    }
+
     void FillMCSegment(const ND::TG4HitSegment& segment,
                        ND::TGeometryId cubeId,
                        int cubeX, int cubeY, int cubeZ, int detector) {
@@ -387,7 +426,8 @@ private:
     double fStopX, fStopY, fStopZ, fStopT;
     double fEnergyDeposit, fMCTrackLength;
     TFile* fOutput;
-    TTree *fFiberTree, *fHitTree, *fHitViewTree, *fTrackTree;
+    TTree *fFiberTree, *fHomoRawTree, *fHomoTruthTree;
+    TTree *fHitTree, *fHitViewTree, *fTrackTree;
     TTree *fTrackHitTree, *fMCTrackTree;
     TTree *fMCSegmentTree;
 };

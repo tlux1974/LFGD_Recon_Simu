@@ -10,8 +10,9 @@ ENERGY_MEV="${ENERGY_MEV:-700}"
 # since Geant4 GPS itself always consumes global ND280 coordinates.
 POSITION_FRAME="${POSITION_FRAME:-plusplus}" # plusplus or global
 POSITION_MM="${POSITION_MM:-0 0 1800}"
-DIRECTION_MODE="${DIRECTION_MODE:-fixed}" # fixed or isotropic
+DIRECTION_MODE="${DIRECTION_MODE:-fixed}" # fixed, isotropic, or cone
 DIRECTION="${DIRECTION:-0 0 1}"
+CONE_HALF_ANGLE_DEG="${CONE_HALF_ANGLE_DEG:-5}"
 SIM_NAME="${SIM_NAME:-mu700_${DIRECTION_MODE}}"
 BASELINE="${BASELINE:-baseline-2024-plusplus}"
 SEED="${SEED:-12345}"

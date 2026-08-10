@@ -26,6 +26,10 @@ The default particle sample is reproducible isotropic 700 MeV muons from the
 detector centre, with random seed 12345. Optional environment overrides include:
   SEED=6789 ENERGY_MEV=1000 PARTICLE=pi+ DIRECTION_MODE=isotropic
   DIRECTION_MODE=fixed DIRECTION="0 0 1"
+  DIRECTION_MODE=cone DIRECTION="1 0 0" CONE_HALF_ANGLE_DEG=5
+  DISABLE_HOMO_ATTENUATION=1
+  FAST_HOMO_RESPONSE=1  Aggregate photons per fibre (bounded-memory mode)
+  REPLAY_PRIMARY_EVENTS=0   Generate all particles in one Geant4 run
 
 Every run gets a new directory containing g4.root, detresponse.root,
 reco.root, flat.root, logs, and plots/index.html. The first ten events are
@@ -136,8 +140,18 @@ export DIRECTION_MODE="${DIRECTION_MODE:-isotropic}"
 export POSITION_FRAME="${POSITION_FRAME:-plusplus}"
 export POSITION_MM="${POSITION_MM:-0 0 1800}"
 export SEED="${SEED:-12345}"
-export HFGRECON_PARAMETER_FILE="$parameter_file"
 export PLOT_EVENT_RANGE="0 $plot_last"
+REPLAY_PRIMARY_EVENTS="${REPLAY_PRIMARY_EVENTS:-1}"
+FAST_HOMO_RESPONSE="${FAST_HOMO_RESPONSE:-0}"
+if [[ "$REPLAY_PRIMARY_EVENTS" != "0"
+      && "$REPLAY_PRIMARY_EVENTS" != "1" ]]; then
+    echo "REPLAY_PRIMARY_EVENTS must be 0 or 1." >&2
+    exit 2
+fi
+if [[ "$FAST_HOMO_RESPONSE" != "0" && "$FAST_HOMO_RESPONSE" != "1" ]]; then
+    echo "FAST_HOMO_RESPONSE must be 0 or 1." >&2
+    exit 2
+fi
 
 # Freeze the generator state event by event. A shared Geant4 seed alone is
 # insufficient: different detector transport consumes different numbers of
@@ -149,7 +163,33 @@ if [[ -e "$actual_output_dir" ]]; then
     exit 2
 fi
 mkdir -p "$actual_output_dir"
-if [[ -n "${PRIMARY_INPUT_FILE:-}" ]]; then
+
+# The student LFGD configurations already use a reconstruction parameter
+# file.  When attenuation is disabled, make one combined override so the
+# configuration settings are retained while the inappropriate reconstruction
+# attenuation correction is also switched off.
+if [[ "${DISABLE_HOMO_ATTENUATION:-0}" == "1"
+      && "$detector" == "homo" ]]; then
+    combined_parameter_file="${actual_output_dir}/hfgrecon.parameters.dat"
+    if [[ -n "$parameter_file" ]]; then
+        cp "$parameter_file" "$combined_parameter_file"
+    else
+        : > "$combined_parameter_file"
+    fi
+    printf '\n< hfgRecon.Hits3D.ApplyAttenuationCorrection.homo = 0 >\n' \
+        >> "$combined_parameter_file"
+    export HFGRECON_PARAMETER_FILE="$combined_parameter_file"
+else
+    export HFGRECON_PARAMETER_FILE="$parameter_file"
+fi
+
+if [[ "$REPLAY_PRIMARY_EVENTS" == "0" ]]; then
+    # Let generate_gps_macro.py emit one /run/beamOn N command.  This avoids
+    # making every explicit primary a separate Geant4 run, but directions are
+    # then sampled from the shared Geant4 random stream and are not suitable
+    # for exact event-by-event comparisons between different detectors.
+    unset PRIMARY_INPUT_FILE
+elif [[ -n "${PRIMARY_INPUT_FILE:-}" ]]; then
     PRIMARY_INPUT_FILE="$(readlink -f "$PRIMARY_INPUT_FILE")"
     [[ -f "$PRIMARY_INPUT_FILE" ]] || {
         echo "Missing primary input file: $PRIMARY_INPUT_FILE" >&2
@@ -165,6 +205,7 @@ else
         --position-mm "$primary_x" "$primary_y" "$primary_z" \
         --position-frame "$POSITION_FRAME" --direction-mode "$DIRECTION_MODE" \
         --direction "$primary_dx" "$primary_dy" "$primary_dz" \
+        --cone-half-angle-deg "${CONE_HALF_ANGLE_DEG:-5}" \
         --output "$PRIMARY_INPUT_FILE"
 fi
 export PRIMARY_INPUT_FILE
@@ -173,6 +214,12 @@ echo "Configuration: $configuration"
 echo "Detector:      $detector"
 echo "Events:        $events"
 echo "Parameters:    ${parameter_file:-standard package parameters}"
+echo "Attenuation:   $([[ "${DISABLE_HOMO_ATTENUATION:-0}" == "1" ]] && echo disabled || echo enabled)"
+echo "HOMO response: $([[ "$FAST_HOMO_RESPONSE" == "1" ]] && echo fast-aggregate || echo detailed)"
+echo "Primary mode:  $([[ "$REPLAY_PRIMARY_EVENTS" == "1" ]] && echo explicit-replay || echo single-Geant4-run)"
+if [[ "$DIRECTION_MODE" == "cone" ]]; then
+    echo "Direction:     cone around ${DIRECTION:-0 0 1}, half-angle ${CONE_HALF_ANGLE_DEG:-5} deg"
+fi
 echo "Output:        $actual_output_dir"
 
 "${SCRIPT_DIR}/run_pipeline.sh" "$detector" "$events"

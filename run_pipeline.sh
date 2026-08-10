@@ -34,8 +34,8 @@ if [[ "$DETECTOR" != "homo" && "$DETECTOR" != "hfg" ]]; then
     echo "Detector must be 'homo' or 'hfg'." >&2
     exit 2
 fi
-if [[ "$DIRECTION_MODE" != "fixed" && "$DIRECTION_MODE" != "isotropic" ]]; then
-    echo "DIRECTION_MODE must be 'fixed' or 'isotropic'." >&2
+if [[ "$DIRECTION_MODE" != "fixed" && "$DIRECTION_MODE" != "isotropic" && "$DIRECTION_MODE" != "cone" ]]; then
+    echo "DIRECTION_MODE must be 'fixed', 'isotropic', or 'cone'." >&2
     exit 2
 fi
 if [[ "$POSITION_FRAME" != "plusplus" && "$POSITION_FRAME" != "global" ]]; then
@@ -66,6 +66,7 @@ gps_args=(
     --position-mm "$px" "$py" "$pz" --position-frame "$POSITION_FRAME"
     --direction-mode "$DIRECTION_MODE"
     --direction "$dx" "$dy" "$dz"
+    --cone-half-angle-deg "${CONE_HALF_ANGLE_DEG:-5}"
     --output "$macro"
 )
 if [[ -n "${PRIMARY_INPUT_FILE:-}" ]]; then
@@ -90,6 +91,10 @@ detector_option="upgrade-nd280plus-homo"
 # (notably TPlusPlusScint's "Hit segment is not in a fiber").
 detresponse_args=(
     -R
+    # Explicit primaries are generated with one /run/beamOn command per
+    # event.  Pin the geometry from this input file so oaEvent does not reload
+    # the identical multi-million-node HOMO geometry at every run boundary.
+    -G "$g4"
     -O "randomseed=$SEED"
     -O "$detector_option"
     -O disable-sfg
@@ -102,16 +107,34 @@ detresponse_args=(
     -O disable-hat
     -o "$detresp"
 )
-detresponse_parameter_file="${DETRESPONSE_PARAMETER_FILE:-}"
-if [[ "${DISABLE_HOMO_ATTENUATION:-0}" == "1" ]]; then
-    echo "Detector-response HOMO fibre attenuation disabled for validation"
-    detresponse_parameter_file="${SCRIPT_DIR}/detresponse_no_homo_attenuation.parameters.dat"
-fi
-if [[ -n "$detresponse_parameter_file" ]]; then
-    [[ -f "$detresponse_parameter_file" ]] || {
-        echo "Missing detector-response parameter file: $detresponse_parameter_file" >&2
+detresponse_parameter_inputs=()
+if [[ -n "${DETRESPONSE_PARAMETER_FILE:-}" ]]; then
+    [[ -f "$DETRESPONSE_PARAMETER_FILE" ]] || {
+        echo "Missing detector-response parameter file: $DETRESPONSE_PARAMETER_FILE" >&2
         exit 2
     }
+    detresponse_parameter_inputs+=("$DETRESPONSE_PARAMETER_FILE")
+fi
+if [[ "${DISABLE_HOMO_ATTENUATION:-0}" == "1" ]]; then
+    echo "Detector-response HOMO fibre attenuation disabled for validation"
+    detresponse_parameter_inputs+=(
+        "${SCRIPT_DIR}/detresponse_no_homo_attenuation.parameters.dat")
+fi
+if [[ "${FAST_HOMO_RESPONSE:-0}" == "1" ]]; then
+    echo "Detector-response HOMO fast aggregate response enabled"
+fi
+if (( ${#detresponse_parameter_inputs[@]} > 0 )) \
+   || [[ "${FAST_HOMO_RESPONSE:-0}" == "1" ]]; then
+    detresponse_parameter_file="${OUTPUT_DIR}/detresponse.parameters.dat"
+    : > "$detresponse_parameter_file"
+    for input in "${detresponse_parameter_inputs[@]}"; do
+        cat "$input" >> "$detresponse_parameter_file"
+        printf '\n' >> "$detresponse_parameter_file"
+    done
+    if [[ "${FAST_HOMO_RESPONSE:-0}" == "1" ]]; then
+        printf '< detResponseSim.Homo.FastFiberResponse = 1 >\n' \
+            >> "$detresponse_parameter_file"
+    fi
     echo "Detector-response parameters: $detresponse_parameter_file"
     detresponse_args+=(-O "par_override=$detresponse_parameter_file")
 fi

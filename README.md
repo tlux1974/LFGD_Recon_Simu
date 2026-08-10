@@ -126,6 +126,17 @@ For an explicit fixed direction:
 DIRECTION_MODE=fixed DIRECTION="1 0 1" ./run_pipeline.sh homo 1000
 ```
 
+For the student sample starting at the detector centre and travelling inside a
+5 degree half-angle cone around the ND280 +X (long) axis:
+
+```bash
+DIRECTION_MODE=cone DIRECTION="1 0 0" CONE_HALF_ANGLE_DEG=5 \
+    ./run_student_sample.sh lfg-best 1000 xaxis_cone5
+```
+
+Use `CONE_HALF_ANGLE_DEG=10` for a 10 degree cone. The generated directions
+are uniform in solid angle and saved in the run's `primary_events.csv`.
+
 `SEED=12345` is the default for both Geant4 and detector response, so repeated
 runs with identical settings reproduce the same isotropic directions and
 detector fluctuations. Override it explicitly with, for example, `SEED=6789`.

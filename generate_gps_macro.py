@@ -3,6 +3,7 @@
 
 import argparse
 import csv
+import math
 from pathlib import Path
 
 
@@ -16,10 +17,11 @@ def main() -> None:
     parser.add_argument("--position-mm", nargs=3, type=float, required=True)
     parser.add_argument("--position-frame", choices=("global", "plusplus"),
                         default="global")
-    parser.add_argument("--direction-mode", choices=("fixed", "isotropic"),
+    parser.add_argument("--direction-mode", choices=("fixed", "isotropic", "cone"),
                         default="fixed")
     parser.add_argument("--direction", nargs=3, type=float,
                         default=(0.0, 0.0, 1.0))
+    parser.add_argument("--cone-half-angle-deg", type=float, default=5.0)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--primary-input", type=Path,
                         help="CSV with explicit per-event primaries")
@@ -84,10 +86,30 @@ def main() -> None:
 /gps/ang/type iso
 /gps/ang/mintheta 0 deg
 /gps/ang/maxtheta 180 deg"""
-    else:
+    elif args.direction_mode == "fixed":
         angular_commands = f"/gps/direction {dx:g} {dy:g} {dz:g}"
+    else:
+        norm = math.sqrt(dx*dx + dy*dy + dz*dz)
+        if norm == 0.0:
+            parser.error("cone direction must be nonzero")
+        ax, ay, az = dx/norm, dy/norm, dz/norm
+        if abs(az) < 0.9:
+            r1x, r1y, r1z = -ay, ax, 0.0
+        else:
+            r1x, r1y, r1z = 0.0, -az, ay
+        r1norm = math.sqrt(r1x*r1x+r1y*r1y+r1z*r1z)
+        r1x, r1y, r1z = r1x/r1norm, r1y/r1norm, r1z/r1norm
+        r2x, r2y, r2z = (ay*r1z-az*r1y, az*r1x-ax*r1z,
+                          ax*r1y-ay*r1x)
+        angular_commands = f"""\
+/gps/ang/type iso
+/gps/ang/rot1 {r1x:g} {r1y:g} {r1z:g}
+/gps/ang/rot2 {r2x:g} {r2y:g} {r2z:g}
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta {args.cone_half_angle_deg:g} deg"""
     text = f"""\
 /t2k/control {args.baseline} 1.0
+/t2k/field 0.0 tesla   
 {detector_commands}
 {focused_geometry_commands}
 /t2k/update
