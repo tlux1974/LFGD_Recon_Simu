@@ -532,6 +532,8 @@ def main():
     selection.add_argument("--event-range", type=int, nargs=2,
                            metavar=("FIRST", "LAST"),
                            help="plot an inclusive event range")
+    selection.add_argument("--all-events", action="store_true",
+                           help="analyse every event present in the input")
     parser.add_argument(
         "--only-with-data",
         choices=("any", "fibers", "hits3d", "tracks"),
@@ -557,7 +559,10 @@ def main():
     print(f"Reconstructed tracks: {sum(track_counts.values())} total in "
           f"{len(track_counts)} events")
 
-    if args.event_range:
+    if args.all_events:
+        events = sorted(set().union(*(
+            event_counter.keys() for event_counter in counts.values())))
+    elif args.event_range:
         first, last = args.event_range
         if last < first:
             parser.error("LAST must be greater than or equal to FIRST")

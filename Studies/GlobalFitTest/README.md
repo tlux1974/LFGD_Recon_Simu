@@ -1,7 +1,10 @@
 # Global HOMO light-distribution fit test
 
-This is a standalone ROOT-based test. It does not read `mc_virtual_segments`
-or any other MC track/segment information.
+This is a standalone ROOT-based test. The normal likelihood and
+`SEED_DIRECTION=FIBRE` reconstruction use only fibre information. MC segments
+are copied for display and diagnostic benchmarks. The explicitly
+truth-assisted `SEED_DIRECTION=MC_SEGMENT_10` mode also reads them and must not
+be treated as reconstruction performance.
 
 ## Build
 
@@ -13,6 +16,14 @@ make
 ```
 
 ## Produce the initial fit seed
+
+For interactive event-by-event threshold studies, open
+`global_fit_seed_study.ipynb` in Jupyter. Set `INPUT_FILE` to a branch's
+`flat.root`, run all cells, and use the event and charge-threshold controls.
+The notebook shows XY, XZ, and YZ fibre distributions plus a combined 3D
+panel, overlays MC segments in green, draws the current data-only seed in red,
+and reports its unsigned angular difference from the MC direction. MC is not
+used to construct the data seed.
 
 ```sh
 ./global_fit_seed flat.root EVENT=0 TREE=homo_truth
@@ -50,6 +61,201 @@ pre-fibre expected photon charge, rather than literal detected photoelectrons.
 
 ## Run the light-pattern likelihood fit
 
+Both fitters restrict the predicted line to a data-derived 3D range by default
+rather than integrating it across the complete detector. For X, Y, and Z they
+use only fibre views that measure the respective coordinate, trim the lower
+and upper 1% of charge, add 10 mm padding, and clamp the result to the detector.
+This is `FIT_RANGE=1`, the default. `FIT_RANGE_QUANTILE=0.01` trims 1% of the
+charge independently from each end of each measured coordinate distribution;
+it is a charge fraction, not a distance. `FIT_RANGE_PADDING_MM=10` then extends
+both ends by 10 mm to retain endpoint light. Set `FIT_RANGE=0` to recover the
+old detector-spanning line; quantile and padding are then ignored. Each event's
+exact settings and bounds are stored as `fit_range_enabled`, `fit_low_*`,
+`fit_high_*`, `fit_range_quantile`, and `fit_range_padding`.
+
+The forward light-map integral is sampled at 1 mm in both the straight
+geometry fit and the column-charge fit, matching the light map's subvoxel
+pitch. The RL refinement uses the same 1 mm default through
+`RESPONSE_STEP_MM=1`.
+
+```sh
+./global_light_fit flat.root fitted.root lightmap.root EVENT=all FIT_RANGE=1 FIT_RANGE_QUANTILE=0.01 FIT_RANGE_PADDING_MM=10
+./global_light_fit flat.root fitted_detector_span.root lightmap.root EVENT=all FIT_RANGE=0
+```
+
+### Experimental two-stage column fit
+
+`global_light_fit_columns` is a separate experimental executable; the baseline
+`global_light_fit` behaviour is unchanged. The dominant axis is chosen from
+the data seed. The geometry likelihood integrates the line in exact 10 mm
+dominant-axis columns while retaining constant charge per path length. After
+the geometry fit, its parameters are fixed and a non-negative Poisson/EM fit
+releases one charge contribution per crossed column. The result is stored in
+`global_fit_column_charges` with the axis, column bounds, path length, fitted
+selected-fibre charge, charge per millimetre, and response scale.
+The `global_fit` row also records `column_fit_converged`,
+`column_fit_iterations`, `column_fit_max_relative_change`,
+`column_fit_active_columns`, `column_nll`, `column_chi2`, and `column_ndof`.
+The convergence flag requires the largest relative column-charge update to be
+below `1e-6` before the 2000-update limit.
+
+An optional one-sided MIP prior can suppress implausibly low internal-column
+charges without penalizing the Landau tail above the MIP most-probable value.
+It is applied after the ordinary Poisson/EM column solution and minimizes the
+combined light likelihood and squared lower-side penalty with backtracking.
+The floor and MPV scale with each column's path length relative to 10 mm. The
+first and last columns are always excluded; other short columns are excluded
+using `COLUMN_MIP_MIN_PATH_FRACTION` relative to the median internal path.
+The required `COLUMN_CHARGE_PER_ENERGY` must be fixed from an independent
+calibration sample, not the sample whose reconstruction performance is being
+measured. The feature is disabled by default.
+
+```sh
+Studies/GlobalFitTest/global_light_fit_columns flat.root global_fit_columns_mip_1mm.root lightmap.root EVENT=all TREE=fiber_hits MIN_CHARGE=3 DBSCAN=1 DBSCAN_EPSILON_MM=14.2 DBSCAN_MIN_POINTS=2 SEED_DIRECTION=VIEW_MEDIAN_DIAMETER MAX_FUNCTION_CALLS=5000 TOLERANCE=1e-2 FIT_RANGE=1 COLUMN_MIP_PRIOR=1 COLUMN_MIP_FLOOR_ENERGY=0.5 COLUMN_MIP_MPV_ENERGY=1.5 COLUMN_MIP_STRENGTH=0.1 COLUMN_CHARGE_PER_ENERGY=65.98 COLUMN_MIP_MIN_PATH_FRACTION=0.8
+```
+
+The column tree retains both solutions: ordinary fields contain the
+regularized result, while `unregularized_fitted_selected_fibre_charge` and
+`unregularized_response_scale` retain the initial EM result. It also records
+eligibility and the path-scaled floor and MPV per column. The `global_fit`
+tree records prior convergence/stalling, iterations, eligible-column count,
+penalty, combined objective, calibration and all prior settings.
+
+### Offline RL segment refinement
+
+`rl_segment_refinement` is an optional third stage and never reruns the seed,
+geometry fit, or fixed-geometry column fit. The second-stage column-charge EM
+update is already Richardson--Lucy for fixed segment positions. This program
+extends its components to a transverse position grid around every fitted-line
+column. The lightmap remains the forward response operator.
+
+The starting position weights are an aggregate two-dimensional KDE of the
+primary-muon reco--MC line residuals over all events in the input file. This is
+a closure-test prior, not event-specific MC truth. For a final performance
+measurement, derive and freeze it using an independent MC training sample.
+Because an independent displacement PDF does not prevent column-to-column
+zigzags, every RL iteration also applies a discrete-curvature prior based on
+`offset[k+1] - 2*offset[k] + offset[k-1]`. It permits a changing local slope
+while suppressing unsupported rapid oscillation. Both priors preserve each
+column's total response-scale amplitude during their regularization step. The
+accepted objective is the charge-normalized light-pattern NLL plus the
+weighted displacement and curvature penalties. Backtracking accepts an update
+only when that combined objective decreases.
+
+Build only this independent executable:
+
+```sh
+make -C Studies/GlobalFitTest rl_segment_refinement
+```
+
+Initial one-event closure test for the 0.4 mm lightmap (one-line prompt form):
+
+```sh
+d=Studies/LightmapsStudie/5GeV/maps/10bin_5m_0p4mm_100kPhotons; Studies/GlobalFitTest/rl_segment_refinement "$d/global_fit_columns_particle_ids.root" "$d/rl_segments_event0.root" "$(cat "$d/lightmap_path.txt")" EVENT=0 GRID_RADIUS_MM=3 GRID_STEP_MM=1 ITERATIONS=50 CONVERGENCE=1e-4 PRIOR_BANDWIDTH_MM=0.5 PRIOR_STRENGTH=0.02 CURVATURE_SIGMA_MM=0.75 CURVATURE_STRENGTH=0.20 RESPONSE_STEP_MM=1
+```
+
+After inspecting that output, replace `EVENT=0` with `EVENT=all` and use a new
+output filename. The result contains `rl_fit`, `rl_iterations`, `rl_columns`,
+and (unless `SAVE_CANDIDATES=0`) `rl_candidates`. It records NLL evolution,
+amplitude convergence, curvature RMS, refined transverse offsets and centres,
+column response scales, predicted selected-fibre charge, curvature components,
+the final candidate distribution, and the prior/regularization settings.
+`rl_iterations` stores the NLL before an update, immediately after pure RL,
+and after accepted regularization, together with both penalties, the combined
+objective, accepted line-search fraction, amplitude change, centroid-position
+change, and curvature RMS. A rejected line search marks the event as stalled.
+The output preserves two solutions: the final/best accepted penalized-objective
+solution in the ordinary `rl_columns` and `rl_candidates` fields, and the
+lowest raw-light-NLL solution in fields prefixed with `best_nll_`. `rl_fit`
+records both selected iteration numbers and both NLL values.
+
+Overlay either or both reconstructed RL paths on the fibre display and MC
+truth using the original column-fit file as the primary input:
+
+```sh
+d=Studies/LightmapsStudie/5GeV/maps/10bin_5m_0p4mm_100kPhotons; Studies/GlobalFitTest/global_fit_display "$d/global_fit_columns_particle_ids.root" EVENT=0 MODE=all-log RL="$d/rl_segments_all.root" RL_SOLUTION=both
+```
+
+The straight global fit is red, primary-muon MC cube segments are green, the
+regularized RL path is magenta, and the lowest-raw-NLL path is orange dashed.
+`RL_SOLUTION` also accepts `regularized` and `best-nll`.
+
+The main controls are `GRID_RADIUS_MM`, `GRID_STEP_MM`, `ITERATIONS`,
+`CONVERGENCE`, `POSITION_CONVERGENCE_MM`, `OBJECTIVE_CONVERGENCE`,
+`PRIOR_BANDWIDTH_MM`, `PRIOR_MAX_RESIDUAL_MM`,
+`PRIOR_STRENGTH`, `CURVATURE_SIGMA_MM`, `CURVATURE_STRENGTH`, and
+`RESPONSE_STEP_MM`. Run the executable without arguments for its complete
+help. Multiplicative RL cannot populate an exactly zero component; therefore
+the aggregate residual PDF initializes every supported grid candidate with a
+strictly positive amplitude. `CONVERGENCE` is applied to the largest
+per-column L1 fractional change of the candidate-amplitude distribution; this
+avoids tiny tail candidates falsely preventing convergence.
+
+The column charge is normalized on the selected fibre set; it is not yet an
+absolute deposited-energy calibration. Internal columns are defined by their
+dominant-axis span, avoiding independent parameters for short pieces created
+when a diagonal line clips a cube. The first and last detector columns can
+still have short path lengths.
+
+Build this variant explicitly when ready:
+
+```sh
+make -B -C Studies/GlobalFitTest global_light_fit_columns
+```
+
+It accepts the same options as `global_light_fit`:
+
+```sh
+Studies/GlobalFitTest/global_light_fit_columns INPUT.root OUTPUT.root LIGHTMAP.root EVENT=all TREE=fiber_hits MIN_CHARGE=3 DBSCAN=1 DBSCAN_EPSILON_MM=14.2 DBSCAN_MIN_POINTS=2 CORRIDOR=0 SEED_DIRECTION=VIEW_MEDIAN_DIAMETER SEED_MEDIAN_FACTOR=1 MAX_FUNCTION_CALLS=5000 TOLERANCE=1e-3
+```
+
+For interactive comparisons, open `global_fit_column_analysis.ipynb` with the
+Jupyter Python environment. Its first configuration cell accepts any labelled
+set of column-fit ROOT files. It overlays convergence, column-charge/MC-energy
+profiles and residuals across light maps, and includes a pure-MC straight-line
+PCA reference made from the primary muon's `mc_track_points`. The helper module
+`column_fit_notebook_tools.py` uses PyROOT, pandas, matplotlib and ipywidgets.
+
+For a truth-assisted seed diagnostic, the direction can be initialized from
+the primary muon's first MC segment start toward MC segment 10:
+
+```sh
+./global_light_fit flat.root fitted_mc_seed.root lightmap.root EVENT=all TREE=fiber_hits SEED_DIRECTION=MC_SEGMENT_10
+```
+
+This option is intentionally a cheat for diagnosing seed sensitivity. It must
+not be used when quoting reconstruction performance. The default remains the
+data-driven fibre seed, `SEED_DIRECTION=FIBRE`.
+
+The light-sharing seed developed for the scattering-length comparison uses a
+moderate absolute charge threshold first, then DBSCAN independently in each
+view. Within each retained main cluster it calculates the per-view median,
+keeps fibres above `median * SEED_MEDIAN_FACTOR`, finds the maximum-distance
+pair, and combines the projected XY/XZ/YZ directions into a 3D seed:
+
+```sh
+./global_light_fit flat.root fitted_median_seed.root lightmap.root EVENT=all TREE=fiber_hits MIN_CHARGE=10 DBSCAN=1 DBSCAN_EPSILON_MM=14.2 DBSCAN_MIN_POINTS=2 SEED_DIRECTION=VIEW_MEDIAN_DIAMETER SEED_MEDIAN_FACTOR=1
+```
+
+The median-filtered subset is used only to determine the seed. The likelihood
+continues to use the broader DBSCAN-selected fibre set. The output records the
+seed method, per-view medians, median factor, number of seed fibres, and NLL
+and chi-squared evaluated at the seed before minimization.
+
+The default minimizer settings are `MAX_FUNCTION_CALLS=5000` and
+`TOLERANCE=1e-2`. Both can be overridden explicitly. The `global_fit` output
+tree records `edm`, `function_calls`, `maximum_function_calls`, and `tolerance`
+for every event, allowing status-3 failures to be compared with the requested
+convergence threshold:
+
+```sh
+./global_light_fit flat.root fitted.root lightmap.root EVENT=all TREE=fiber_hits MIN_CHARGE=3 DBSCAN=1 DBSCAN_EPSILON_MM=14.2 DBSCAN_MIN_POINTS=2 CORRIDOR=0 SEED_DIRECTION=VIEW_MEDIAN_DIAMETER SEED_MEDIAN_FACTOR=1 MAX_FUNCTION_CALLS=5000 TOLERANCE=1e-2
+```
+
+To rerun only GlobalFit across an existing light-map study while preserving
+the previous outputs, use `rerun_global_fits.sh` from `LFGD_Recon_Simu` and
+give it a new output filename.
+
 Fit one event and write a new, self-contained ROOT file:
 
 ```sh
@@ -65,6 +271,34 @@ Fit every event:
   homo_response_250514_10bin_5m_1mm_100kPhotons.root \
   EVENT=all TREE=homo_truth MIN_CHARGE=10
 ```
+
+### Two-view fits
+
+The `FIT_VIEWS` option controls which physical fibre projections enter hit
+selection, direction seeding, DBSCAN and corridor processing, and the
+likelihood normalization:
+
+| Setting | Views retained | Fibre direction excluded | Intended track axis |
+| --- | --- | --- | --- |
+| `ALL` | XY, XZ, YZ | none | general 3-view fit |
+| `2D_X` | XZ, XY | X-directed fibres (YZ view) | approximately X |
+| `2D_Y` | YZ, XY | Y-directed fibres (XZ view) | approximately Y |
+| `2D_Z` | XZ, YZ | Z-directed fibres (XY view) | approximately Z |
+
+For example, for tracks approximately parallel to X, exclude the YZ view:
+
+```sh
+./global_light_fit flat.root fibre_fit_2d_x.root \
+  homo_response_250514_10bin_5m_1mm_100kPhotons.root \
+  EVENT=all TREE=fiber_hits MIN_CHARGE=10 FIT_VIEWS=2D_X
+```
+
+The fit still returns a 3D point and 3D direction; "2D" means that two fibre
+projections constrain that line. Equivalent explicit lists are accepted, for
+example `FIT_VIEWS=XZ,XY`. The chosen canonical view list is stored as
+`fit_views` in the `global_fit` tree, while `global_fit_fibres` contains only
+fibres from those views. The interactive display reads this stored selection;
+there is no separate display-time `FIT_VIEWS` switch.
 
 DBSCAN is enabled by default. All options use `KEY=value`; run
 `./global_light_fit --help` or run it without arguments for the complete list.
@@ -131,6 +365,45 @@ The current integration samples the track every 2 mm. `status == 0` denotes a
 converged ROOT minimization; nonzero statuses are retained in the output and
 must not be treated as successful fits.
 
+## MC-segment straight-line benchmark
+
+Every `global_light_fit` run also performs an independent best-case benchmark
+that never reads fibre charges or the light map. For each requested event it
+associates `mc_virtual_segments.primary_id` with `abs(pdg)==13` trajectories in
+`mc_track_points`, restricts the segments to detector 0, and, if more than one
+muon ID exists, selects the ID with the largest number of segments. A 3D
+orthogonal-regression/PCA line is fitted using only the segment **start**
+positions. Its sign is chosen to follow the summed start-to-stop direction.
+
+The benchmark is written into the same output ROOT file as the fibre
+likelihood result:
+
+- `mc_segment_line_fit`: one row per event with `primary_id`, number of start
+  points, fitted point and direction, `sum_squared_residual_mm2`,
+  `rms_residual_mm`, and `ndof=2*N-4`;
+- `mc_segment_line_residuals`: one row per selected segment, with separate
+  `start_distance` and `end_distance`, signed Cartesian residual-vector
+  components, and signed residuals in XY, XZ, and YZ for both endpoints;
+- `mc_segment_start_distance` and `mc_segment_end_distance`: separate ROOT
+  histograms of the unsigned 3D perpendicular distances.
+
+The Cartesian residual vector is the point-to-line displacement after
+removing its component parallel to the fitted line. A single 3D distance has
+no intrinsic sign, so `start_distance` and `end_distance` are non-negative;
+the per-axis and projected-view residual branches retain signed information.
+Comparing starts and ends tests extrapolation within each virtual-cube segment,
+while the width versus track length gives a direct view of the limitation from
+multiple Coulomb scattering.
+
+Running `global_fit_analysis` on this file additionally creates
+`fibre_vs_mc_line_start_residuals.png` and
+`fibre_vs_mc_line_end_residuals.png`. Each canvas overlays normalized signed
+residuals from the fibre/light-pattern line and the MC-start PCA line in XY,
+XZ, and YZ over `-10..+10 mm`. Independent Gaussian fits are made around each
+central peak, and their fitted mean and sigma are printed in the legends. The
+underlying six fibre histograms, six MC-line histograms, Gaussian functions,
+and canvases are also saved in the analysis ROOT output.
+
 ## Event display
 
 With an X display available in the container, run:
@@ -149,6 +422,7 @@ changed to a linear scale or uniform markers:
 ./global_fit_display flat_with_global_fit.root EVENT=0 MODE=all-log
 ./global_fit_display flat_with_global_fit.root EVENT=0 MODE=all-linear
 ./global_fit_display flat_with_global_fit.root EVENT=0 MODE=selected
+./global_fit_display flat_with_global_fit.root EVENT=0 MODE=dbscan
 ```
 
 `all` is the classical display: it reads the original fit-input fibre tree,
@@ -156,6 +430,11 @@ draws every fibre passing the charge cut uniformly, and completely ignores the
 `global_fit_fibres` selection. `selected` draws only fit-selected fibres. In
 the charge-coloured `log` and `linear` modes, black selection outlines are
 automatically suppressed when every charge-selected fibre was retained.
+`dbscan` overlays every fibre passing the fit's charge threshold and outlines
+the fibres retained immediately after DBSCAN in magenta. This is the selection
+before any optional corridor cut. The fit output stores that intermediate set
+in `global_fit_dbscan_fibres`; older fit files must be regenerated to use this
+mode.
 
 The canvas contains XY, XZ and YZ fibre views plus a rotatable ROOT 3D view.
 All fibres passing the charge cut are charge-coloured, fibres actually selected
@@ -167,6 +446,17 @@ offered. The 3D points are representative fibre positions; the three 2D views
 are the geometrically meaningful fibre measurements.
 
 ## Direction analysis
+
+The current analysis explicitly compares initialization and minimization. Its
+`direction_comparison` tree contains seed-to-MC, fit-to-MC, and seed-to-fit
+angles; X/Y/Z direction-component residuals; Minuit status; NLL at the seed
+and fit; and the corresponding NLL and chi-squared improvements.
+
+For every primary-muon MC segment start and end, the
+`mc_seed_fit_residuals` tree stores the X/Y/Z residual vector and perpendicular
+distance to both the seed and fitted lines. The
+`mc_seed_fit_xyz_residuals.png` summary plots these component distributions,
+while `direction_comparison.png` includes the seed-to-fit angular movement.
 
 ```sh
 ./global_fit_analysis flat_with_global_fit.root OUTPUT=direction_analysis.root

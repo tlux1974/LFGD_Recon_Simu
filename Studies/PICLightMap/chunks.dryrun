@@ -1,0 +1,133 @@
+
+ClusterId=1
+In="/dev/null"
+Cmd="/data/neutrinos/common/tlux/PICLightMap/run_lightmap_chunk.sh"
+Err="logs/chunk.0.1.0.err"
+Iwd="/nfs/pic.es/user/t/tlux/tlux/PICLightMap"
+Out="logs/chunk.0.1.0.out"
+Args="0 100 100000 0.25 mm 5 m 730000 positions.txt"
+Rank=0.0
+Owner=undefined
+QDate=1786376762
+MyType="Job"
+newexp=ifthenElse(experiment =?= undefined,"neutrinos",experiment)
+flavour="medium"
+JobPrio=0
+UserLog="/nfs/pic.es/user/t/tlux/tlux/PICLightMap/logs/chunks.1.log"
+MaxHosts=1
+MinHosts=1
+NumCkpts=0
+DiskUsage=25
+ImageSize=6
+StreamErr=false
+StreamOut=false
+ExitStatus=0
+SubmitHost="gpu08.pic.es"
+TargetType="Machine"
+TransferIn=false
+Environment=""
+JobUniverse=5
+NumRestarts=0
+RequestCpus=1
+RequestDisk=5242880
+CurrentHosts=0
+ExitBySignal=false
+NumJobStarts=0
+RemoteSysCpu=0.0
+Requirements=(TARGET.WN_property == ifThenElse(MY.WN_property =?= undefined,"default",MY.WN_property)) && (TARGET.Arch == "X86_64") && (TARGET.OpSys == "LINUX") && (TARGET.Disk >= RequestDisk) && (TARGET.Memory >= RequestMemory) && (TARGET.HasFileTransfer)
+CommittedTime=0
+CondorVersion="$CondorVersion: 25.0.12 2026-07-07 BuildID: 930047 PackageID: 25.0.12-1 $"
+JobSubmitFile="lightmap_10x100.sub"
+RemoteUserCpu=0.0
+RequestMemory=8192
+TransferInput="positions.txt"
+CondorPlatform="$CondorPlatform: x86_64_AlmaLinux9 $"
+ExecutableSize=6
+NumSystemHolds=0
+TransferOutput="chunk_0"
+JobNotification=0
+JobSubmitMethod=0
+LeaveJobInQueue=false
+JobLeaseDuration=2400
+SingularityImage="/nfs/pic.es/user/t/tlux/tlux/PICLightMap/ND280Reco_03.sif"
+SubmitGPUScaling="$$(GPUScaling:1)"
+SubmitPICScaling="$$(PICScaling:1)"
+TotalSuspensions=0
+CommittedSlotTime=0
+NumJobCompletions=0
+CumulativeSlotTime=0
+LastSuspensionTime=0
+RemoteWallClockTime=0.0
+ShouldTransferFiles="YES"
+TransferInputSizeMB=0
+EnteredCurrentStatus=1786376762
+WhenToTransferOutput="ON_EXIT"
+CumulativeRemoteSysCpu=0.0
+CommittedSuspensionTime=0
+CumulativeRemoteUserCpu=0.0
+CumulativeSuspensionTime=0
+ProcId=0
+JobStatus=1
+
+ProcId=1
+JobStatus=1
+Err="logs/chunk.100.1.1.err"
+Out="logs/chunk.100.1.1.out"
+Args="100 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_100"
+
+ProcId=2
+JobStatus=1
+Err="logs/chunk.200.1.2.err"
+Out="logs/chunk.200.1.2.out"
+Args="200 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_200"
+
+ProcId=3
+JobStatus=1
+Err="logs/chunk.300.1.3.err"
+Out="logs/chunk.300.1.3.out"
+Args="300 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_300"
+
+ProcId=4
+JobStatus=1
+Err="logs/chunk.400.1.4.err"
+Out="logs/chunk.400.1.4.out"
+Args="400 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_400"
+
+ProcId=5
+JobStatus=1
+Err="logs/chunk.500.1.5.err"
+Out="logs/chunk.500.1.5.out"
+Args="500 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_500"
+
+ProcId=6
+JobStatus=1
+Err="logs/chunk.600.1.6.err"
+Out="logs/chunk.600.1.6.out"
+Args="600 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_600"
+
+ProcId=7
+JobStatus=1
+Err="logs/chunk.700.1.7.err"
+Out="logs/chunk.700.1.7.out"
+Args="700 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_700"
+
+ProcId=8
+JobStatus=1
+Err="logs/chunk.800.1.8.err"
+Out="logs/chunk.800.1.8.out"
+Args="800 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_800"
+
+ProcId=9
+JobStatus=1
+Err="logs/chunk.900.1.9.err"
+Out="logs/chunk.900.1.9.out"
+Args="900 100 100000 0.25 mm 5 m 730000 positions.txt"
+TransferOutput="chunk_900"

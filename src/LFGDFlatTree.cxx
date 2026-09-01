@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <map>
 #include <set>
+#include <vector>
 
 #include <TAlgorithmResult.hxx>
 #include <THandle.hxx>
@@ -124,7 +126,10 @@ public:
         fMCSegmentTree->Branch("segment", &fMCSegment);
         fMCSegmentTree->Branch("detector", &fMCDetector);
         fMCSegmentTree->Branch("primary_id", &fMCPrimaryId);
+        fMCSegmentTree->Branch("primary_pdg", &fMCPrimaryPdg);
         fMCSegmentTree->Branch("contributors", &fMCContributors);
+        fMCSegmentTree->Branch("contributor_track_ids", &fMCContributorTrackIds);
+        fMCSegmentTree->Branch("contributor_pdgs", &fMCContributorPdgs);
         fMCSegmentTree->Branch("cube_x", &fMCCubeX);
         fMCSegmentTree->Branch("cube_y", &fMCCubeY);
         fMCSegmentTree->Branch("cube_z", &fMCCubeZ);
@@ -275,11 +280,13 @@ public:
 
         auto trajectories = event.Get<ND::TG4TrajectoryContainer>(
             "truth/G4Trajectories");
+        fMCTrackPdgById.clear();
         if (trajectories) for (const auto& entry : *trajectories) {
             const auto& trajectory = entry.second;
             fMCTrackId = trajectory.GetTrackId();
             fMCParentId = trajectory.GetParentId();
             fMCPdg = trajectory.GetPDGEncoding();
+            fMCTrackPdgById[fMCTrackId] = fMCPdg;
             fMCParticle = trajectory.GetParticleName();
             fMCPoint = 0;
             for (const auto& point : trajectory.GetTrajectoryPoints()) {
@@ -392,7 +399,13 @@ private:
         fMCDetector = detector;
         fMCCubeX = cubeX; fMCCubeY = cubeY; fMCCubeZ = cubeZ;
         fMCPrimaryId = segment.GetPrimaryId();
-        fMCContributors = segment.GetContributors().size();
+        auto primaryPdg=fMCTrackPdgById.find(fMCPrimaryId);
+        fMCPrimaryPdg=primaryPdg==fMCTrackPdgById.end()?0:primaryPdg->second;
+        fMCContributorTrackIds.clear();fMCContributorPdgs.clear();
+        for(const auto contributor:segment.GetContributors()){
+            fMCContributorTrackIds.push_back(contributor);auto pdg=fMCTrackPdgById.find(contributor);
+            fMCContributorPdgs.push_back(pdg==fMCTrackPdgById.end()?0:pdg->second);}
+        fMCContributors = fMCContributorTrackIds.size();
         fGeomId = cubeId.AsInt();
         fStartX = segment.GetStartX(); fStartY = segment.GetStartY();
         fStartZ = segment.GetStartZ(); fStartT = segment.GetStartT();
@@ -416,9 +429,11 @@ private:
     int fEvent, fTrack, fNode, fNodeHit, fHit3D, fProjection, fU, fV;
     int fFiberCount;
     int fMCTrackId, fMCParentId, fMCPdg, fMCPoint;
-    int fMCSegment, fMCDetector, fMCPrimaryId, fMCContributors;
+    int fMCSegment, fMCDetector, fMCPrimaryId, fMCPrimaryPdg, fMCContributors;
     int fMCCubeX, fMCCubeY, fMCCubeZ;
     std::string fMCParticle;
+    std::map<int,int> fMCTrackPdgById;
+    std::vector<int> fMCContributorTrackIds,fMCContributorPdgs;
     unsigned int fGeomId, fViewGeomId;
     double fX, fY, fZ, fTime, fCharge, fPx, fPy, fPz;
     double fViewCharge, fFiberChargeSum;

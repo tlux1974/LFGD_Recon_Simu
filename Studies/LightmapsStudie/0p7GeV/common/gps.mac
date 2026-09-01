@@ -1,0 +1,6031 @@
+/t2k/control baseline-2024-plusplus 1.0
+/t2k/field 0.0 tesla   
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoHFGCMD true
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoHomoCMD false
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoInactiveWaterCMD true
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoTPC3CMD false
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoSWDCMD true
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoSciFiCMD true
+/t2k/OA/Magnet/Basket/SFG/enable false
+/t2k/OA/Magnet/Basket/TopHAT/enable false
+/t2k/OA/Magnet/Basket/BottomHAT/enable false
+/t2k/OA/Magnet/Basket/UTOF/enable false
+/t2k/OA/Magnet/Basket/DTOF/enable false
+/t2k/OA/Magnet/Basket/BTOF/enable false
+/t2k/OA/Magnet/Basket/TTOF/enable false
+/t2k/OA/Magnet/Basket/NTOF/enable false
+/t2k/OA/Magnet/Basket/STOF/enable false
+/t2k/update
+/gps/source/clear
+/gps/source/multiplevertex true
+/gps/source/add 1
+/gps/particle mu-
+# Directions are set explicitly before each event.
+/gps/ene/type Mono
+/gps/ene/mono 700 MeV
+# Input vertex (plusplus frame): 0 0 1800 mm
+# GPS vertex (global ND280 frame): 0 30 910 mm
+/gps/position 0 30 910 mm
+/gps/pos/type Point
+/generator/add
+# Explicit primaries read from: /home/tlux/HK/ND280++/LFGD_Recon_Simu/Studies/LightmapsStudie/0p7GeV/common/primary_events.csv
+# Primary event 0, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977800624877591 0.06645950397791846 0.004252203303303683
+/run/beamOn 1
+# Primary event 1, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993348579961128 -0.010972117446173232 0.0347772085227745
+/run/beamOn 1
+# Primary event 2, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975966157967793 0.024018376863140543 0.06499315135976523
+/run/beamOn 1
+# Primary event 3, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983485300562971 0.03026578986709837 0.04882821416099055
+/run/beamOn 1
+# Primary event 4, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966675711036425 -0.0744353899183177 0.033363534556066464
+/run/beamOn 1
+# Primary event 5, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983335764350093 0.02641016877117205 0.051308606957913436
+/run/beamOn 1
+# Primary event 6, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982998713443492 -0.035695930688105414 0.046077840728119185
+/run/beamOn 1
+# Primary event 7, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998404238467162 0.015004847875102185 0.009694399530857387
+/run/beamOn 1
+# Primary event 8, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999187187343838 -0.010854980155928647 0.006687699933665856
+/run/beamOn 1
+# Primary event 9, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981123243096516 0.03667503866258741 0.04926184730887244
+/run/beamOn 1
+# Primary event 10, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989305851227047 0.017028012447792854 0.04298526373640801
+/run/beamOn 1
+# Primary event 11, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974944386317258 0.06997375144029297 0.01041724570845236
+/run/beamOn 1
+# Primary event 12, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974866657189376 0.06938070017456797 -0.014376027135584913
+/run/beamOn 1
+# Primary event 13, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999193217172547 -0.0004364787111028676 -0.012694862852348896
+/run/beamOn 1
+# Primary event 14, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962078439286441 0.08094343888330564 -0.031907544512022996
+/run/beamOn 1
+# Primary event 15, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995082292995957 0.004093185486327966 -0.031089313195395075
+/run/beamOn 1
+# Primary event 16, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968753667696041 0.06405033109859608 0.04622832696656346
+/run/beamOn 1
+# Primary event 17, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977721192852071 0.05019156398693605 -0.04395002709500474
+/run/beamOn 1
+# Primary event 18, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983944899548178 -0.004769723885503243 -0.05644193619920542
+/run/beamOn 1
+# Primary event 19, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970798916197608 -0.07552765116732288 -0.01128111859139889
+/run/beamOn 1
+# Primary event 20, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988941276559937 0.021301182695288613 -0.04191397559470163
+/run/beamOn 1
+# Primary event 21, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992660506175942 0.004249399751749852 0.03806970823194581
+/run/beamOn 1
+# Primary event 22, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995174495398955 0.006512854212607387 0.030371875070000803
+/run/beamOn 1
+# Primary event 23, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992461667908252 -0.03651921988808286 -0.013169841783718023
+/run/beamOn 1
+# Primary event 24, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969018311041103 -0.06677722130293602 -0.041563708404455287
+/run/beamOn 1
+# Primary event 25, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981667554152882 0.058493758967486174 -0.015543762272043933
+/run/beamOn 1
+# Primary event 26, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963527673719239 0.04383339425139594 0.0732106310498044
+/run/beamOn 1
+# Primary event 27, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999364235011403 0.005568637556763824 -0.009805061525027168
+/run/beamOn 1
+# Primary event 28, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967665301933035 0.01051495037723274 0.07966128360104702
+/run/beamOn 1
+# Primary event 29, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982462819982354 0.032662080039860666 0.049371540427347184
+/run/beamOn 1
+# Primary event 30, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974267053988926 0.06827877358620382 0.021862672175986777
+/run/beamOn 1
+# Primary event 31, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989028450559633 0.04124003738047373 0.022189309497127302
+/run/beamOn 1
+# Primary event 32, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999794675452036 0.005626528827072207 -0.0030670281004967193
+/run/beamOn 1
+# Primary event 33, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991964301045342 0.005624010668804857 -0.039684563376102336
+/run/beamOn 1
+# Primary event 34, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975941066219076 -0.030026233321182483 -0.062485388258215584
+/run/beamOn 1
+# Primary event 35, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990915175303353 -0.04230569606669368 0.005134946858947522
+/run/beamOn 1
+# Primary event 36, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964288194702274 -0.05929040604735202 -0.06011867829476172
+/run/beamOn 1
+# Primary event 37, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974343164082278 -0.05513364736932392 -0.04566251612653927
+/run/beamOn 1
+# Primary event 38, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977960774377045 0.0634254311944309 -0.01949878272433795
+/run/beamOn 1
+# Primary event 39, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969618264694905 0.009206881131211698 -0.07734565212378283
+/run/beamOn 1
+# Primary event 40, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988529368537036 -0.04489101814895207 -0.016661543394345554
+/run/beamOn 1
+# Primary event 41, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964992983440945 0.04257826692636221 0.07194608804705693
+/run/beamOn 1
+# Primary event 42, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998754980459839 0.0019144620822930047 0.01566279803327506
+/run/beamOn 1
+# Primary event 43, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968170287028585 -0.0189983635247758 0.07742656825266778
+/run/beamOn 1
+# Primary event 44, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982386038664507 -0.058877053239522886 -0.007292623162465134
+/run/beamOn 1
+# Primary event 45, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962073766397491 0.08699328271674811 0.0017411176620044095
+/run/beamOn 1
+# Primary event 46, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980823808431581 0.024635224881349 0.05678614923991922
+/run/beamOn 1
+# Primary event 47, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985064221813292 0.016380413467481578 -0.05212107939476574
+/run/beamOn 1
+# Primary event 48, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965595248230434 -0.08283643855486943 -0.0026903405017167374
+/run/beamOn 1
+# Primary event 49, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977401762645927 0.016894838203583104 -0.06503157009925499
+/run/beamOn 1
+# Primary event 50, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999827973186189 -0.016065942017085767 0.009268740016906847
+/run/beamOn 1
+# Primary event 51, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971204054446323 0.054780608672786446 -0.05244027039757753
+/run/beamOn 1
+# Primary event 52, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962984904185695 -0.0416324046994167 0.07520678738400838
+/run/beamOn 1
+# Primary event 53, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976969366801071 0.02965546709227336 0.06100308033754938
+/run/beamOn 1
+# Primary event 54, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987820555892869 -0.0490150938998395 -0.005650309976318834
+/run/beamOn 1
+# Primary event 55, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971419921531844 -0.06460269848539424 0.03917063738546955
+/run/beamOn 1
+# Primary event 56, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998827522957635 -0.02196817209107513 0.04313906347258847
+/run/beamOn 1
+# Primary event 57, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964523397819937 -0.0815807198692487 0.02067173646807194
+/run/beamOn 1
+# Primary event 58, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969369773384841 -0.05656852568458436 -0.054006158140339836
+/run/beamOn 1
+# Primary event 59, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969629482157513 0.051491755712799854 0.05842498590988825
+/run/beamOn 1
+# Primary event 60, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995964900698856 -0.013729352868920554 0.024866883796844024
+/run/beamOn 1
+# Primary event 61, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973070077773276 -0.07123100157446806 -0.017460717423161697
+/run/beamOn 1
+# Primary event 62, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988332259138447 -0.022999606765800915 -0.042464160172562056
+/run/beamOn 1
+# Primary event 63, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992328280860373 -0.0024433985466424417 0.03908689139241076
+/run/beamOn 1
+# Primary event 64, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978190900693608 -0.04332752518079374 0.04979748040674935
+/run/beamOn 1
+# Primary event 65, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981608482693284 -0.054177772069730484 -0.027197242430347216
+/run/beamOn 1
+# Primary event 66, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985893298869475 0.048330759492468046 0.021988358802292794
+/run/beamOn 1
+# Primary event 67, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976072921698627 -0.017796766428012357 -0.06680543177183353
+/run/beamOn 1
+# Primary event 68, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963291290865741 -0.002023211031016109 -0.08558138320167961
+/run/beamOn 1
+# Primary event 69, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988047600498857 -0.03986392266070745 0.028282838821294773
+/run/beamOn 1
+# Primary event 70, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997903930361859 -0.005823083607186351 0.06445027126132086
+/run/beamOn 1
+# Primary event 71, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990000468204407 -0.044370717195853095 0.0054905289620281236
+/run/beamOn 1
+# Primary event 72, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972035958366766 0.0734654060561112 0.0137048372267903
+/run/beamOn 1
+# Primary event 73, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975077991990035 0.06203961560864034 -0.03360471145974611
+/run/beamOn 1
+# Primary event 74, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987676336179659 -0.03496116162399285 -0.03522685360729207
+/run/beamOn 1
+# Primary event 75, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997483968473603 0.022017401003756317 0.004286846646763512
+/run/beamOn 1
+# Primary event 76, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984872266552983 0.020897569379881076 0.050858134061564066
+/run/beamOn 1
+# Primary event 77, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977051908919962 0.02812019720316929 0.061592260686066096
+/run/beamOn 1
+# Primary event 78, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975232423200093 0.05726026196192992 -0.04084903219694553
+/run/beamOn 1
+# Primary event 79, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989550347072956 0.025995288549874016 -0.037591004324898286
+/run/beamOn 1
+# Primary event 80, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964819364133174 -0.02632004329246472 0.0795676173015632
+/run/beamOn 1
+# Primary event 81, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991786660538567 0.03921972811169324 0.010188534226290397
+/run/beamOn 1
+# Primary event 82, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969166494337037 0.0683161569172073 0.03860177179795481
+/run/beamOn 1
+# Primary event 83, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993057463909848 0.004147344123786928 0.037024650797483905
+/run/beamOn 1
+# Primary event 84, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978092564254516 0.065905980424494 0.005752350473818646
+/run/beamOn 1
+# Primary event 85, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966272337408343 -0.08174479538445671 -0.0072073152869692285
+/run/beamOn 1
+# Primary event 86, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992058736329684 -0.02156660222287262 0.03350378733720684
+/run/beamOn 1
+# Primary event 87, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997409915512932 0.06957487587631579 0.018242726859794323
+/run/beamOn 1
+# Primary event 88, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965737672250325 0.04923719856103471 0.06645618674561382
+/run/beamOn 1
+# Primary event 89, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969795713189203 -0.07030408627272537 -0.03300105795423894
+/run/beamOn 1
+# Primary event 90, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997560395956832 0.06912624180868213 -0.00973751055743761
+/run/beamOn 1
+# Primary event 91, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972758222563137 0.04567677862779106 -0.057918617362477484
+/run/beamOn 1
+# Primary event 92, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965439267855288 -0.08182110772689591 -0.01433556128033602
+/run/beamOn 1
+# Primary event 93, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982856137894421 -0.032197313628826 -0.04887909876546166
+/run/beamOn 1
+# Primary event 94, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977553903843723 -0.06620478726670222 -0.010055202727915411
+/run/beamOn 1
+# Primary event 95, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999154509424422 0.02382954232350511 0.033502525419659576
+/run/beamOn 1
+# Primary event 96, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982176705308475 -0.05076974416682716 -0.031367424459194077
+/run/beamOn 1
+# Primary event 97, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991692915057099 0.021027827957179147 0.03490784100142821
+/run/beamOn 1
+# Primary event 98, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977723243058734 0.06591790949997782 0.010257585310774465
+/run/beamOn 1
+# Primary event 99, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998715923760555 0.03421974011257146 -0.037356565871737885
+/run/beamOn 1
+# Primary event 100, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975399771560028 0.028350811817254018 -0.06411103996117969
+/run/beamOn 1
+# Primary event 101, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986986952938858 0.050707203244455025 0.005449363028446184
+/run/beamOn 1
+# Primary event 102, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979841032050296 0.06086158744202282 0.017988799962472286
+/run/beamOn 1
+# Primary event 103, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973866025982494 0.022602003554789148 -0.06862298734994746
+/run/beamOn 1
+# Primary event 104, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966721118425639 -0.0747354365074103 -0.03254713513246116
+/run/beamOn 1
+# Primary event 105, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964105303374919 0.065285023788548 0.05388803857524221
+/run/beamOn 1
+# Primary event 106, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998179706937069 0.01568479544888898 0.010863363643196244
+/run/beamOn 1
+# Primary event 107, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968572547837374 0.07366950932499304 -0.029127598267718168
+/run/beamOn 1
+# Primary event 108, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973699690036872 0.015147596385041475 0.0708780308229555
+/run/beamOn 1
+# Primary event 109, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965617409966084 -0.08285256864085125 0.00038503431247960954
+/run/beamOn 1
+# Primary event 110, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964187968409928 0.015816197292745873 0.0830628027768469
+/run/beamOn 1
+# Primary event 111, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997039925814367 -0.002344494551334625 -0.07684978644980363
+/run/beamOn 1
+# Primary event 112, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968116529983513 -0.06786501370607038 -0.0419627020265542
+/run/beamOn 1
+# Primary event 113, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971144065939498 0.07585630255065927 -0.002946442963678812
+/run/beamOn 1
+# Primary event 114, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999643756095813 0.00749303421901841 -0.0038861227377524937
+/run/beamOn 1
+# Primary event 115, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996197877171228 -0.026018839893979576 -0.009126881994733636
+/run/beamOn 1
+# Primary event 116, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999736884762774 -0.014636906132989812 -0.017661319986852882
+/run/beamOn 1
+# Primary event 117, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968012282250808 -0.008845600625428903 -0.07942963400737682
+/run/beamOn 1
+# Primary event 118, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994264896112297 0.03372333662782051 0.003070574874721493
+/run/beamOn 1
+# Primary event 119, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969364241525651 0.016726518224316454 -0.07640673913987196
+/run/beamOn 1
+# Primary event 120, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991173593740788 -0.03899949401970831 -0.015605821464272505
+/run/beamOn 1
+# Primary event 121, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966601244485789 -0.00781436301908735 0.08128672748210014
+/run/beamOn 1
+# Primary event 122, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970916660064568 0.07564519109561516 -0.009274408044517695
+/run/beamOn 1
+# Primary event 123, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970521267501007 -0.05256626368097105 0.05589136306911651
+/run/beamOn 1
+# Primary event 124, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988166761618008 -0.02523727119465743 -0.041573159174395885
+/run/beamOn 1
+# Primary event 125, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983340101770793 -0.033716006655133746 -0.046823445184888283
+/run/beamOn 1
+# Primary event 126, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994863081178441 0.02747801380476647 -0.01649480652529823
+/run/beamOn 1
+# Primary event 127, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966073713720737 0.08083251177607328 0.015487167811340836
+/run/beamOn 1
+# Primary event 128, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996711855183205 0.021673277337800587 -0.01370364527541931
+/run/beamOn 1
+# Primary event 129, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975949713496846 -0.05599765530774484 0.0408477139856939
+/run/beamOn 1
+# Primary event 130, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988009869680423 -0.04312126038694271 0.0231763960594838
+/run/beamOn 1
+# Primary event 131, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966171925686327 0.00040209337501246614 0.08218278285343418
+/run/beamOn 1
+# Primary event 132, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973504436239926 -0.06654464743653833 -0.02939221836765492
+/run/beamOn 1
+# Primary event 133, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968462077441944 -0.010621889686969864 -0.07864358566021898
+/run/beamOn 1
+# Primary event 134, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998850380155803 -0.011363990995818505 0.010038449144592202
+/run/beamOn 1
+# Primary event 135, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983649179801888 -0.03746496312090946 -0.043172526967503885
+/run/beamOn 1
+# Primary event 136, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992312585104111 -0.026995220168859937 -0.02842798099997328
+/run/beamOn 1
+# Primary event 137, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981602136502485 -0.011173160883578401 -0.05959319056368701
+/run/beamOn 1
+# Primary event 138, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962850931144935 0.08002758933908896 -0.03180563130043236
+/run/beamOn 1
+# Primary event 139, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996142667640734 -0.009601490614895371 -0.026060104752206378
+/run/beamOn 1
+# Primary event 140, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99696191956023 -0.054867417756222545 -0.0552855986269998
+/run/beamOn 1
+# Primary event 141, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963017181288734 -0.06877648429884937 0.05150419071245657
+/run/beamOn 1
+# Primary event 142, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970142439183439 -0.07157214584556995 -0.028983191042283075
+/run/beamOn 1
+# Primary event 143, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971476495174771 0.06314005635104122 0.04135091710902986
+/run/beamOn 1
+# Primary event 144, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992155907900195 -0.0003163886955817073 0.03959928055338293
+/run/beamOn 1
+# Primary event 145, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983245646567155 0.057549951487688954 0.006005554657490363
+/run/beamOn 1
+# Primary event 146, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983388429904076 0.014065129618462052 -0.0558724145298021
+/run/beamOn 1
+# Primary event 147, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991818324369801 -0.0191240828548413 0.035636149944120225
+/run/beamOn 1
+# Primary event 148, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966833141259297 -0.0628730733211787 -0.05166573326783411
+/run/beamOn 1
+# Primary event 149, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973610516166395 -0.01620071494763132 0.07077054156452837
+/run/beamOn 1
+# Primary event 150, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996994246706763 -0.06071364970125054 0.048128211825997635
+/run/beamOn 1
+# Primary event 151, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987906961625221 -0.040053262537726494 0.028511075379022532
+/run/beamOn 1
+# Primary event 152, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986546252292932 -0.007201811755643077 -0.05135244313152255
+/run/beamOn 1
+# Primary event 153, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992783017991264 -0.0342892262339863 -0.016343944374863494
+/run/beamOn 1
+# Primary event 154, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999631523980351 -0.008583783423806097 -0.00011184058804269514
+/run/beamOn 1
+# Primary event 155, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982388435796515 -0.032312315416778925 -0.04975063257051676
+/run/beamOn 1
+# Primary event 156, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998908064521909 -0.0043942406798423966 -0.014109068758605183
+/run/beamOn 1
+# Primary event 157, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996835272186025 0.013657475974963739 0.02112625754284981
+/run/beamOn 1
+# Primary event 158, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978005282625662 -0.019087400194309937 -0.06348052420046801
+/run/beamOn 1
+# Primary event 159, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989829028656935 0.021727241682342656 -0.03951059036397099
+/run/beamOn 1
+# Primary event 160, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972082685446467 -0.029533019641983113 0.06858184815980121
+/run/beamOn 1
+# Primary event 161, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977652338637188 -0.05211127786515061 0.04182048316482551
+/run/beamOn 1
+# Primary event 162, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965474434715624 -0.06389237917468718 0.05301845710402285
+/run/beamOn 1
+# Primary event 163, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986391797707806 -0.0034478385673904445 -0.05203749644204366
+/run/beamOn 1
+# Primary event 164, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970694443278776 -0.055543949223862236 -0.052606015742636146
+/run/beamOn 1
+# Primary event 165, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990528766844302 0.024339446221762446 0.03606855897014211
+/run/beamOn 1
+# Primary event 166, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962492002923108 0.04630800940928637 0.0730965059457746
+/run/beamOn 1
+# Primary event 167, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987782329694288 0.042267434435470284 -0.025602838372114894
+/run/beamOn 1
+# Primary event 168, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976683481492276 -0.025918543734645947 0.06313553826385654
+/run/beamOn 1
+# Primary event 169, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985816247953352 -0.021509006325996134 0.048704222280790486
+/run/beamOn 1
+# Primary event 170, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963439059142689 0.002531335668720667 0.08539562920448991
+/run/beamOn 1
+# Primary event 171, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984799411731926 -0.05319021143987949 0.01444328500580001
+/run/beamOn 1
+# Primary event 172, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975147533779579 -0.05489425121908265 0.0441694235462499
+/run/beamOn 1
+# Primary event 173, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967164768010306 0.008836559919021159 -0.08048714234048907
+/run/beamOn 1
+# Primary event 174, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976180048624739 -0.02540380894598458 -0.06413238546360957
+/run/beamOn 1
+# Primary event 175, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983553183169322 0.04640408834601188 -0.033664803178875366
+/run/beamOn 1
+# Primary event 176, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992254140713881 0.02652291023513827 0.0290707259373039
+/run/beamOn 1
+# Primary event 177, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979125023898483 0.0644221539597707 0.004519253612558249
+/run/beamOn 1
+# Primary event 178, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990680458949376 0.0052057857307035065 0.04284786420111159
+/run/beamOn 1
+# Primary event 179, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999910911942199 0.002052652568142441 0.013189192407205994
+/run/beamOn 1
+# Primary event 180, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981285996412225 -0.06106441440550079 0.003230459961917036
+/run/beamOn 1
+# Primary event 181, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993429428591277 -0.029955337520390556 -0.020404909009786386
+/run/beamOn 1
+# Primary event 182, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995475431183535 -0.012745174540005694 0.027244624644287428
+/run/beamOn 1
+# Primary event 183, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996565654856117 0.03254526271792686 0.07614263875004423
+/run/beamOn 1
+# Primary event 184, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963708223007577 -0.02252847993160077 -0.08208320205549612
+/run/beamOn 1
+# Primary event 185, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988053614910523 0.0014310360257785105 -0.04884467210066403
+/run/beamOn 1
+# Primary event 186, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991661711304723 0.028841269084892325 0.028898852330922736
+/run/beamOn 1
+# Primary event 187, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964388158059779 -0.04559139347011047 -0.07093032635364056
+/run/beamOn 1
+# Primary event 188, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9961990609687779 -0.04530776769310735 0.07439514172036113
+/run/beamOn 1
+# Primary event 189, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984309314567567 -0.0322189397149006 -0.04579972744504989
+/run/beamOn 1
+# Primary event 190, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985372319360483 0.0513579535869159 -0.016904349761487414
+/run/beamOn 1
+# Primary event 191, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999034289935737 -0.005159515322432268 0.012903956313125752
+/run/beamOn 1
+# Primary event 192, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973933383121778 0.07150352811276205 0.009683705794637799
+/run/beamOn 1
+# Primary event 193, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966553729146983 -0.07563074534389087 0.030952511998078826
+/run/beamOn 1
+# Primary event 194, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986366221970131 0.004690242585245233 0.051989406915559776
+/run/beamOn 1
+# Primary event 195, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965730733364309 -0.03287776583181872 -0.0759023189019208
+/run/beamOn 1
+# Primary event 196, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987526944248699 -0.04993035987981255 -0.00012058745714104773
+/run/beamOn 1
+# Primary event 197, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967310567499681 0.026452298824255677 0.076337909304645
+/run/beamOn 1
+# Primary event 198, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972149000531542 0.04489103316920917 -0.059558695863649466
+/run/beamOn 1
+# Primary event 199, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997189802564289 0.022672495961299596 0.006922314781250617
+/run/beamOn 1
+# Primary event 200, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997593529857357 0.018717896361771756 -0.011440125582051517
+/run/beamOn 1
+# Primary event 201, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992117913927828 0.004162991488927633 0.039477404214169655
+/run/beamOn 1
+# Primary event 202, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998743879265869 0.005710664404358853 -0.014785015403913667
+/run/beamOn 1
+# Primary event 203, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967250445572983 0.07882985328385105 0.018028859739269876
+/run/beamOn 1
+# Primary event 204, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976330900569977 -0.060348656756036394 -0.032958416998823035
+/run/beamOn 1
+# Primary event 205, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996288504827744 0.08260157818055396 -0.024211452459118765
+/run/beamOn 1
+# Primary event 206, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987549052754874 -0.04961249508978748 -0.005219149271485158
+/run/beamOn 1
+# Primary event 207, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980666564733864 0.04917025072032001 0.03801625547231237
+/run/beamOn 1
+# Primary event 208, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990402227956813 -0.0023292470446441703 -0.04374023141869011
+/run/beamOn 1
+# Primary event 209, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962800428888785 0.030196481771530555 -0.08071089536088677
+/run/beamOn 1
+# Primary event 210, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997543023248204 0.06396340559420433 -0.02857620537483042
+/run/beamOn 1
+# Primary event 211, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974963679552292 0.016784582829052125 0.06869697005968017
+/run/beamOn 1
+# Primary event 212, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969398631430356 -0.03832182928491353 0.0681347684857249
+/run/beamOn 1
+# Primary event 213, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964638642890464 0.04390091520229728 0.07164130659432151
+/run/beamOn 1
+# Primary event 214, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997992780939859 -0.05995263592575069 -0.020398299867415957
+/run/beamOn 1
+# Primary event 215, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983162726242849 0.039171975326029194 0.042780558231647274
+/run/beamOn 1
+# Primary event 216, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962883439111341 0.05201888022457095 0.06858259171970353
+/run/beamOn 1
+# Primary event 217, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996174768841173 0.018114246188769355 0.020899138567029383
+/run/beamOn 1
+# Primary event 218, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987962391929698 -0.04609962611217064 -0.016759983481433396
+/run/beamOn 1
+# Primary event 219, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984781553384755 0.0508712815214777 -0.021295211392181868
+/run/beamOn 1
+# Primary event 220, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971675779634609 -0.022093237534446 -0.07189374321685903
+/run/beamOn 1
+# Primary event 221, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981640915638437 -0.04105425036461059 0.04453083021375854
+/run/beamOn 1
+# Primary event 222, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977209889761119 0.01989642253264831 0.06447449516616208
+/run/beamOn 1
+# Primary event 223, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965784043005078 0.07276518366641163 -0.03920091998725304
+/run/beamOn 1
+# Primary event 224, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986313082426203 0.02523992632763397 0.04580891088651148
+/run/beamOn 1
+# Primary event 225, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99925078607079 0.015431755560635448 0.03549263947954712
+/run/beamOn 1
+# Primary event 226, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987148060173645 -0.04335569125120084 -0.026249195755841788
+/run/beamOn 1
+# Primary event 227, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992266728180792 -0.03349399462623466 0.02059632619884246
+/run/beamOn 1
+# Primary event 228, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998295529518233 -0.003563469745479215 -0.018115372685381215
+/run/beamOn 1
+# Primary event 229, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979039856767815 0.04687465048596313 0.04461392733455094
+/run/beamOn 1
+# Primary event 230, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971768552661212 0.050588550210277895 0.05548980004641663
+/run/beamOn 1
+# Primary event 231, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998177878678225 0.020743930751609522 -0.056662261289248485
+/run/beamOn 1
+# Primary event 232, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990189131724225 -0.028851033504392644 -0.033598050382724225
+/run/beamOn 1
+# Primary event 233, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978189967384635 -0.011742708780787457 0.06495658964520645
+/run/beamOn 1
+# Primary event 234, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992537009558181 -0.01835039193018135 -0.03398976672631335
+/run/beamOn 1
+# Primary event 235, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987199162302579 -0.0472356494981839 -0.018092051887813442
+/run/beamOn 1
+# Primary event 236, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992033720977286 -0.033845130138658634 -0.021145409771992363
+/run/beamOn 1
+# Primary event 237, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971967725094525 -0.05242094050610744 0.05339140280219653
+/run/beamOn 1
+# Primary event 238, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973733470862374 -0.018748399463723163 0.06996359081368388
+/run/beamOn 1
+# Primary event 239, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996134605140583 -0.006650079121944037 -0.02699455513212101
+/run/beamOn 1
+# Primary event 240, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985297327718087 -0.05164817529654889 0.016457179563864905
+/run/beamOn 1
+# Primary event 241, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980417424993887 0.04939135701025899 0.03838194994354797
+/run/beamOn 1
+# Primary event 242, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980005178174591 -0.05382575280409968 -0.03313238251552991
+/run/beamOn 1
+# Primary event 243, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997527580413975 -0.07020351889003697 -0.003192530171623041
+/run/beamOn 1
+# Primary event 244, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999973002714588 0.001984989147159704 -0.0012080016057474951
+/run/beamOn 1
+# Primary event 245, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964877957839915 0.07896824977627775 -0.02785836285271443
+/run/beamOn 1
+# Primary event 246, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992179374149723 0.015085933074840954 -0.036550351180663576
+/run/beamOn 1
+# Primary event 247, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992564582568617 0.009904169357552067 0.037261750647141316
+/run/beamOn 1
+# Primary event 248, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966970694205425 -0.05100245696954684 -0.0631957371313276
+/run/beamOn 1
+# Primary event 249, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993450256581502 0.02900929702828697 0.021632854139842464
+/run/beamOn 1
+# Primary event 250, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962494235777659 0.08177064095011088 -0.02829572935227498
+/run/beamOn 1
+# Primary event 251, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996576012938417 -0.0018791009899307295 0.026098834359261792
+/run/beamOn 1
+# Primary event 252, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993494814595218 -0.010838832748040485 0.03439670930837371
+/run/beamOn 1
+# Primary event 253, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993969359902575 0.03460883496122968 0.0028271674714450707
+/run/beamOn 1
+# Primary event 254, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985098070819154 0.008619847957202463 0.05388750673793295
+/run/beamOn 1
+# Primary event 255, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986143468770278 0.05197372824083824 0.008253349872308536
+/run/beamOn 1
+# Primary event 256, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986575878062501 0.04194565416302427 0.03039053164783003
+/run/beamOn 1
+# Primary event 257, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978828057126249 0.05885274688411071 0.02768140616541172
+/run/beamOn 1
+# Primary event 258, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976544056519494 0.03812222876169085 0.05685404609609467
+/run/beamOn 1
+# Primary event 259, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974427294999711 -0.07016711369854553 0.013585931063523994
+/run/beamOn 1
+# Primary event 260, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987028255863672 -0.03400416684139293 -0.03789964120184815
+/run/beamOn 1
+# Primary event 261, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981869173205777 0.03621483779168462 -0.04807664312079315
+/run/beamOn 1
+# Primary event 262, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997757987397324 0.0413008834349404 0.05266151927484451
+/run/beamOn 1
+# Primary event 263, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988024009742078 -0.030512172245893785 0.03824619135279643
+/run/beamOn 1
+# Primary event 264, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997517796354961 -0.01718355270180216 0.014181136491933989
+/run/beamOn 1
+# Primary event 265, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962473954538938 -0.04813280250817587 0.0719330270045808
+/run/beamOn 1
+# Primary event 266, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998464472229178 -0.017356400573020434 0.0024160577099713136
+/run/beamOn 1
+# Primary event 267, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993258940957456 -0.024785400870112065 0.02708212128778946
+/run/beamOn 1
+# Primary event 268, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985099068427502 0.04847898697825268 0.02505501463668844
+/run/beamOn 1
+# Primary event 269, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996965190333426 0.06180111770202293 0.047339530143595224
+/run/beamOn 1
+# Primary event 270, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977263738190291 -0.030003886136080116 0.06034774065915145
+/run/beamOn 1
+# Primary event 271, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998317317463529 -0.03444605772978267 -0.04664764473475514
+/run/beamOn 1
+# Primary event 272, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971077047249506 -0.008652127490055676 0.07550738949292729
+/run/beamOn 1
+# Primary event 273, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962882456073388 0.06212935804149077 0.05957914512648979
+/run/beamOn 1
+# Primary event 274, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976462196711193 0.055280379580815865 -0.04057215805605646
+/run/beamOn 1
+# Primary event 275, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969111337666339 -0.0657243212075085 0.04299424349766959
+/run/beamOn 1
+# Primary event 276, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962434921813582 -0.07346899457094137 -0.045838969480422015
+/run/beamOn 1
+# Primary event 277, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977960000539785 -0.03240460664160565 0.05790581788286666
+/run/beamOn 1
+# Primary event 278, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976781448059697 -0.00969311070159186 0.06741189050490404
+/run/beamOn 1
+# Primary event 279, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977475741606174 0.02672818620283964 0.06152546073707636
+/run/beamOn 1
+# Primary event 280, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989061870496544 0.04269309038020983 -0.019071693886703583
+/run/beamOn 1
+# Primary event 281, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996453641588304 -0.017788667111993076 0.019816892746796093
+/run/beamOn 1
+# Primary event 282, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962389444289379 0.0102714677600627 -0.08603756477940093
+/run/beamOn 1
+# Primary event 283, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979510197727757 -0.06141470513913239 -0.01794425053187014
+/run/beamOn 1
+# Primary event 284, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986901959197358 0.01931380847906571 -0.04738005250982315
+/run/beamOn 1
+# Primary event 285, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981656283365196 -0.05547543325698431 0.024245715343354422
+/run/beamOn 1
+# Primary event 286, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966949276113076 0.07844214699760785 0.02111991591592912
+/run/beamOn 1
+# Primary event 287, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996824132015017 0.04489942036993991 0.06576999226814226
+/run/beamOn 1
+# Primary event 288, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997747299955442 -0.01937969429613493 -0.008655444028186049
+/run/beamOn 1
+# Primary event 289, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962990933632567 -0.03572717148207186 0.07817727151444516
+/run/beamOn 1
+# Primary event 290, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977624199168036 0.03384371040472172 -0.05766070297703181
+/run/beamOn 1
+# Primary event 291, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977673342668612 -0.06391693009467797 -0.01936421228126191
+/run/beamOn 1
+# Primary event 292, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971994875944237 -0.03317298510090359 0.06702786734571016
+/run/beamOn 1
+# Primary event 293, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964981602692184 0.017179196257438207 -0.08183087312262716
+/run/beamOn 1
+# Primary event 294, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980553964126382 -0.007270673710517339 -0.06190769738414478
+/run/beamOn 1
+# Primary event 295, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983719631998732 0.04835147285110899 0.030258191776104743
+/run/beamOn 1
+# Primary event 296, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972177324833315 -0.03181020553717232 0.06741590943156986
+/run/beamOn 1
+# Primary event 297, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991748340827902 -0.023141924561724897 0.03337817045927139
+/run/beamOn 1
+# Primary event 298, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998692468405821 0.004675655840416509 -0.015479905197030226
+/run/beamOn 1
+# Primary event 299, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988232333565581 -0.04754659243295275 -0.009563997865191588
+/run/beamOn 1
+# Primary event 300, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988294057595714 -0.025590310304381754 0.041048193730138446
+/run/beamOn 1
+# Primary event 301, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965837081271516 0.051945488502000446 -0.06420731204329339
+/run/beamOn 1
+# Primary event 302, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979434003114313 0.06190856297409096 -0.016622262341256144
+/run/beamOn 1
+# Primary event 303, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989800972036369 -0.04031122146872515 -0.02034135724851252
+/run/beamOn 1
+# Primary event 304, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978198532740843 -0.02578015299546519 -0.060752976253145526
+/run/beamOn 1
+# Primary event 305, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971170178945661 -0.04582350099225457 0.06048023959823916
+/run/beamOn 1
+# Primary event 306, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974110200832853 0.030028822087817198 -0.0653416166041101
+/run/beamOn 1
+# Primary event 307, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998090929347295 0.01600853722125722 0.01120287557143065
+/run/beamOn 1
+# Primary event 308, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962879470514772 -0.05176930491131436 0.06877692657390529
+/run/beamOn 1
+# Primary event 309, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987922907288114 -0.04542144641814073 0.01873104871536729
+/run/beamOn 1
+# Primary event 310, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990869255997541 0.04187144919029288 -0.008490985710514607
+/run/beamOn 1
+# Primary event 311, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987301149308675 -0.025349814977287388 -0.043537850323522656
+/run/beamOn 1
+# Primary event 312, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967394681588334 -0.06944094869921563 -0.04108998975661651
+/run/beamOn 1
+# Primary event 313, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985829167940171 0.01796025544518889 0.05009578337042621
+/run/beamOn 1
+# Primary event 314, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962932517576437 -0.03749873430458118 -0.07741835330033064
+/run/beamOn 1
+# Primary event 315, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999743829129937 -0.004327343137778601 -0.005701545329591959
+/run/beamOn 1
+# Primary event 316, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969587124688147 0.05349372298674152 -0.056672279233686416
+/run/beamOn 1
+# Primary event 317, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974032490329983 -0.039090422581583524 0.06048716955530426
+/run/beamOn 1
+# Primary event 318, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992901304949735 0.010309835371781598 -0.03623454691238145
+/run/beamOn 1
+# Primary event 319, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997379893996545 0.017144935972327007 -0.015165873586478605
+/run/beamOn 1
+# Primary event 320, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962036974976884 0.011593019937241199 0.08627743030867813
+/run/beamOn 1
+# Primary event 321, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998412654062644 0.00643461419513953 0.05595326574693252
+/run/beamOn 1
+# Primary event 322, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999433316041613 -0.002886159349311743 -0.033536798748176236
+/run/beamOn 1
+# Primary event 323, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990716468361829 0.04043268683002363 -0.0148674921806831
+/run/beamOn 1
+# Primary event 324, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988876134802435 0.045914572477120795 -0.010741865293651547
+/run/beamOn 1
+# Primary event 325, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979698658474163 0.04186357741057035 0.04799570550454501
+/run/beamOn 1
+# Primary event 326, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981605240145165 0.05750785921838997 -0.019194124809004197
+/run/beamOn 1
+# Primary event 327, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985320049285946 -0.02372436589738266 0.048692808463346574
+/run/beamOn 1
+# Primary event 328, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996569553953433 0.055059385640299795 0.06178663436349518
+/run/beamOn 1
+# Primary event 329, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966612797716429 -0.019964638500794746 -0.07916884875684095
+/run/beamOn 1
+# Primary event 330, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974444522240878 -0.06549984145209745 0.028536564213993768
+/run/beamOn 1
+# Primary event 331, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999068210576343 -0.006735964502361375 0.011873330814857365
+/run/beamOn 1
+# Primary event 332, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986814786880687 -0.02992753584559258 0.04170907243782168
+/run/beamOn 1
+# Primary event 333, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976620947525181 -0.06117969783335289 0.030453066627800375
+/run/beamOn 1
+# Primary event 334, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978864140411416 0.04823083330370042 0.043548724331970254
+/run/beamOn 1
+# Primary event 335, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986368489783727 -0.04897181435693981 -0.018061153372260344
+/run/beamOn 1
+# Primary event 336, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996619547389952 0.08109835161847607 -0.013135262654902462
+/run/beamOn 1
+# Primary event 337, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999505544117144 -0.0015508885702150434 0.009822600284431531
+/run/beamOn 1
+# Primary event 338, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974909340091989 0.013547181973189694 -0.0694860448582406
+/run/beamOn 1
+# Primary event 339, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981209006359844 -0.05599513866653609 -0.024883973945630793
+/run/beamOn 1
+# Primary event 340, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991035279195778 0.00044197314935033485 -0.04233137321642953
+/run/beamOn 1
+# Primary event 341, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972045180279542 -0.0744763382629094 0.006035251741588746
+/run/beamOn 1
+# Primary event 342, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999278713226652 0.028141827419688535 -0.025496879055428596
+/run/beamOn 1
+# Primary event 343, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999490533965874 0.009802295694686663 -0.030374125694841738
+/run/beamOn 1
+# Primary event 344, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986994420202437 0.050299984274253036 0.008326829556544795
+/run/beamOn 1
+# Primary event 345, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975863872850176 -0.017663901620053032 -0.06715196559434461
+/run/beamOn 1
+# Primary event 346, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971191879684898 0.06999094389590362 0.029233418507251637
+/run/beamOn 1
+# Primary event 347, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984549580249436 0.006388555049237115 -0.055198579327651896
+/run/beamOn 1
+# Primary event 348, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999985315951604 -0.0007395774722404621 -0.00536851062523385
+/run/beamOn 1
+# Primary event 349, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979021317536376 0.06343296100788764 0.012945844866887381
+/run/beamOn 1
+# Primary event 350, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987819548829822 0.038489740392983536 -0.030873070540672676
+/run/beamOn 1
+# Primary event 351, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981658660832723 -0.05590684075136509 -0.02322345675028743
+/run/beamOn 1
+# Primary event 352, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965455576520674 -0.03573366288754816 0.07496703849405456
+/run/beamOn 1
+# Primary event 353, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984478050945251 0.01817644233904959 -0.052645963243351544
+/run/beamOn 1
+# Primary event 354, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974297299167617 0.03520846000389776 -0.06240431252990274
+/run/beamOn 1
+# Primary event 355, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984329766032556 -0.05265842287977644 -0.018938894660923262
+/run/beamOn 1
+# Primary event 356, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969593373384994 -0.026348980286889447 -0.07333355938055411
+/run/beamOn 1
+# Primary event 357, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967159488504429 -0.07107035693570743 0.03881136009201933
+/run/beamOn 1
+# Primary event 358, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995681439964028 0.01983410016354564 -0.02168257314732141
+/run/beamOn 1
+# Primary event 359, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997888357008003 0.007125278533040886 0.019274709177172982
+/run/beamOn 1
+# Primary event 360, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996365355717965 -0.026440828646758535 0.005261114947333318
+/run/beamOn 1
+# Primary event 361, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968204748319488 0.0633826272196263 -0.04828647349461407
+/run/beamOn 1
+# Primary event 362, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998106614432162 0.019183744707426332 -0.003259632414691995
+/run/beamOn 1
+# Primary event 363, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975587436975268 0.010960792976117673 0.06896675931161761
+/run/beamOn 1
+# Primary event 364, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997133922593469 -0.005546674671188233 -0.023288789951417366
+/run/beamOn 1
+# Primary event 365, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997165011850204 -0.0030708079201098733 -0.02361117102345593
+/run/beamOn 1
+# Primary event 366, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999415282157872 -0.0013540891649207417 -0.010728774021736907
+/run/beamOn 1
+# Primary event 367, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993146038615328 0.03275395191231523 -0.017248221450152746
+/run/beamOn 1
+# Primary event 368, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978299875600142 0.05766781803003084 -0.03177638572331912
+/run/beamOn 1
+# Primary event 369, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977689929068626 0.06476749274354446 -0.016192858837774958
+/run/beamOn 1
+# Primary event 370, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998257833795298 -0.03736230829336598 -0.04566568936642444
+/run/beamOn 1
+# Primary event 371, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962318571340046 -0.04620160989137661 0.07339957816484509
+/run/beamOn 1
+# Primary event 372, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972410981169941 0.07401985764671326 0.005590429354888166
+/run/beamOn 1
+# Primary event 373, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973858952525637 -0.0032661157517253825 0.07218523698886274
+/run/beamOn 1
+# Primary event 374, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966086058447134 -0.0028971520435621075 0.08223681211168805
+/run/beamOn 1
+# Primary event 375, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994686690716164 0.00700540929389912 0.03183243290791322
+/run/beamOn 1
+# Primary event 376, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988579390842274 0.04771704580956169 -0.00242921131605611
+/run/beamOn 1
+# Primary event 377, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962292509327846 -0.021002187490347508 -0.08417949694862298
+/run/beamOn 1
+# Primary event 378, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967061857985706 0.03229395595888653 0.07439005040588888
+/run/beamOn 1
+# Primary event 379, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973665027682421 0.06309452255252154 -0.03576507206361248
+/run/beamOn 1
+# Primary event 380, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995290927700018 0.025725307942773636 0.016727260314427995
+/run/beamOn 1
+# Primary event 381, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999201352629714 0.0344474022428589 0.02024928101609156
+/run/beamOn 1
+# Primary event 382, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975596487254985 0.06981933353298475 -8.888008664936715e-05
+/run/beamOn 1
+# Primary event 383, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995419414245764 0.023349562742964982 0.019253707510529867
+/run/beamOn 1
+# Primary event 384, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983525823750035 -0.05037886619075072 0.027460719336832872
+/run/beamOn 1
+# Primary event 385, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987636764321811 0.031363804220890024 -0.03856721955841646
+/run/beamOn 1
+# Primary event 386, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983167645675982 0.052803337773502865 -0.023988436865708777
+/run/beamOn 1
+# Primary event 387, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996057543717197 0.014523469935543695 0.024029245680555825
+/run/beamOn 1
+# Primary event 388, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964114419699936 0.02717206693354039 0.08016181815451288
+/run/beamOn 1
+# Primary event 389, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981274531402408 -0.020729412749729167 -0.05754892470609578
+/run/beamOn 1
+# Primary event 390, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999445681955789 -0.003948578316381038 -0.033056581027192694
+/run/beamOn 1
+# Primary event 391, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986846523817823 -0.041295315601122214 -0.030391808213437607
+/run/beamOn 1
+# Primary event 392, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986837646350867 -0.041515952529689114 0.030119162336350463
+/run/beamOn 1
+# Primary event 393, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987168495952993 0.026123531617508158 -0.04338450679988734
+/run/beamOn 1
+# Primary event 394, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994537893472278 -0.00647664133655845 -0.03240642029698325
+/run/beamOn 1
+# Primary event 395, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987656182599768 0.044628383697168136 0.02180704359478068
+/run/beamOn 1
+# Primary event 396, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974427008461191 -0.0687088442530861 0.019676210260223433
+/run/beamOn 1
+# Primary event 397, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973631389117102 0.023179961401421003 0.06877105880826011
+/run/beamOn 1
+# Primary event 398, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976204425107787 0.03452697944195823 -0.0596769668734314
+/run/beamOn 1
+# Primary event 399, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972115289825872 0.06858828287546961 -0.02940771865352931
+/run/beamOn 1
+# Primary event 400, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996218778202712 -0.07664244214495529 0.04091554739158327
+/run/beamOn 1
+# Primary event 401, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989394655139178 0.0013984001581357813 -0.04602161139905896
+/run/beamOn 1
+# Primary event 402, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962401069114866 0.06493057266529827 0.05735564588029915
+/run/beamOn 1
+# Primary event 403, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964640929794363 -0.07707670173493607 -0.033443885126179025
+/run/beamOn 1
+# Primary event 404, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965551168589105 -0.06596597763138763 0.05026319585400865
+/run/beamOn 1
+# Primary event 405, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972686603822509 0.05907049074093246 0.04433842738546356
+/run/beamOn 1
+# Primary event 406, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976205247870698 -0.06336149536489175 0.027177369789889487
+/run/beamOn 1
+# Primary event 407, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983955553486864 -0.03190740665985079 0.04677854700854804
+/run/beamOn 1
+# Primary event 408, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964568765456212 -0.04003818972405103 0.07396375158525666
+/run/beamOn 1
+# Primary event 409, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99883595411319 0.04822407460747956 0.001084158219799702
+/run/beamOn 1
+# Primary event 410, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981804254303119 0.059844837918693196 0.007377917202491759
+/run/beamOn 1
+# Primary event 411, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994832926017339 0.010571533737609873 0.030354414578960928
+/run/beamOn 1
+# Primary event 412, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99822527211535 0.05000423246698504 0.03234011202242907
+/run/beamOn 1
+# Primary event 413, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982773372385328 0.015601109888816756 -0.0565593787641066
+/run/beamOn 1
+# Primary event 414, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996749615347343 0.006295606606162437 -0.0247049917625549
+/run/beamOn 1
+# Primary event 415, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995954556880383 0.028407626785989865 0.0013898590615395755
+/run/beamOn 1
+# Primary event 416, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992609647220326 0.03663034107736193 0.011650858137872313
+/run/beamOn 1
+# Primary event 417, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995074314293457 0.03137466075207134 -0.0007246931793165671
+/run/beamOn 1
+# Primary event 418, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989255619967417 -0.03637993209616518 -0.02870926906370563
+/run/beamOn 1
+# Primary event 419, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998984828679584 0.03851802976670527 0.023359654340622323
+/run/beamOn 1
+# Primary event 420, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994803127564479 0.02749437656719772 0.016827467707714996
+/run/beamOn 1
+# Primary event 421, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971031788785419 -0.009567276611159857 0.07545672858368559
+/run/beamOn 1
+# Primary event 422, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988111615715912 -0.038253160006294314 0.03021521586124436
+/run/beamOn 1
+# Primary event 423, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976631370385994 -0.06831938778378649 -0.0008522013549253386
+/run/beamOn 1
+# Primary event 424, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990612434547707 0.023172495977459195 -0.03660146522725701
+/run/beamOn 1
+# Primary event 425, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994105831723398 -0.007121672947137708 0.03358225748155988
+/run/beamOn 1
+# Primary event 426, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963941349229805 0.07037615825869249 0.04739118314447225
+/run/beamOn 1
+# Primary event 427, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966321274069512 -0.0022244804361305315 -0.0819722776741252
+/run/beamOn 1
+# Primary event 428, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965153023091279 0.0033990781114543117 -0.08334085751742462
+/run/beamOn 1
+# Primary event 429, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962015176118786 -0.033623771054781586 -0.08032420760795318
+/run/beamOn 1
+# Primary event 430, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971358070362514 -0.04637565958741323 -0.05974512970942516
+/run/beamOn 1
+# Primary event 431, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990878263995981 -0.02410073394993202 -0.03525152143101143
+/run/beamOn 1
+# Primary event 432, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964762746797654 0.0831641654433051 0.01089750367998329
+/run/beamOn 1
+# Primary event 433, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976509090472251 0.05713876238168366 -0.0377865784470479
+/run/beamOn 1
+# Primary event 434, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979621971655204 -0.005121395945129877 0.0636020780489148
+/run/beamOn 1
+# Primary event 435, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979856772979323 0.0271757331795594 -0.05732423077844714
+/run/beamOn 1
+# Primary event 436, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969827314333385 0.05543566970784885 0.054335253268590844
+/run/beamOn 1
+# Primary event 437, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996897380905007 -0.022128133609562485 0.01143561364788019
+/run/beamOn 1
+# Primary event 438, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978834769849769 -0.02428399040389336 0.06032291579853107
+/run/beamOn 1
+# Primary event 439, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971249538379703 0.049011434869777194 -0.057790186758923265
+/run/beamOn 1
+# Primary event 440, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992484294488293 -0.0009878446785909576 0.038750489118706835
+/run/beamOn 1
+# Primary event 441, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989534579917861 0.039947274737829844 -0.02227563707894924
+/run/beamOn 1
+# Primary event 442, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977843104192315 0.06605678863773422 -0.007935398924328796
+/run/beamOn 1
+# Primary event 443, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965402469865539 0.04352836363286094 -0.07080125490006307
+/run/beamOn 1
+# Primary event 444, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994322667072187 -0.00047661377441144613 0.033688530745356826
+/run/beamOn 1
+# Primary event 445, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972481289729745 -0.010200163975707995 0.07343109637456159
+/run/beamOn 1
+# Primary event 446, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996714492462061 0.030338055616230552 -0.0750987543007384
+/run/beamOn 1
+# Primary event 447, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998852231840557 0.01133277969017833 -0.04653801727224728
+/run/beamOn 1
+# Primary event 448, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986381309498686 -0.003734275629545966 0.05203785735861503
+/run/beamOn 1
+# Primary event 449, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965263096942366 -0.004428145376447855 0.08316072159205594
+/run/beamOn 1
+# Primary event 450, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991944697652163 0.039824747834789155 0.004939741947077729
+/run/beamOn 1
+# Primary event 451, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982245969157604 -0.025840926026882684 0.05366470585441477
+/run/beamOn 1
+# Primary event 452, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972925681680604 -0.03733663791174481 0.06335226078208851
+/run/beamOn 1
+# Primary event 453, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984460503943013 0.02717276376244509 0.048653112557478305
+/run/beamOn 1
+# Primary event 454, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967999208195344 0.04681008949325974 -0.06479763402936094
+/run/beamOn 1
+# Primary event 455, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990657337209528 -0.027496298016850447 0.03334086531544853
+/run/beamOn 1
+# Primary event 456, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971413932928236 -0.06514183775955064 -0.03828293033918572
+/run/beamOn 1
+# Primary event 457, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999743078131203 0.0053770963390574154 -0.02201964040823292
+/run/beamOn 1
+# Primary event 458, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978808224521033 -0.04316216334449792 -0.04869180462600192
+/run/beamOn 1
+# Primary event 459, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975617387417143 -0.01765138088559864 -0.06752041285003571
+/run/beamOn 1
+# Primary event 460, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981655197562547 0.05966305140302564 0.010291524037084939
+/run/beamOn 1
+# Primary event 461, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987592559638955 0.034448351819627625 -0.035961919906438794
+/run/beamOn 1
+# Primary event 462, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99803920142347 0.03352363824385308 0.0528575264356693
+/run/beamOn 1
+# Primary event 463, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973491152380984 0.025767992010461774 0.06804963571931169
+/run/beamOn 1
+# Primary event 464, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993909626514423 -0.0031924203757610083 -0.03474927657905677
+/run/beamOn 1
+# Primary event 465, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997326204636846 -0.023692612361116 0.06913104703510542
+/run/beamOn 1
+# Primary event 466, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966753711027851 -0.07580334903394799 0.029867321814366875
+/run/beamOn 1
+# Primary event 467, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999089358758559 0.0005855706262952731 -0.013482472423672077
+/run/beamOn 1
+# Primary event 468, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997547770669569 0.019769552685766103 0.0099775006090698
+/run/beamOn 1
+# Primary event 469, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997166064717177 0.020324729331723284 -0.012394035753737662
+/run/beamOn 1
+# Primary event 470, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992801606824194 0.026292819797212562 0.027346811397845786
+/run/beamOn 1
+# Primary event 471, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995009590110983 0.031289595504719526 -0.004335221914259255
+/run/beamOn 1
+# Primary event 472, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990119196724747 -0.0442572633618662 -0.004059432477001195
+/run/beamOn 1
+# Primary event 473, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974996626729457 0.05103975249112467 -0.048881148032798576
+/run/beamOn 1
+# Primary event 474, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984722694303209 -0.024473260623378488 0.04953974861790263
+/run/beamOn 1
+# Primary event 475, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965076682623988 0.08300324410358663 0.009106512093954815
+/run/beamOn 1
+# Primary event 476, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988660240787963 -0.013462771483649497 0.04566639601497435
+/run/beamOn 1
+# Primary event 477, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966978015825866 -0.028472016546063655 0.07604496429244673
+/run/beamOn 1
+# Primary event 478, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979529528706523 0.03663262927274509 -0.05242093407514969
+/run/beamOn 1
+# Primary event 479, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979990565686212 0.04363852823024292 0.04575545805737567
+/run/beamOn 1
+# Primary event 480, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993472960121045 -0.01650750329152908 -0.03213229354365106
+/run/beamOn 1
+# Primary event 481, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982722993701044 0.04717993300383077 -0.03502099701719968
+/run/beamOn 1
+# Primary event 482, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977368261600401 -0.05103019537930897 0.04378521307061798
+/run/beamOn 1
+# Primary event 483, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964030793222388 -0.028326333332750364 -0.07986565192297744
+/run/beamOn 1
+# Primary event 484, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998560533213108 0.05074406812622603 -0.017375300260840994
+/run/beamOn 1
+# Primary event 485, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962245320895778 -0.07412731407002154 0.04518653529167788
+/run/beamOn 1
+# Primary event 486, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997859097810412 -0.05636253591219747 0.03317356571936179
+/run/beamOn 1
+# Primary event 487, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963595412475811 0.03366417197048427 -0.07832233455695414
+/run/beamOn 1
+# Primary event 488, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963582178692858 -0.05427684200720325 -0.06575960846953043
+/run/beamOn 1
+# Primary event 489, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973839666590822 -0.06432975555612154 0.03296825141684607
+/run/beamOn 1
+# Primary event 490, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993833311580166 0.009968843036117734 0.03366867345214834
+/run/beamOn 1
+# Primary event 491, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981411101007209 -0.0063920435720178125 0.06060912559898863
+/run/beamOn 1
+# Primary event 492, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985162702168169 -0.052367638819874746 -0.01492945132039021
+/run/beamOn 1
+# Primary event 493, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987341481043125 0.04151946037292103 0.028394292044257554
+/run/beamOn 1
+# Primary event 494, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986021540635939 -0.02770996816302787 -0.045009949610661286
+/run/beamOn 1
+# Primary event 495, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964525043153408 0.08258567872356957 -0.016186794415602952
+/run/beamOn 1
+# Primary event 496, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994321539993672 0.009017504142422528 -0.032466200443329755
+/run/beamOn 1
+# Primary event 497, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991873170460339 -0.040307622571036386 -3.189074049916968e-05
+/run/beamOn 1
+# Primary event 498, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996778727575779 0.01426431023182126 0.020992383678235926
+/run/beamOn 1
+# Primary event 499, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990247713503574 0.04367858291514291 -0.006456595301788633
+/run/beamOn 1
+# Primary event 500, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964335030943278 -0.05011870229943501 -0.06788512054188994
+/run/beamOn 1
+# Primary event 501, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998980467271027 0.00897858868752586 0.011103202083408186
+/run/beamOn 1
+# Primary event 502, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983223811813402 0.04638097780036497 -0.03465873815794457
+/run/beamOn 1
+# Primary event 503, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971983673419987 0.018598801128805548 0.07245343861421111
+/run/beamOn 1
+# Primary event 504, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989258663943323 0.012735458485223405 -0.04455245835533284
+/run/beamOn 1
+# Primary event 505, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997781994972547 -0.01210402640313475 -0.017234974756577374
+/run/beamOn 1
+# Primary event 506, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963996103468026 0.03666226393345809 -0.07644406388996743
+/run/beamOn 1
+# Primary event 507, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972828994469132 -0.06787776581002329 -0.02862564199101451
+/run/beamOn 1
+# Primary event 508, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989378885267088 0.04564355981523151 -0.006305577942903315
+/run/beamOn 1
+# Primary event 509, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982928674596928 0.035862085094095844 0.0461005599945161
+/run/beamOn 1
+# Primary event 510, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981420102098814 -0.057338060272601424 -0.020612479189864013
+/run/beamOn 1
+# Primary event 511, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990566483948486 0.015717217185319148 0.040481877204513725
+/run/beamOn 1
+# Primary event 512, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982937899686667 0.05557294725845662 0.017920838233865716
+/run/beamOn 1
+# Primary event 513, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999429755577445 0.01057151748566041 0.0015128287326619594
+/run/beamOn 1
+# Primary event 514, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982534581474246 0.026962143125707907 0.05256497060568741
+/run/beamOn 1
+# Primary event 515, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972402036857856 -0.06067327647647718 0.04278702693973809
+/run/beamOn 1
+# Primary event 516, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971577742162245 -0.005255736713428483 0.07515817022615734
+/run/beamOn 1
+# Primary event 517, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973692222551603 -0.07248793133028017 0.0003664827324093968
+/run/beamOn 1
+# Primary event 518, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998342602769336 0.004616813228698783 0.017610707313688908
+/run/beamOn 1
+# Primary event 519, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968516552708379 0.07642734113809968 0.02111016130566568
+/run/beamOn 1
+# Primary event 520, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996789776280041 0.005224085279597387 -0.02479214838653593
+/run/beamOn 1
+# Primary event 521, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993552004018398 0.021185562478578022 0.028988883598112834
+/run/beamOn 1
+# Primary event 522, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978744376110714 -0.03086026802874089 -0.05739556271683591
+/run/beamOn 1
+# Primary event 523, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982165693993368 -0.006615269972801291 -0.05932890340977151
+/run/beamOn 1
+# Primary event 524, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969337425627354 0.06404197214627902 -0.04496374921503876
+/run/beamOn 1
+# Primary event 525, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984472563863939 -0.042498450601952203 -0.03601330186078639
+/run/beamOn 1
+# Primary event 526, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984247115748752 -0.052534127802493696 0.019704332839719427
+/run/beamOn 1
+# Primary event 527, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962425485103797 0.044679347079821394 0.07419259047953854
+/run/beamOn 1
+# Primary event 528, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980258155884943 0.05466958511493471 0.030914525425461966
+/run/beamOn 1
+# Primary event 529, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984589033609589 0.020421440675165835 0.051602161388666655
+/run/beamOn 1
+# Primary event 530, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987999382373519 -0.040508878239915336 0.02752660823286559
+/run/beamOn 1
+# Primary event 531, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986970757911432 -0.003834582782341799 0.050886607089733644
+/run/beamOn 1
+# Primary event 532, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996668784115887 -0.04181453549836212 -0.07002056405096733
+/run/beamOn 1
+# Primary event 533, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993360277869056 0.008841370592407872 0.035345915367080406
+/run/beamOn 1
+# Primary event 534, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963341678612931 0.05801832024831385 -0.06286573365283102
+/run/beamOn 1
+# Primary event 535, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990610674757121 0.0045865606204017854 -0.04308070236156833
+/run/beamOn 1
+# Primary event 536, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992035247133774 -0.03463100853277605 0.019824465903671512
+/run/beamOn 1
+# Primary event 537, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998137325576569 0.006830518719173498 -0.0180511551750315
+/run/beamOn 1
+# Primary event 538, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990705768180596 0.04014021723392262 -0.015708134734693072
+/run/beamOn 1
+# Primary event 539, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996502874807531 -0.024269176397441125 -0.010502848025058005
+/run/beamOn 1
+# Primary event 540, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964095689979222 -0.07148359780270937 -0.04536591291438329
+/run/beamOn 1
+# Primary event 541, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980810411050072 0.06157176494639666 0.0065691055807216925
+/run/beamOn 1
+# Primary event 542, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973905437831653 0.030834206976044352 -0.06527905370086447
+/run/beamOn 1
+# Primary event 543, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985722299665618 0.048372807813306454 -0.02266214914488183
+/run/beamOn 1
+# Primary event 544, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990711584079349 0.01693780347684198 0.039622357966265016
+/run/beamOn 1
+# Primary event 545, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989089439961134 0.044686281899106145 0.013566790873424602
+/run/beamOn 1
+# Primary event 546, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995028866918297 -0.008657758530452463 0.030315387378817185
+/run/beamOn 1
+# Primary event 547, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998897647279944 0.014186102838468847 0.004383249759295369
+/run/beamOn 1
+# Primary event 548, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990199214318648 0.03558688760404907 0.02632052455646556
+/run/beamOn 1
+# Primary event 549, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994789006573964 0.013261727812357038 -0.029428790598888917
+/run/beamOn 1
+# Primary event 550, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998144012485851 -0.05616301521833379 -0.02354243106033174
+/run/beamOn 1
+# Primary event 551, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970316018472569 -0.050716649657542544 0.05792932215559763
+/run/beamOn 1
+# Primary event 552, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996759157863403 -0.06309465840748486 0.049902357618479005
+/run/beamOn 1
+# Primary event 553, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967196177301391 -0.053847302091566095 -0.06041913347065667
+/run/beamOn 1
+# Primary event 554, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980704520053775 -0.03816825065919414 0.04897506993765688
+/run/beamOn 1
+# Primary event 555, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975123114679063 0.06730376995921086 -0.020961655927723585
+/run/beamOn 1
+# Primary event 556, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999801441827868 0.019757424822078498 -0.0025925052200783524
+/run/beamOn 1
+# Primary event 557, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975744291450609 0.06057073716955682 0.03429933111071329
+/run/beamOn 1
+# Primary event 558, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968140832317087 0.05100681698286699 -0.06131874176957921
+/run/beamOn 1
+# Primary event 559, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975301137774576 0.04233262581099438 0.0560501641307035
+/run/beamOn 1
+# Primary event 560, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998312433634459 0.003092089231024176 0.018108665839680918
+/run/beamOn 1
+# Primary event 561, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983269016225724 -0.04950200896707586 0.02988224564684023
+/run/beamOn 1
+# Primary event 562, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996720264500952 -0.05621639099839203 0.05821023721192178
+/run/beamOn 1
+# Primary event 563, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991947558661861 -0.038667259371379895 -0.010709010328649323
+/run/beamOn 1
+# Primary event 564, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994588736109444 0.032726001497849336 0.003311915805840912
+/run/beamOn 1
+# Primary event 565, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966049472213139 -0.07495321585319734 0.034067500748751145
+/run/beamOn 1
+# Primary event 566, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986381732821638 -0.044301890803240526 0.027552519574819936
+/run/beamOn 1
+# Primary event 567, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972449907656258 0.02918356382302181 -0.06819639283315927
+/run/beamOn 1
+# Primary event 568, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994399632750335 -0.01980449950157586 -0.026972979225362348
+/run/beamOn 1
+# Primary event 569, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966987231127825 -0.004635709730046019 -0.08105655766591402
+/run/beamOn 1
+# Primary event 570, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985067516861021 -0.005204601220364521 -0.054379950012901745
+/run/beamOn 1
+# Primary event 571, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989939419342978 -0.041346509142563936 -0.017365775545501116
+/run/beamOn 1
+# Primary event 572, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976576084189094 0.035710260645290856 -0.05834443973942588
+/run/beamOn 1
+# Primary event 573, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997164465979579 0.02270908094836905 -0.007164080124677192
+/run/beamOn 1
+# Primary event 574, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973496917826616 0.01744589554179796 0.07063450311125968
+/run/beamOn 1
+# Primary event 575, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969275773872758 -0.032961439969718516 -0.07105595625885189
+/run/beamOn 1
+# Primary event 576, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998641169996456 0.001141642859024705 0.01644518738420083
+/run/beamOn 1
+# Primary event 577, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979043305574202 -0.06212300460018216 -0.018101915760292502
+/run/beamOn 1
+# Primary event 578, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977795200464206 -0.06351511053817041 -0.02004644879420198
+/run/beamOn 1
+# Primary event 579, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976060837864145 -0.059125226335591245 -0.035865153047191865
+/run/beamOn 1
+# Primary event 580, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999165489857194 0.0011464508326985913 -0.012867817024566746
+/run/beamOn 1
+# Primary event 581, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998588074025332 -0.014786718614752883 0.007982368833381987
+/run/beamOn 1
+# Primary event 582, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967635398237529 0.023815602701807097 0.07678061438912473
+/run/beamOn 1
+# Primary event 583, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970754575449314 0.00951843660848545 -0.0758283016168494
+/run/beamOn 1
+# Primary event 584, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970437906195125 -0.07121340699802305 -0.02885013432910719
+/run/beamOn 1
+# Primary event 585, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997231723026324 -0.020707891673828954 0.011169690397951888
+/run/beamOn 1
+# Primary event 586, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970969114742532 0.0578898715387039 -0.04946222701959295
+/run/beamOn 1
+# Primary event 587, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999202569133181 0.011491124444465886 0.005237735522694342
+/run/beamOn 1
+# Primary event 588, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993249650524945 0.03625831746483386 -0.005911737261590434
+/run/beamOn 1
+# Primary event 589, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973226147650912 -0.04598324093628345 0.056860738925177255
+/run/beamOn 1
+# Primary event 590, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996924557701029 0.016202323517263074 0.07667405666357933
+/run/beamOn 1
+# Primary event 591, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991229274122758 -0.03909408535049883 0.015000946961181835
+/run/beamOn 1
+# Primary event 592, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973716245351403 -0.04776092926399683 0.05448611022980638
+/run/beamOn 1
+# Primary event 593, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996476482274602 0.026538425419079706 -0.0005397866095680663
+/run/beamOn 1
+# Primary event 594, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974108892998811 -0.007799931989098912 0.07148901291097648
+/run/beamOn 1
+# Primary event 595, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972196060402605 0.015796054061029834 -0.07282542142005546
+/run/beamOn 1
+# Primary event 596, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996528809450614 0.009263693835133792 0.024663770895134666
+/run/beamOn 1
+# Primary event 597, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965932862895284 -0.0409683890682219 0.07157801911056842
+/run/beamOn 1
+# Primary event 598, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993539096758645 0.02064343296045796 -0.029421282962698983
+/run/beamOn 1
+# Primary event 599, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998100560046326 -0.01708483676569884 0.00937871338206537
+/run/beamOn 1
+# Primary event 600, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963594127091541 0.08174054786663573 0.024215770488088966
+/run/beamOn 1
+# Primary event 601, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992637100733676 -0.02709082880520282 0.027168450913808453
+/run/beamOn 1
+# Primary event 602, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968429623861534 -0.0157707060213807 0.07781640683548081
+/run/beamOn 1
+# Primary event 603, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965755887035559 0.07151336532810212 -0.04150824712765434
+/run/beamOn 1
+# Primary event 604, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978316286643665 -0.06578751904918594 -0.0020107646234404264
+/run/beamOn 1
+# Primary event 605, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969555375528034 -0.07718209177267384 -0.01107162374701054
+/run/beamOn 1
+# Primary event 606, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971600711454195 0.0698583697900225 -0.02813539911823465
+/run/beamOn 1
+# Primary event 607, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994871353881392 -0.006281221219105651 -0.03140083523742964
+/run/beamOn 1
+# Primary event 608, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983417898800728 -0.007029545868510436 -0.05713366839207007
+/run/beamOn 1
+# Primary event 609, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996517032575299 -0.05388178535752425 0.06364398631454628
+/run/beamOn 1
+# Primary event 610, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999547775082742 0.007686850263267863 -0.029071595418387063
+/run/beamOn 1
+# Primary event 611, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973958725786908 -0.053874709200393604 0.047947774417224635
+/run/beamOn 1
+# Primary event 612, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996725007215436 0.08086462560804403 0.0004151104189455324
+/run/beamOn 1
+# Primary event 613, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998099941673855 0.007798584050898256 0.01786498390185921
+/run/beamOn 1
+# Primary event 614, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992429086408543 0.016898531480148058 0.035043532424397505
+/run/beamOn 1
+# Primary event 615, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979266077673657 -0.06189389116917718 -0.0176530945121865
+/run/beamOn 1
+# Primary event 616, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968981410126809 -0.01528154662065154 0.07720473287527026
+/run/beamOn 1
+# Primary event 617, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967245872652116 0.08084765435436066 0.0019375051977736488
+/run/beamOn 1
+# Primary event 618, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975956437756918 0.036906171046625066 -0.058658895816750004
+/run/beamOn 1
+# Primary event 619, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970322215886167 -0.07021804293698779 0.03156224897194246
+/run/beamOn 1
+# Primary event 620, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976922515038047 -0.06759651932296401 -0.00639389276489968
+/run/beamOn 1
+# Primary event 621, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970099089043606 0.07387536610422599 0.022664329451479562
+/run/beamOn 1
+# Primary event 622, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974514075502668 0.0707466816750125 -0.009251843490132658
+/run/beamOn 1
+# Primary event 623, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984026435360299 -0.05395044775987509 0.016778276633078577
+/run/beamOn 1
+# Primary event 624, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973151458741527 -0.015170414049433709 -0.07164047981125062
+/run/beamOn 1
+# Primary event 625, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967586863371388 -0.06079529414812035 -0.05268826644429354
+/run/beamOn 1
+# Primary event 626, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980956790526366 0.05604921110624311 0.025758520742153797
+/run/beamOn 1
+# Primary event 627, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981009900360365 -0.03253252197813301 0.05230725287019129
+/run/beamOn 1
+# Primary event 628, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996234494820372 -0.08237825700670331 0.027030614172374758
+/run/beamOn 1
+# Primary event 629, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969706269729327 0.060887164392428535 0.04839754296910947
+/run/beamOn 1
+# Primary event 630, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988071480328983 -0.046097775075583006 -0.016102054883430778
+/run/beamOn 1
+# Primary event 631, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976818142134573 -0.019196758515875757 -0.06528768681939724
+/run/beamOn 1
+# Primary event 632, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995309325798384 -0.020335699396533603 0.022899217151080623
+/run/beamOn 1
+# Primary event 633, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981975663552863 0.04648613314583577 -0.037956000151904166
+/run/beamOn 1
+# Primary event 634, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972084565034129 -0.07123580674123864 0.022377535968146466
+/run/beamOn 1
+# Primary event 635, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980454772459861 -0.03998953080495064 0.04802148243059201
+/run/beamOn 1
+# Primary event 636, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983274661942284 0.013497789955878933 -0.056214588040105394
+/run/beamOn 1
+# Primary event 637, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999512111063613 -0.026647781735935707 0.016292193397871003
+/run/beamOn 1
+# Primary event 638, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972729076027714 0.008226375841191664 -0.07334217410217372
+/run/beamOn 1
+# Primary event 639, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998871376857885 -0.0071691580238005745 0.04695290903940856
+/run/beamOn 1
+# Primary event 640, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978818051100281 0.0011432100778341822 0.06504303268659806
+/run/beamOn 1
+# Primary event 641, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981872889042716 0.015484312870199421 0.058158166450448925
+/run/beamOn 1
+# Primary event 642, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964642895241648 -0.007717523763875109 0.08366217502584783
+/run/beamOn 1
+# Primary event 643, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965261177071855 -0.025560704555153187 0.07926125856992768
+/run/beamOn 1
+# Primary event 644, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974441144827492 -0.026576802643010808 0.06632429453072836
+/run/beamOn 1
+# Primary event 645, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997321853405269 0.0020134869907424548 -0.023054358902222776
+/run/beamOn 1
+# Primary event 646, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971892859772851 0.06197310711924003 -0.04210536695125148
+/run/beamOn 1
+# Primary event 647, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980296704079217 0.06246073728429846 0.00595258627464539
+/run/beamOn 1
+# Primary event 648, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979808867907636 0.05486288667389743 0.03200333210976947
+/run/beamOn 1
+# Primary event 649, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972401292251604 0.07201715436704996 -0.01804588983281093
+/run/beamOn 1
+# Primary event 650, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982178403501293 0.05941016394361194 -0.005619219422393199
+/run/beamOn 1
+# Primary event 651, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978767711208428 -0.03257000797847511 0.05640163328949912
+/run/beamOn 1
+# Primary event 652, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997067653645443 0.0012159068510719231 0.07651546003586676
+/run/beamOn 1
+# Primary event 653, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991303561716203 -0.03508421532012788 -0.022530628303315463
+/run/beamOn 1
+# Primary event 654, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994707695915552 -0.03226314530861853 0.004155741433160167
+/run/beamOn 1
+# Primary event 655, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995066470569913 0.025473947511133358 -0.0183722749568753
+/run/beamOn 1
+# Primary event 656, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964765045349483 -0.04120702367384978 -0.07305174268800124
+/run/beamOn 1
+# Primary event 657, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964792444868042 -0.05061479802516533 0.06683754579485622
+/run/beamOn 1
+# Primary event 658, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966793808619714 -0.054768309330298956 -0.06025482601168247
+/run/beamOn 1
+# Primary event 659, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966670840984903 0.06944274637659441 0.04280687386727647
+/run/beamOn 1
+# Primary event 660, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998995059626341 -0.019513052839597405 -0.04034986506845294
+/run/beamOn 1
+# Primary event 661, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994138841231807 0.028772523293894122 -0.01854804909201758
+/run/beamOn 1
+# Primary event 662, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989074086154379 0.022184798834510258 -0.04113178471526387
+/run/beamOn 1
+# Primary event 663, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972919541178281 -0.07095397087976454 0.019346634545505868
+/run/beamOn 1
+# Primary event 664, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982697550910109 -0.04707076113632302 0.035239743423872455
+/run/beamOn 1
+# Primary event 665, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979537225210564 -0.06351396367732072 0.007371846740289725
+/run/beamOn 1
+# Primary event 666, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981637546425671 0.058798158813302796 0.014556628662525698
+/run/beamOn 1
+# Primary event 667, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967593506940355 0.010986506791204602 -0.07968747374921266
+/run/beamOn 1
+# Primary event 668, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994874756262612 0.008498719551356221 0.030863535640483667
+/run/beamOn 1
+# Primary event 669, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966216122766546 0.00829769936116279 0.0817099145048713
+/run/beamOn 1
+# Primary event 670, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995388860096264 -0.02845650444718497 0.01059446597438678
+/run/beamOn 1
+# Primary event 671, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999211177811189 -0.012557033609216435 0.00028128685481703785
+/run/beamOn 1
+# Primary event 672, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996636485147388 0.007759307452007531 -0.0815813068106013
+/run/beamOn 1
+# Primary event 673, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996650291724892 -0.02707998264929919 -0.0771678076946688
+/run/beamOn 1
+# Primary event 674, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999854823344559 -0.0001856619483583704 -0.00538522515466291
+/run/beamOn 1
+# Primary event 675, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992913117304069 -0.03360042644489405 0.016967193133930334
+/run/beamOn 1
+# Primary event 676, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996431877045393 0.012822009998748116 0.08342128306006019
+/run/beamOn 1
+# Primary event 677, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994630088461728 0.007909730694615388 -0.031798272099185065
+/run/beamOn 1
+# Primary event 678, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983800549550785 0.016951317251388494 0.05431315412804886
+/run/beamOn 1
+# Primary event 679, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980127058413522 0.026406343255318973 -0.05721314547466293
+/run/beamOn 1
+# Primary event 680, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966094976599799 0.06748766651549323 -0.04706297952973419
+/run/beamOn 1
+# Primary event 681, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964925684566985 -0.014912101546191502 -0.08234191058050586
+/run/beamOn 1
+# Primary event 682, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962641324584671 0.05289654641834775 -0.06826224251948831
+/run/beamOn 1
+# Primary event 683, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973930327066373 -0.0684238581340048 -0.022919728321129693
+/run/beamOn 1
+# Primary event 684, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963614290547653 -0.04251706342714953 -0.07386610866613744
+/run/beamOn 1
+# Primary event 685, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999897400361126 -0.0014596077780843935 0.004288282598196133
+/run/beamOn 1
+# Primary event 686, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993836785462373 0.0204040334563954 0.028564636775237004
+/run/beamOn 1
+# Primary event 687, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963341744798243 -0.04252128611921516 -0.07423040475691105
+/run/beamOn 1
+# Primary event 688, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972251114943298 -0.016308216185908518 -0.07263689895607617
+/run/beamOn 1
+# Primary event 689, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964425707661704 0.05639540016689958 0.0626239730847602
+/run/beamOn 1
+# Primary event 690, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973972696331953 -0.07160064568531203 -0.008487288477097473
+/run/beamOn 1
+# Primary event 691, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997108341178763 0.05325401097818873 0.054212233549914245
+/run/beamOn 1
+# Primary event 692, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966196791338477 -0.05492109778017365 0.06109736640614733
+/run/beamOn 1
+# Primary event 693, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964315646158504 -0.08152797431819732 -0.021847801737926286
+/run/beamOn 1
+# Primary event 694, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963063567840266 -0.0851746008044707 -0.010905540313942415
+/run/beamOn 1
+# Primary event 695, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974006339108039 0.06984754006656306 0.01770018703224208
+/run/beamOn 1
+# Primary event 696, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996278837931088 -0.07498770283172858 -0.04248907523942264
+/run/beamOn 1
+# Primary event 697, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989035394766179 0.019893871795465968 0.04237868197655968
+/run/beamOn 1
+# Primary event 698, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983676441290835 0.049150943591462215 0.029090065318120948
+/run/beamOn 1
+# Primary event 699, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979670223953823 0.025878019124883866 -0.05824216975239444
+/run/beamOn 1
+# Primary event 700, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969141942419121 -0.0765789462350925 0.01725555888755883
+/run/beamOn 1
+# Primary event 701, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996312551085048 -0.003051856325929243 0.026982216053564562
+/run/beamOn 1
+# Primary event 702, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991725840632225 0.03592014443143115 0.019075913620261287
+/run/beamOn 1
+# Primary event 703, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972375380012635 0.012345758367353465 -0.07324530736855128
+/run/beamOn 1
+# Primary event 704, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994967879085344 -0.008064376862380988 0.03067795277302154
+/run/beamOn 1
+# Primary event 705, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977592536654816 -0.03279555428926395 0.05831743601840805
+/run/beamOn 1
+# Primary event 706, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969266166281112 -0.03758082313203356 0.06873865572693305
+/run/beamOn 1
+# Primary event 707, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993878918276865 -0.03125839574489637 -0.01570841696886982
+/run/beamOn 1
+# Primary event 708, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994052630846858 -0.031135338763017113 -0.014822644795787663
+/run/beamOn 1
+# Primary event 709, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987718447543642 -0.04663456709656903 -0.016733776551626427
+/run/beamOn 1
+# Primary event 710, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970023471254313 -0.07723503692695059 0.004590086848137975
+/run/beamOn 1
+# Primary event 711, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975054246708815 0.009303232639589583 0.06997412103497921
+/run/beamOn 1
+# Primary event 712, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99739698299767 0.06313623760918471 -0.03482920911680591
+/run/beamOn 1
+# Primary event 713, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998583962358824 0.016488464758046308 -0.0033642245067675124
+/run/beamOn 1
+# Primary event 714, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998267378662554 -0.009377760889448587 0.05808871059761386
+/run/beamOn 1
+# Primary event 715, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975840365399992 -0.020076880420354628 0.06650570586910826
+/run/beamOn 1
+# Primary event 716, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998559935441945 0.011119226880991597 -0.012820100129120396
+/run/beamOn 1
+# Primary event 717, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991910543339486 -0.03989452669738818 -0.005065933142427925
+/run/beamOn 1
+# Primary event 718, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980408757956465 -0.005588057999658403 -0.06231519757532218
+/run/beamOn 1
+# Primary event 719, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999580673364783 -0.006024882338373024 -0.028322751074283295
+/run/beamOn 1
+# Primary event 720, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997995555722139 -0.01596519031288206 -0.012081447590295225
+/run/beamOn 1
+# Primary event 721, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993879223642842 -0.027420456166677994 -0.02172324137901074
+/run/beamOn 1
+# Primary event 722, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998285786251603 0.025351613534524732 -0.052752105732518914
+/run/beamOn 1
+# Primary event 723, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978940231216952 0.03605236331778962 -0.05392351729254896
+/run/beamOn 1
+# Primary event 724, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997175344619988 0.07418133986818831 -0.011766940867041697
+/run/beamOn 1
+# Primary event 725, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989788819709355 0.015224876733508969 0.04253700159330821
+/run/beamOn 1
+# Primary event 726, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987985064333779 -0.011843158214540333 0.04755295101209783
+/run/beamOn 1
+# Primary event 727, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965638053807886 0.055952967988191875 0.061072474800634324
+/run/beamOn 1
+# Primary event 728, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978439996167818 0.06219677769636075 -0.020950257109958494
+/run/beamOn 1
+# Primary event 729, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970985436477966 -0.0733594700444446 -0.020319508120063636
+/run/beamOn 1
+# Primary event 730, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978679889118472 0.03128599948151547 0.05727707169075668
+/run/beamOn 1
+# Primary event 731, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988402295697014 -0.016060053188315604 0.04539020251920734
+/run/beamOn 1
+# Primary event 732, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963671701446554 0.049888500804878944 -0.06901883616356484
+/run/beamOn 1
+# Primary event 733, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990945789756381 0.040726209296707415 0.012304395060838542
+/run/beamOn 1
+# Primary event 734, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979160559134674 -0.027105692442373795 0.05855618487682374
+/run/beamOn 1
+# Primary event 735, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986921525485796 -0.019900919643540578 0.04709498736835983
+/run/beamOn 1
+# Primary event 736, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988559069583962 0.045858156744361736 0.013561216550490338
+/run/beamOn 1
+# Primary event 737, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996493252213605 -0.01599007382674241 -0.021107916133382358
+/run/beamOn 1
+# Primary event 738, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977104230268743 0.02809348124285015 -0.06151965616933443
+/run/beamOn 1
+# Primary event 739, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990122662266137 -0.017222176142063905 0.04096203825125609
+/run/beamOn 1
+# Primary event 740, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965366658595457 -0.053566580108689636 -0.06360263432436979
+/run/beamOn 1
+# Primary event 741, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978100009267994 0.04449475722351401 -0.04894301410907537
+/run/beamOn 1
+# Primary event 742, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967653804142784 0.03907825345848856 -0.07022582512304847
+/run/beamOn 1
+# Primary event 743, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994056246588745 0.009612637699499856 0.033105809107511264
+/run/beamOn 1
+# Primary event 744, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971673332509239 -0.056731877063704625 -0.04938424467448777
+/run/beamOn 1
+# Primary event 745, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997277507737857 -0.07348129504348347 0.006170238155952098
+/run/beamOn 1
+# Primary event 746, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982216903946552 -0.04656680966925088 0.03721544118863536
+/run/beamOn 1
+# Primary event 747, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996665581465489 -0.017333779897764655 0.07973241998405993
+/run/beamOn 1
+# Primary event 748, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992811423743094 0.011535604746709961 -0.03611271684909407
+/run/beamOn 1
+# Primary event 749, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965806237141982 -0.028863696909787167 -0.0774205879473903
+/run/beamOn 1
+# Primary event 750, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995411816375868 -0.02326527455814183 -0.019394669635523252
+/run/beamOn 1
+# Primary event 751, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998508954260704 -0.014627187361031293 -0.009177815948822396
+/run/beamOn 1
+# Primary event 752, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997977026907533 -0.05175422155291401 0.036923628156683666
+/run/beamOn 1
+# Primary event 753, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998416254624295 -0.029845517345725013 -0.04768886239323671
+/run/beamOn 1
+# Primary event 754, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999712867973891 0.004469684932529682 0.0061194360342873835
+/run/beamOn 1
+# Primary event 755, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974324900394732 0.0562377690175723 -0.04433667950560093
+/run/beamOn 1
+# Primary event 756, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988059064018544 -0.01742094503267281 0.04564287470064373
+/run/beamOn 1
+# Primary event 757, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983359699830555 0.053241229346733816 0.02215090372062094
+/run/beamOn 1
+# Primary event 758, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967665494867622 0.07799881236355874 0.019303654942220933
+/run/beamOn 1
+# Primary event 759, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994127521663303 0.02248031823829318 0.025860899041339782
+/run/beamOn 1
+# Primary event 760, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976120187319368 -0.03302372354373142 0.06066047943180932
+/run/beamOn 1
+# Primary event 761, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998845582999275 0.04304788936937131 0.021316203782120593
+/run/beamOn 1
+# Primary event 762, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962289273969063 0.04085506236624104 0.07654272072940818
+/run/beamOn 1
+# Primary event 763, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983566892716561 -0.03476976920032149 0.04555199376859615
+/run/beamOn 1
+# Primary event 764, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964843485800673 -0.01878269648651541 0.08164651460812287
+/run/beamOn 1
+# Primary event 765, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972025863521374 -0.010730792003937862 -0.07397196682241232
+/run/beamOn 1
+# Primary event 766, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989097493854646 0.046314872346761904 0.005851938326006594
+/run/beamOn 1
+# Primary event 767, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993724146546872 0.027755329241411518 0.022009509898241415
+/run/beamOn 1
+# Primary event 768, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977157196721105 -0.05994426455997372 0.031145270355650765
+/run/beamOn 1
+# Primary event 769, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963081353430883 0.06688024060228188 0.05382502081894099
+/run/beamOn 1
+# Primary event 770, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990174824850757 -0.016791433046071804 -0.04101362536329456
+/run/beamOn 1
+# Primary event 771, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991965041492301 0.039317136057327284 -0.0077787472132195305
+/run/beamOn 1
+# Primary event 772, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995755716138551 -0.009124726922852822 0.027666152450568304
+/run/beamOn 1
+# Primary event 773, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986948687005157 -0.027516512277436428 -0.04302790702957069
+/run/beamOn 1
+# Primary event 774, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970596389139078 0.004706825390783119 -0.07648478439276965
+/run/beamOn 1
+# Primary event 775, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996560011940955 -0.022049144647323757 -0.014202622889875092
+/run/beamOn 1
+# Primary event 776, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999168512199134 -0.007880606545478298 0.04000225331458528
+/run/beamOn 1
+# Primary event 777, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999408600542247 -0.016725996005533737 0.03004480354088238
+/run/beamOn 1
+# Primary event 778, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973516616069552 -0.06690958810251504 -0.028509123273037403
+/run/beamOn 1
+# Primary event 779, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985215132242155 -0.05311532149762655 0.011556394360989482
+/run/beamOn 1
+# Primary event 780, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993599374381041 0.001020929325352059 -0.0357585394978761
+/run/beamOn 1
+# Primary event 781, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981942199539527 0.04470992446812606 -0.04011635457733326
+/run/beamOn 1
+# Primary event 782, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977200430071892 -0.051837131182217486 0.04321605734596892
+/run/beamOn 1
+# Primary event 783, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999253146674507 -0.004796348857983271 0.011241001949656063
+/run/beamOn 1
+# Primary event 784, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967018637633472 0.04967541554046425 -0.06416968023570162
+/run/beamOn 1
+# Primary event 785, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988175998017188 -0.02096611462491542 0.04386142227366074
+/run/beamOn 1
+# Primary event 786, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992661921483821 -0.01668645094395323 -0.03447665274019207
+/run/beamOn 1
+# Primary event 787, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979168747182973 -0.06337985577467659 -0.012037650702999319
+/run/beamOn 1
+# Primary event 788, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998094833160708 -0.01889562728709139 -0.004894112859235781
+/run/beamOn 1
+# Primary event 789, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965901526465626 -0.07656495804861332 0.030755078392278177
+/run/beamOn 1
+# Primary event 790, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973507227109508 0.07033376250038936 -0.018566037824018607
+/run/beamOn 1
+# Primary event 791, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978587568612832 -0.052926962643419326 0.038427047513392244
+/run/beamOn 1
+# Primary event 792, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991079471991828 0.004131926479899381 -0.04202662283600235
+/run/beamOn 1
+# Primary event 793, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964980065103346 -0.0356195859920189 -0.07565030148443738
+/run/beamOn 1
+# Primary event 794, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997482549783162 -0.019618170781460473 -0.010888252522839412
+/run/beamOn 1
+# Primary event 795, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972492535960283 0.06754806491640569 -0.030515326120056786
+/run/beamOn 1
+# Primary event 796, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964411241477716 -0.08411766197150823 0.005413414040344928
+/run/beamOn 1
+# Primary event 797, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969475840067339 -0.07350561239806672 -0.02631424878504951
+/run/beamOn 1
+# Primary event 798, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977213834203582 0.049536706939753115 -0.04580562990868679
+/run/beamOn 1
+# Primary event 799, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964717185981806 -0.08190908585814759 0.01830343377268073
+/run/beamOn 1
+# Primary event 800, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972919870527076 0.0569264495533924 0.04656255901158278
+/run/beamOn 1
+# Primary event 801, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994089063517623 -0.02032425128166208 -0.027726570552708076
+/run/beamOn 1
+# Primary event 802, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975331437407077 -0.06877203933915357 -0.014072446266183173
+/run/beamOn 1
+# Primary event 803, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978973859895119 0.060287123265732 0.023796424177624877
+/run/beamOn 1
+# Primary event 804, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974494189768918 0.06976655569520539 0.015075950686071713
+/run/beamOn 1
+# Primary event 805, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965720387501529 0.048338547989924326 -0.06713833748008306
+/run/beamOn 1
+# Primary event 806, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991682143447159 -0.011723183253731192 0.03905696375284699
+/run/beamOn 1
+# Primary event 807, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996261878973663 0.06350741449894756 -0.058558319712277505
+/run/beamOn 1
+# Primary event 808, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964527086821726 0.003183455278191721 0.08409438133700127
+/run/beamOn 1
+# Primary event 809, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994238889211114 -0.03031632721372496 -0.015258130883967148
+/run/beamOn 1
+# Primary event 810, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978642003579886 0.012634177520981164 -0.06408911921910171
+/run/beamOn 1
+# Primary event 811, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996886469260993 -0.022063736041006848 -0.01165335827036917
+/run/beamOn 1
+# Primary event 812, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997015663076467 0.02217610405432524 0.010246888845381337
+/run/beamOn 1
+# Primary event 813, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981714805594228 -0.023498925082818607 -0.055691075746136166
+/run/beamOn 1
+# Primary event 814, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994146759853942 -0.03381397845895531 0.005188476249025864
+/run/beamOn 1
+# Primary event 815, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985879402866041 -0.012819563074351429 0.051553703230129144
+/run/beamOn 1
+# Primary event 816, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989720942058192 -0.03992575207801485 -0.021463674406884705
+/run/beamOn 1
+# Primary event 817, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999618398091384 -0.008599228431963396 -0.001540193461182086
+/run/beamOn 1
+# Primary event 818, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969272592797953 0.020939787778145078 -0.07548221640016937
+/run/beamOn 1
+# Primary event 819, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979109594663098 0.043957059273778805 0.04734441801343055
+/run/beamOn 1
+# Primary event 820, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998566779115519 -0.016922449217386407 0.0005043294163527613
+/run/beamOn 1
+# Primary event 821, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968336417752353 0.023886906961412734 0.0758426417059607
+/run/beamOn 1
+# Primary event 822, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971621913322806 0.06749059395758965 -0.03335541792057315
+/run/beamOn 1
+# Primary event 823, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992869497696513 0.03685319663254096 0.008211815757169389
+/run/beamOn 1
+# Primary event 824, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988610434256396 -0.02255285999057029 0.04204740696984946
+/run/beamOn 1
+# Primary event 825, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978597623417619 -0.0028981452994864534 -0.065326070240491
+/run/beamOn 1
+# Primary event 826, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973096745079068 -0.01914089885874691 0.07076043473447763
+/run/beamOn 1
+# Primary event 827, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997368546921267 0.0054294141123488624 -0.022287728298105977
+/run/beamOn 1
+# Primary event 828, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993576263465959 -0.0015609292578505046 -0.035803605443441945
+/run/beamOn 1
+# Primary event 829, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998468342887592 0.0005169380277505166 -0.0174940200589204
+/run/beamOn 1
+# Primary event 830, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990327553130673 -0.011235139361934614 0.04251265053015159
+/run/beamOn 1
+# Primary event 831, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988762008676229 0.0437350196203276 -0.018264265631934524
+/run/beamOn 1
+# Primary event 832, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983668931044064 -0.011404286741275792 -0.0559775758404872
+/run/beamOn 1
+# Primary event 833, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968614029789772 -0.0772847080025063 0.01715858851282942
+/run/beamOn 1
+# Primary event 834, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998209260106617 -0.0074914300930284845 -0.05934771699536118
+/run/beamOn 1
+# Primary event 835, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981698779317079 0.00508904532600283 0.060257749771040724
+/run/beamOn 1
+# Primary event 836, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999462698657477 -0.010310724506410152 0.0010706734936708525
+/run/beamOn 1
+# Primary event 837, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966450034181936 0.044332081751434216 -0.06879973611237865
+/run/beamOn 1
+# Primary event 838, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975864752383543 0.066183297054185 -0.020999895536736403
+/run/beamOn 1
+# Primary event 839, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963107366526182 0.0063569934134437775 -0.08558332001890759
+/run/beamOn 1
+# Primary event 840, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987808314389157 -0.010664505385846965 -0.048198745575620754
+/run/beamOn 1
+# Primary event 841, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963343473694762 -0.08551314201508116 -0.0023174974753923756
+/run/beamOn 1
+# Primary event 842, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981136944256035 -0.01871316913571955 0.05847110654820013
+/run/beamOn 1
+# Primary event 843, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965319454059334 -0.06299911505464853 -0.05436168952301733
+/run/beamOn 1
+# Primary event 844, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975873460923957 0.06913183764393543 -0.0063463328232262585
+/run/beamOn 1
+# Primary event 845, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970855526620754 -0.05900539992386212 0.04836076356292062
+/run/beamOn 1
+# Primary event 846, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987002312752732 0.03388352919149865 0.038075641823148466
+/run/beamOn 1
+# Primary event 847, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967659681551855 0.06822049240480073 0.04246844880263818
+/run/beamOn 1
+# Primary event 848, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999420959505274 0.007610083459785307 -0.0331637201063537
+/run/beamOn 1
+# Primary event 849, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966455648248569 -0.015780624066553735 0.08030311338305673
+/run/beamOn 1
+# Primary event 850, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987168366010688 0.047321824301710495 0.018036774498564733
+/run/beamOn 1
+# Primary event 851, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964254488904564 0.03166004198257846 0.0783196434179438
+/run/beamOn 1
+# Primary event 852, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999150008549396 0.0004273797238130165 0.04121987096430131
+/run/beamOn 1
+# Primary event 853, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990377891379151 0.022696265535083474 0.037528328036134685
+/run/beamOn 1
+# Primary event 854, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998607795446134 -0.024132601177521175 -0.046905100304966224
+/run/beamOn 1
+# Primary event 855, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998626973831706 0.02399749463591537 0.04656487288641985
+/run/beamOn 1
+# Primary event 856, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979659814759184 -0.0010434735627327864 0.06374018339894198
+/run/beamOn 1
+# Primary event 857, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974244256838471 -0.03540790233222856 0.06237624148406977
+/run/beamOn 1
+# Primary event 858, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999654838936869 0.010269376901274175 0.024181457527660516
+/run/beamOn 1
+# Primary event 859, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977000451229919 0.0134953622380838 -0.0664266148440724
+/run/beamOn 1
+# Primary event 860, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964975720543822 0.01450017062056964 -0.08235492663888298
+/run/beamOn 1
+# Primary event 861, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996383545858134 -0.019627863766591234 -0.01838224700431788
+/run/beamOn 1
+# Primary event 862, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997154406756464 -0.02290250990734969 0.00667178496669512
+/run/beamOn 1
+# Primary event 863, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991574951191295 0.041028134991555706 -0.0009960353313417743
+/run/beamOn 1
+# Primary event 864, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980788890930417 -0.05929489610973419 0.017962361819530127
+/run/beamOn 1
+# Primary event 865, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998197874203189 -0.006343915876460054 -0.017892663696074493
+/run/beamOn 1
+# Primary event 866, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981141899855285 -0.04872331188279481 0.03733768376190762
+/run/beamOn 1
+# Primary event 867, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998923703310422 0.04568571938995849 -0.008015610295784422
+/run/beamOn 1
+# Primary event 868, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998111311716893 -0.05985700349176808 0.013818413648810153
+/run/beamOn 1
+# Primary event 869, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981255837369736 0.059185426049141183 0.015569342732029243
+/run/beamOn 1
+# Primary event 870, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9993295103128775 -0.005949069284750799 -0.036126699163771286
+/run/beamOn 1
+# Primary event 871, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985824529592582 -0.017266906768672846 -0.05034817347742509
+/run/beamOn 1
+# Primary event 872, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992715675671552 -0.03487475927395694 0.015494689976374607
+/run/beamOn 1
+# Primary event 873, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983709399121351 0.003299297043301357 0.05696122345929697
+/run/beamOn 1
+# Primary event 874, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983141489673641 -0.03390852797727705 -0.04710702391344266
+/run/beamOn 1
+# Primary event 875, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.99833618766948 0.01936970242630633 0.05431087384203335
+/run/beamOn 1
+# Primary event 876, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972534059238293 0.07177094043129237 0.018291431954062586
+/run/beamOn 1
+# Primary event 877, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997794859070729 -0.05852929134387577 -0.03130081894787732
+/run/beamOn 1
+# Primary event 878, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975402841332018 -0.03403210260151616 -0.06127966648057747
+/run/beamOn 1
+# Primary event 879, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976560841299756 -0.06722696693665949 0.012762159493606508
+/run/beamOn 1
+# Primary event 880, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996962290280548 -0.07627744652622437 -0.015746203034492798
+/run/beamOn 1
+# Primary event 881, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970192164275002 0.014047177153285717 0.07586408167451614
+/run/beamOn 1
+# Primary event 882, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978269326266135 -0.042952802595436046 -0.04996468026677732
+/run/beamOn 1
+# Primary event 883, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981530914237221 0.008450585172922851 0.06015807253812136
+/run/beamOn 1
+# Primary event 884, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983655750646 -0.01680591625996655 -0.054623618560047604
+/run/beamOn 1
+# Primary event 885, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970038527004953 0.05611486285292327 0.05323945780496545
+/run/beamOn 1
+# Primary event 886, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994966139985313 -0.017374388543933042 0.026545229857648834
+/run/beamOn 1
+# Primary event 887, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983304309273331 -0.057608466192849046 0.004197059369695156
+/run/beamOn 1
+# Primary event 888, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981418142695748 -0.023944563976493145 0.0560319236026857
+/run/beamOn 1
+# Primary event 889, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9967702957820201 -0.025600150063587238 -0.07611576553740958
+/run/beamOn 1
+# Primary event 890, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987784631767044 0.04551059346148229 -0.019244931207054172
+/run/beamOn 1
+# Primary event 891, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980884525671915 0.03642788821505912 -0.049924441030624246
+/run/beamOn 1
+# Primary event 892, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981092117317516 0.061284653039619844 -0.004710919022318074
+/run/beamOn 1
+# Primary event 893, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996830199266426 -0.02463642559157299 0.07564787085257786
+/run/beamOn 1
+# Primary event 894, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991243033734206 -0.036906824074452206 0.01971072665617284
+/run/beamOn 1
+# Primary event 895, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9983381282435985 0.0435554951731843 -0.03773460660040138
+/run/beamOn 1
+# Primary event 896, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970074856255652 0.07081033046879985 0.031015652588456528
+/run/beamOn 1
+# Primary event 897, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962611840620877 -0.06349727323253751 -0.05858113538707975
+/run/beamOn 1
+# Primary event 898, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997929364440065 0.0013401814816370854 0.020304879961899884
+/run/beamOn 1
+# Primary event 899, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981179290610838 -0.055118032910914716 0.0268812599192193
+/run/beamOn 1
+# Primary event 900, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980722823106081 0.027559064144367196 -0.05560770869924887
+/run/beamOn 1
+# Primary event 901, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995654202303315 -0.025426856788409707 -0.014914611413730709
+/run/beamOn 1
+# Primary event 902, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997993684471333 0.0528510458796885 -0.03486219592562295
+/run/beamOn 1
+# Primary event 903, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978824874874672 -0.021363265317364412 0.0614341278183778
+/run/beamOn 1
+# Primary event 904, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980145640942045 -0.0332922462851525 -0.05346546729566332
+/run/beamOn 1
+# Primary event 905, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970874906582005 -0.002332872497687162 -0.07623052983446005
+/run/beamOn 1
+# Primary event 906, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976167475816937 0.06414899019591287 0.02541125737479174
+/run/beamOn 1
+# Primary event 907, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988505846450868 0.035961256429432015 -0.03169065461906605
+/run/beamOn 1
+# Primary event 908, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996547111087253 0.0261076281651448 -0.0029749470115497203
+/run/beamOn 1
+# Primary event 909, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963759952753134 0.08389719047656496 -0.014004908756133385
+/run/beamOn 1
+# Primary event 910, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9996219551908622 0.021253369471518204 -0.017442505167121255
+/run/beamOn 1
+# Primary event 911, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996224871396121 -0.0413250717651682 -0.07634293716766363
+/run/beamOn 1
+# Primary event 912, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9969463180877423 0.06344878846608427 -0.04552241308938182
+/run/beamOn 1
+# Primary event 913, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972431326674787 0.06947298600920467 0.02606987845231332
+/run/beamOn 1
+# Primary event 914, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984295015866644 -0.019818715996729883 -0.05239989367971887
+/run/beamOn 1
+# Primary event 915, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982233722707377 -0.05062828481289052 0.031414579884842406
+/run/beamOn 1
+# Primary event 916, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964534731596172 -0.01403349622661408 -0.08296708270027155
+/run/beamOn 1
+# Primary event 917, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962262943271143 -0.07629018489254547 -0.041388140575859676
+/run/beamOn 1
+# Primary event 918, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965660839684116 -0.07957264118057399 0.022896180017906748
+/run/beamOn 1
+# Primary event 919, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998409682018038 0.0013259688806539446 0.05635910449224448
+/run/beamOn 1
+# Primary event 920, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990655879311374 -0.0016440878294899282 0.0431885168420915
+/run/beamOn 1
+# Primary event 921, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9994902836165079 -0.0249504072516884 0.01991607727860779
+/run/beamOn 1
+# Primary event 922, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988087467416543 -0.04652287880051859 0.014721045495416654
+/run/beamOn 1
+# Primary event 923, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974118454429411 0.06000148692234008 0.03961605908233055
+/run/beamOn 1
+# Primary event 924, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985223111167172 0.05151597875405697 0.017300235118094674
+/run/beamOn 1
+# Primary event 925, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979775998869145 -0.05286038102242511 0.03530566869665158
+/run/beamOn 1
+# Primary event 926, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973064060992737 -0.0006794655977266649 0.07334487493923597
+/run/beamOn 1
+# Primary event 927, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9980482472210452 0.04583217639886954 -0.04241589119118249
+/run/beamOn 1
+# Primary event 928, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992164822543769 -0.01392140991944784 0.03704883179053399
+/run/beamOn 1
+# Primary event 929, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984579632806814 -0.037860907829778585 -0.04059861105627252
+/run/beamOn 1
+# Primary event 930, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998943233442035 -0.032470208443149975 -0.0325284786614816
+/run/beamOn 1
+# Primary event 931, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964350141584903 0.052383430381120394 0.06613046786826382
+/run/beamOn 1
+# Primary event 932, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9991955170082779 -0.003102068477999546 0.039983696198801176
+/run/beamOn 1
+# Primary event 933, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998357671425456 0.05410807826799726 0.01882221485600622
+/run/beamOn 1
+# Primary event 934, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9984061764340034 -0.013321509925208266 0.054841993323968705
+/run/beamOn 1
+# Primary event 935, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9963540989489602 0.08493861816575574 0.007996289870778038
+/run/beamOn 1
+# Primary event 936, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9971027019035975 -0.07568493381069057 -0.007615290579940714
+/run/beamOn 1
+# Primary event 937, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990573049372327 0.04260830339804971 0.008308666144034388
+/run/beamOn 1
+# Primary event 938, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9981253464094868 -0.03120399779476327 0.05265076805295749
+/run/beamOn 1
+# Primary event 939, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985052516530646 -0.016391016110977267 -0.05214016697422267
+/run/beamOn 1
+# Primary event 940, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965150369919777 0.0013463736995122742 0.08340244796610286
+/run/beamOn 1
+# Primary event 941, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.999501276378325 -0.016297279786579157 -0.027048053343210587
+/run/beamOn 1
+# Primary event 942, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9968297715135566 -0.07729956383790947 -0.01884632735308198
+/run/beamOn 1
+# Primary event 943, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997578540623219 0.039308622255788316 0.057374972805224994
+/run/beamOn 1
+# Primary event 944, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977408734227068 -0.065956250001721 -0.012764113263549294
+/run/beamOn 1
+# Primary event 945, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986950205561783 0.037886189727502836 -0.03424751880393968
+/run/beamOn 1
+# Primary event 946, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972368963326947 0.07408705716019694 -0.005447986240434256
+/run/beamOn 1
+# Primary event 947, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975940802240821 -0.04160220119926257 -0.05545545921948244
+/run/beamOn 1
+# Primary event 948, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9976991878080522 -0.06433954937720017 0.02137178123348041
+/run/beamOn 1
+# Primary event 949, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988095720607224 -0.0025222242359008683 -0.048714239651054765
+/run/beamOn 1
+# Primary event 950, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964545520746843 0.08328337848108734 0.011924953602272385
+/run/beamOn 1
+# Primary event 951, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975159846998837 -0.02895482179219646 0.06421431743157888
+/run/beamOn 1
+# Primary event 952, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997891560833666 0.06107500326528941 -0.021960801285351994
+/run/beamOn 1
+# Primary event 953, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973398569124624 0.01036036594492609 0.07215173339093252
+/run/beamOn 1
+# Primary event 954, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997835022071288 -0.0327212805532507 0.05704898357506084
+/run/beamOn 1
+# Primary event 955, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9977614659414263 -0.06600335124339475 -0.010752427961023388
+/run/beamOn 1
+# Primary event 956, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966255584951117 0.0032923425440845584 -0.08201619739343659
+/run/beamOn 1
+# Primary event 957, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9986039895268443 0.0011705222591585616 -0.052808162046326795
+/run/beamOn 1
+# Primary event 958, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9978709924373095 0.029381112622937237 0.058225704574674964
+/run/beamOn 1
+# Primary event 959, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990199504597828 0.03077710538356917 -0.03181050718774952
+/run/beamOn 1
+# Primary event 960, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995887768190955 -0.005000220770831542 -0.02823605938418785
+/run/beamOn 1
+# Primary event 961, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966721617707087 -0.02179507957332453 0.07854665147346945
+/run/beamOn 1
+# Primary event 962, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988216574346931 0.046997762165433506 0.012104007222979185
+/run/beamOn 1
+# Primary event 963, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972719205149552 -0.05591351075863514 0.048191242638647144
+/run/beamOn 1
+# Primary event 964, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9992252347629773 0.03878667776022366 0.006672618766077229
+/run/beamOn 1
+# Primary event 965, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9972366329598332 -0.04840889289346184 -0.05635314518076397
+/run/beamOn 1
+# Primary event 966, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962126390659525 -0.03136267334161869 0.08109722859701948
+/run/beamOn 1
+# Primary event 967, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989952389447357 -0.04374262087015797 0.00975170165457896
+/run/beamOn 1
+# Primary event 968, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990199133857456 0.0012547681395625053 0.04424520556685639
+/run/beamOn 1
+# Primary event 969, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9989094080187629 0.025807333327594936 0.03890984603057391
+/run/beamOn 1
+# Primary event 970, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9985894170344431 0.013108184722596663 -0.05145242151822612
+/run/beamOn 1
+# Primary event 971, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996432764064916 -0.01628720686648453 0.0828038259408335
+/run/beamOn 1
+# Primary event 972, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.997454638661378 0.05317139249153655 -0.04750838697967895
+/run/beamOn 1
+# Primary event 973, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964571086603329 -0.07137031451793151 0.04449167119698991
+/run/beamOn 1
+# Primary event 974, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9999820006055316 0.0050250664767525054 0.003278287946922582
+/run/beamOn 1
+# Primary event 975, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9998297036538385 0.016551884862214546 0.008160808721290755
+/run/beamOn 1
+# Primary event 976, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9982623921432267 -0.05596209582064861 0.018451023382005084
+/run/beamOn 1
+# Primary event 977, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987952367341221 -0.010920372224293816 0.04784161940937972
+/run/beamOn 1
+# Primary event 978, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979893452077848 0.04245495197111776 -0.04706212813788759
+/run/beamOn 1
+# Primary event 979, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996813602543196 0.06308214444370164 -0.04881889836159059
+/run/beamOn 1
+# Primary event 980, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9965569174326337 0.03792077047890527 0.07373144162060698
+/run/beamOn 1
+# Primary event 981, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9970472029670251 -0.07460744513645186 -0.01818252418788936
+/run/beamOn 1
+# Primary event 982, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9973752423159179 -0.07115132853633395 0.013420672962959443
+/run/beamOn 1
+# Primary event 983, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.996421429837208 -0.02689371800357081 0.08013152995618075
+/run/beamOn 1
+# Primary event 984, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9962140691974138 0.06263334701618332 0.06028757894194085
+/run/beamOn 1
+# Primary event 985, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.998699774585095 -0.04771471962879542 -0.01794619108407124
+/run/beamOn 1
+# Primary event 986, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9979535517720024 0.06313025679194285 0.010162636617960387
+/run/beamOn 1
+# Primary event 987, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990810339052347 0.03498448141423221 0.024762345426563873
+/run/beamOn 1
+# Primary event 988, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9988545042284948 -0.03988418752920619 0.02643730257766599
+/run/beamOn 1
+# Primary event 989, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995142627132448 0.025509469114606536 0.017902670702705563
+/run/beamOn 1
+# Primary event 990, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975315923951742 0.06780365620716323 0.018258871227129003
+/run/beamOn 1
+# Primary event 991, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9997617050348229 -0.016337327230820525 -0.01447842825782248
+/run/beamOn 1
+# Primary event 992, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9974836467140313 0.03753284131086343 0.060146989627171465
+/run/beamOn 1
+# Primary event 993, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995852208545681 -0.017712373047360938 0.0227081062652818
+/run/beamOn 1
+# Primary event 994, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9966734787497873 -0.07992599540454395 0.015931478757170055
+/run/beamOn 1
+# Primary event 995, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9975775735770035 0.029075557915725712 -0.06319490982751229
+/run/beamOn 1
+# Primary event 996, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9964242551881627 0.008741621821007756 -0.08403741857442897
+/run/beamOn 1
+# Primary event 997, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9995771392879755 0.027009996132739543 0.010770455968833132
+/run/beamOn 1
+# Primary event 998, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9987809312527368 -0.007423135684524077 -0.048801110873882884
+/run/beamOn 1
+# Primary event 999, PDG 13
+/gps/particle mu-
+/gps/ene/mono 700.0 MeV
+/gps/position 0.0 30.0 910.0 mm
+/gps/direction 0.9990785765759929 0.02904120173126332 -0.031600734625828804
+/run/beamOn 1

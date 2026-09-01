@@ -1,0 +1,40 @@
+# Five 25-position jobs covering the +++ octant.
+WORK_DIR = /nfs/pic.es/user/t/tlux/tlux/PICLightMap
+SIF_IMAGE = $(WORK_DIR)/ND280Reco_03.sif
+initialdir = $(WORK_DIR)
+
+executable = run_lightmap_octant.sh
+arguments = $(OCTANT_START) $(POSITION_COUNT) $(NPHOTONS) $(SCAT_VALUE) $(SCAT_UNIT) $(ABS_VALUE) $(ABS_UNIT) $(SEED_BASE)
+environment = "LIGHTMAP_DETECTOR=HOMO"
++SingularityImage = "$(SIF_IMAGE)"
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = positions.txt,run_lightmap_chunk.sh,ValidateHomoGeometry.C
+transfer_output_files = octant_chunk_$(OCTANT_START)
+
+# Derive log names from the actual physics setting.  The ROOT output names are
+# generated from the same arguments by run_lightmap_chunk.sh.
+output = logs/octant-scat-$(SCAT_VALUE)$(SCAT_UNIT).$(OCTANT_START).$(ClusterId).$(ProcId).out
+error  = logs/octant-scat-$(SCAT_VALUE)$(SCAT_UNIT).$(OCTANT_START).$(ClusterId).$(ProcId).err
+log    = logs/octant-scat-$(SCAT_VALUE)$(SCAT_UNIT).$(ClusterId).log
+
+request_cpus = 1
+request_memory = 12 GB
+request_disk = 5 GB
++flavour = "medium"
+
+NPHOTONS = 100000
+SCAT_VALUE = 0.7
+SCAT_UNIT = mm
+ABS_VALUE = 5
+ABS_UNIT = m
+SEED_BASE = 840000
+
+queue OCTANT_START, POSITION_COUNT from (
+0   25
+25  25
+50  25
+75  25
+100 25
+)

@@ -1,0 +1,1218 @@
+/t2k/control baseline-2024-plusplus 1.0
+# The baseline disables HOMO and enables HFG by default.  A light-map job must
+# select HOMO explicitly before /t2k/update constructs the geometry.
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoHFGCMD true
+/t2k/OA/Magnet/Basket/PlusPlusTracker/NoHomoCMD false
+/t2k/OA/Magnet/Basket/PlusPlusTracker/HOMO/Box/gapX 8.5 mm
+/t2k/OA/Magnet/Basket/PlusPlusTracker/HOMO/Box/gapY 8.5 mm
+/t2k/OA/Magnet/Basket/PlusPlusTracker/HOMO/Box/gapZ 8.5 mm
+/t2k/OA/Magnet/Basket/PlusPlusTracker/HOMO/Box/HomoFiber/radius 0.75 mm
+/t2k/phys/fullPhotonScintSim
+/t2k/detector/liquidOscatLen 0.4 mm
+/t2k/detector/liquidOabsLen 5 m
+/t2k/random/randomSeed 730000
+/t2k/random/showRandomSeed
+/t2k/update
+/gps/source/clear
+/gps/source/multiplevertex true
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 25.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 26.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 27.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 28.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 29.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 30.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 31.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 32.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 33.5 914.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 905.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 906.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 907.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 908.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 909.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 910.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 911.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 912.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 913.5 mm
+/run/beamOn 1
+/gps/source/clear
+/gps/source/add 1
+/gps/particle opticalphoton
+/gps/ang/type iso
+/gps/ang/maxtheta 180 deg
+/gps/ang/rot1 -1 0 0
+/gps/ang/rot2 0 1 0
+/gps/number 100000
+/gps/ene/type Mono
+/gps/ene/mono 1 eV
+/gps/position -4.5 34.5 914.5 mm
+/run/beamOn 1
+/generator/add

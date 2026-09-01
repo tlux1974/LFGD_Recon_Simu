@@ -108,6 +108,22 @@ detresponse_args=(
     -o "$detresp"
 )
 detresponse_parameter_inputs=()
+if [[ -n "${HOMO_LIGHTMAP_FILE:-}" ]]; then
+    [[ "$DETECTOR" == "homo" ]] || {
+        echo "HOMO_LIGHTMAP_FILE is only valid for the homo detector" >&2
+        exit 2
+    }
+    HOMO_LIGHTMAP_FILE=$(readlink -f "$HOMO_LIGHTMAP_FILE")
+    [[ -f "$HOMO_LIGHTMAP_FILE" ]] || {
+        echo "Missing HOMO light map: $HOMO_LIGHTMAP_FILE" >&2
+        exit 2
+    }
+    lightmap_parameter_file="${OUTPUT_DIR}/detresponse_lightmap.parameters.dat"
+    printf '< detResponseSim.LiquidO.Response.File = %s >\n' \
+        "$HOMO_LIGHTMAP_FILE" > "$lightmap_parameter_file"
+    detresponse_parameter_inputs+=("$lightmap_parameter_file")
+    echo "HOMO light map: $HOMO_LIGHTMAP_FILE"
+fi
 if [[ -n "${DETRESPONSE_PARAMETER_FILE:-}" ]]; then
     [[ -f "$DETRESPONSE_PARAMETER_FILE" ]] || {
         echo "Missing detector-response parameter file: $DETRESPONSE_PARAMETER_FILE" >&2

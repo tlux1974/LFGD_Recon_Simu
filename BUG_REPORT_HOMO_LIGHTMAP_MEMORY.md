@@ -168,3 +168,128 @@ The corrected `hfgrecon` package built successfully. The previously failing
 input event (event index 231) was then reconstructed alone with the same
 `lfg-best` parameter file. It completed with one event read and one event
 written, without an infinite sample or numeric exception.
+
+## Future key improvement: preserve fractional HOMO fibre gaps
+
+The HOMO geometry stores the three fibre gaps as `double`, and its UI commands
+correctly accept non-integral lengths. However, the corresponding getters in
+`ND280HomoBoxConstructor.hh` return `int`:
+
+```cpp
+void SetGapX(double gap) { fGapX = gap; }
+int GetGapX() { return fGapX; }
+```
+
+`GetGapY()` and `GetGapZ()` have the same defect. A fractional gap is therefore
+silently truncated whenever the fibre pitch or placement is calculated.
+
+This was exposed by the 1.5 mm-diameter fibre light-map study. Keeping the
+standard 10 mm centre-to-centre pitch requires a radius of 0.75 mm and an
+edge-to-edge gap of 8.5 mm. The getter truncated that gap to 8 mm, producing a
+9.5 mm pitch. The number of fibres consequently increased (for example, 199
+became 209 in one transverse direction), and ROOT geometry voxelisation
+terminated with `std::bad_alloc` before the first simulated position. The
+resulting 430--434 byte ROOT files are incomplete crash artifacts. Increasing
+the job memory would not make this production valid because the geometry pitch
+would still be wrong.
+
+The required correction, now applied in the local source, is:
+
+```cpp
+double GetGapX() { return fGapX; }
+double GetGapY() { return fGapY; }
+double GetGapZ() { return fGapZ; }
+```
+
+in:
+
+- `SoftProj/nd280Geant4Sim/inc/nd280-plusplus/homo/ND280HomoBoxConstructor.hh`
+
+The local `ND280GEANT4SIM.exe` and `MAKEHOMOPHOTONMAP.exe` were rebuilt
+successfully after this change. A PIC production still requires these local
+changes to be installed in a new SIF; the historical SIF does not acquire them
+from the host checkout automatically.
+
+After rebuilding `nd280Geant4Sim`, geometry validation should explicitly check
+both the requested fibre diameter and the resulting 10 mm fibre pitch before a
+large light-map production is submitted. Integral-gap configurations do not
+trigger the truncation: the available 2.0 mm-diameter test chunk used a 1.0 mm
+radius plus an 8 mm gap, retained the expected fibre counts, and completed all
+100 source positions successfully.
+
+### Fibre-diameter-dependent source-position denominator
+
+The historical map maker and analyser effectively retained the 970 valid-bin
+convention of the 1.0 mm fibre geometry for every fibre diameter. All four
+existing 2.0 mm ND280 maps were confirmed to contain 970
+`position_efficiency` entries, whereas the same 10x10x10 source-centre grid
+contains only 850 scintillator positions for 2.0 mm fibres. This biased
+diameter comparisons by including source centres geometrically occupied by
+the wider fibres.
+
+`MAKEHOMOPHOTONMAP.exe` now accepts `-O fibreDiameter=...` and excludes source
+centres inside any of the three HOMO fibre cylinders before filling the map.
+`merge_lightmap.sh` passes the requested diameter and validates the resulting
+entry count against the geometry (970 for 1.0 mm and 850 for 2.0 mm). The
+analyser no longer hard-codes 970 and reports the actual valid-position count.
+Existing Geant4 chunks can be re-merged with this correction; they do not need
+to be simulated again for this particular bug.
+
+## Light-map photon undercount from merged hit segments
+
+The historical `MAKEHOMOPHOTONMAP.exe` counted one detected photon for every
+stored `TG4HitSegment`:
+
+```cpp
+fiberHitsMap[geomId]++;
+```
+
+This is not one segment per photon. `ND280SegmentSD` deliberately merges
+different tracks when their energy deposits occur in the same fibre, within
+the configured 1 mm spatial tolerance and within 1 ns. `ND280HitSegment`
+preserves all track IDs in `GetContributors()` and sums their deposited energy,
+but the map builder discarded that multiplicity. A 100,000-photon bomb is
+therefore undercounted, especially when a short scattering length concentrates
+many photons into the same fibres and nearby positions.
+
+Direct checks of existing raw chunks found:
+
+| Sample | Stored segments | Contributor tracks | Deposited energy / 1 eV |
+|---|---:|---:|---:|
+| 0.4 mm scattering, scintillator RI 1.36 | 87,007 | 98,173 | 98,173 |
+| 0.85 mm scattering | 93,220 | 98,847 | 98,847 |
+
+Thus the old map reported efficiencies of 87.007% and 93.220%, whereas the
+actual fractions absorbed in fibres were 98.173% and 98.847%. This accounting
+bug also suppresses the response of the brightest fibres and biases apparent
+scattering-length trends, nearest-fibre fractions, and view-to-view balance.
+
+The local map builder now uses:
+
+```cpp
+fiberHitsMap[geomId] += seg->GetContributors().size();
+```
+
+It also checks contributor multiplicity against the deposited energy expected
+from the monoenergetic 1 eV photon bombs. Existing Geant4 chunk files retain
+the contributor lists, so corrected maps can be produced by rebuilding the map
+maker and re-merging the existing chunks; the expensive Geant4 simulations do
+not need to be repeated.
+
+## Historical Mie-scattering typo
+
+The original `OpticalLiquidO` material registered the intended Geant4 Mie
+scattering length under:
+
+```cpp
+"MIEGH"
+```
+
+The Geant4 material-property key is `MIEHG`. Consequently the Mie process was
+inactive and the historical light-map production used only its simultaneously
+configured `RAYLEIGH` process. The local implementation preserves that exact
+behavior under the explicit `legacy_rayleigh` model and uses the correctly
+spelled `MIEHG` property only for the separately selectable `double_hg` model.
+The standalone isotropic scan shows that the angular model does not explain
+the large historical efficiency deficit; the merged-segment accounting above
+does.

@@ -1,0 +1,1 @@
+/home/tlux/HK/ND280++/LFGD_Recon_Simu/output/homo_student_lfg-best_xaxis_cone/g4.root

@@ -1,0 +1,40 @@
+# Full 1000-position production. Select 50 or 100 positions/job by overriding
+# CHUNK_SIZE at submission; the corresponding queue file is read submit-side.
+WORK_DIR = /nfs/pic.es/user/t/tlux/tlux/PICLightMap
+SIF_IMAGE = $(WORK_DIR)/ND280Reco_doubleHG_fixed.sif
+initialdir = $(WORK_DIR)
+
+executable = run_lightmap_chunk.sh
+arguments = $(START_INDEX) $(POSITION_COUNT) $(NPHOTONS) $(SCAT_VALUE) $(SCAT_UNIT) $(ABS_VALUE) $(ABS_UNIT) $(SEED_BASE) $(FIBRE_DIAMETER_MM) $(SCINTILLATOR_RI) $(SCATTERING_MODEL) $(MIE_G) $(MIE_FORWARD_FRACTION) positions.txt
+environment = "LIGHTMAP_DETECTOR=HOMO LIGHTMAP_PRODUCTION_TAG=fibre_$(FIBRE_DIAMETER_MM)mm/model_$(SCATTERING_MODEL)/scat_$(SCAT_VALUE)mm/g_$(MIE_G)_rfb_$(MIE_FORWARD_FRACTION)/scin_ri_$(SCINTILLATOR_RI)"
++SingularityImage = "$(SIF_IMAGE)"
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+preserve_relative_paths = True
+transfer_input_files = positions.txt,ValidateHomoGeometry.C
+transfer_output_files = fibre_$(FIBRE_DIAMETER_MM)mm/model_$(SCATTERING_MODEL)/scat_$(SCAT_VALUE)mm/g_$(MIE_G)_rfb_$(MIE_FORWARD_FRACTION)/scin_ri_$(SCINTILLATOR_RI)/chunk_$(START_INDEX)
+
+output = logs/fibre-$(FIBRE_DIAMETER_MM)mm.$(SCATTERING_MODEL).scat-$(SCAT_VALUE)mm.g-$(MIE_G).rfb-$(MIE_FORWARD_FRACTION).chunk.$(START_INDEX).$(ClusterId).$(ProcId).out
+error  = logs/fibre-$(FIBRE_DIAMETER_MM)mm.$(SCATTERING_MODEL).scat-$(SCAT_VALUE)mm.g-$(MIE_G).rfb-$(MIE_FORWARD_FRACTION).chunk.$(START_INDEX).$(ClusterId).$(ProcId).err
+log    = logs/fibre-$(FIBRE_DIAMETER_MM)mm.$(SCATTERING_MODEL).scat-$(SCAT_VALUE)mm.g-$(MIE_G).rfb-$(MIE_FORWARD_FRACTION).chunks.$(ClusterId).log
+
+request_cpus = 1
+request_memory = 12 GB
+request_disk = 5 GB
++flavour = "medium"
+
+NPHOTONS = 100000
+SCAT_VALUE = 0.30
+SCAT_UNIT = mm
+SCATTERING_MODEL = double_hg
+MIE_G = 0.5
+MIE_FORWARD_FRACTION = 0.75
+FIBRE_DIAMETER_MM = 1.0
+SCINTILLATOR_RI = 1.48
+ABS_VALUE = 5
+ABS_UNIT = m
+SEED_BASE = 730000
+CHUNK_SIZE = 100
+
+queue START_INDEX, POSITION_COUNT from chunks_$(CHUNK_SIZE).txt

@@ -37,6 +37,13 @@ instead of producing a misleading partial configuration.
 The tree maker normally only needs rebuilding after changing
 `src/LFGDFlatTree.cxx` or its dependencies.
 
+`mc_virtual_segments` stores `primary_id` as Geant4 primary ancestry. New flat
+trees additionally store `primary_pdg`, `contributor_track_ids`, and
+`contributor_pdgs`, allowing deposits from the actual PDG-13 contributor to be
+distinguished from delta electrons and other descendants. Older flat trees do
+not contain this contributor identity and must use trajectory matching for a
+muon-only per-cube residual study.
+
 ## Select the detector
 
 The detector-switch script must be sourced because it exports `DETECTOR` in
