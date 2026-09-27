@@ -30,15 +30,22 @@
 
 class LFGDFlatTree : public ND::TND280EventLoopFunction {
 public:
-    LFGDFlatTree() : fEvent(0), fOutput(nullptr), fFiberTree(nullptr),
+    LFGDFlatTree() : fSkipHomoGeometry(false), fEvent(0),
+                     fOutput(nullptr), fFiberTree(nullptr),
                      fHomoRawTree(nullptr), fHomoTruthTree(nullptr),
-                     fHitTree(nullptr), fHitViewTree(nullptr),
+                     fHitTree(nullptr), fHit2DTree(nullptr),
+                     fHitViewTree(nullptr),
                      fTrackTree(nullptr), fTrackHitTree(nullptr),
                      fMCTrackTree(nullptr),
                      fMCSegmentTree(nullptr) {}
 
     bool SetOption(std::string option, std::string value = "") override {
         if (option == "outfile") { fOutputName = value; return true; }
+        if (option == "skip-homo-geometry") {
+            fSkipHomoGeometry = (value.empty() || value == "1"
+                                 || value == "true");
+            return true;
+        }
         if (fOptions.IsRelevantOption(option)) {
             fOptions.UseRelevantOption(value); return true;
         }
@@ -47,7 +54,9 @@ public:
 
     void Usage() override {
         std::cout << "Create flat fibre, 3D-hit, track, trajectory, and per-cube MC segment trees.\n"
-                  << "  -O outfile=flat.root\n";
+                  << "  -O outfile=flat.root\n"
+                  << "  -O skip-homo-geometry=1  keep reconstructed diagnostics "
+                     "but skip geometry-dependent HOMO fibre positions and MC cubes\n";
     }
 
     void Initialize() override {
@@ -72,6 +81,14 @@ public:
         fHitTree = new TTree("hits3d", "Reconstructed 3D hits");
         BranchCommon(fHitTree);
 
+        fHit2DTree = new TTree(
+            "hits2d", "Used and unused reconstructed HOMO 2D view hits");
+        BranchCommon(fHit2DTree);
+        fHit2DTree->Branch("view", &fProjection);
+        fHit2DTree->Branch("used", &fHit2DUsed);
+        fHit2DTree->Branch("rejection_code", &fHit2DRejectionCode);
+        fHit2DTree->Branch("rejection_reason", &fHit2DRejectionReason);
+
         fHitViewTree = new TTree(
             "hit3d_views", "2D-view and fibre composition of 3D hits");
         fHitViewTree->Branch("event", &fEvent);
@@ -81,6 +98,9 @@ public:
         fHitViewTree->Branch("view", &fProjection);
         fHitViewTree->Branch("view_geom_id", &fViewGeomId);
         fHitViewTree->Branch("view_charge", &fViewCharge);
+        fHitViewTree->Branch("view_x", &fViewX);
+        fHitViewTree->Branch("view_y", &fViewY);
+        fHitViewTree->Branch("view_z", &fViewZ);
         fHitViewTree->Branch("fiber_count", &fFiberCount);
         fHitViewTree->Branch("fiber_charge_sum", &fFiberChargeSum);
 
@@ -155,7 +175,7 @@ public:
             // not physical TGeo fibre nodes.  Obtain their real staggered-grid
             // position from THomoGeom instead of serializing the representative
             // cube position (or the zero default from an older geometry map).
-            if (std::string(inputName) == "homo") {
+            if (std::string(inputName) == "homo" && !fSkipHomoGeometry) {
                 position = ND::TGeomInfo::Get().HOMO()
                     .GetFiber(hit->GetGeomId()).GetPosition();
             }
@@ -179,6 +199,7 @@ public:
 
         auto hits3d = event.GetHitSelection("hfg_3d");
         fHit3D = 0;
+        std::set<ND::THandle<ND::THit>> used2DHits;
         if (hits3d) for (const auto& hit : *hits3d) {
             bool is3d = ND::GeomId::Homo::IsCube(hit->GetGeomId())
                      || ND::GeomId::HFG::IsCube(hit->GetGeomId());
@@ -197,6 +218,7 @@ public:
                 ND::THandle<ND::THit> viewHit
                     = hit->GetContributor(contributor);
                 if (!viewHit) continue;
+                used2DHits.insert(viewHit);
                 const auto viewId = viewHit->GetGeomId();
                 if (ND::GeomId::Homo::IsFiber(viewId)) {
                     fProjection
@@ -209,6 +231,10 @@ public:
                 else continue;
                 fViewGeomId = viewId.AsInt();
                 fViewCharge = viewHit->GetCharge();
+                const auto viewPosition = viewHit->GetPosition();
+                fViewX = viewPosition.X();
+                fViewY = viewPosition.Y();
+                fViewZ = viewPosition.Z();
                 fFiberCount = 0;
                 fFiberChargeSum = 0.0;
                 for (int fibre = 0;
@@ -230,6 +256,64 @@ public:
                 fHitViewTree->Fill();
             }
             ++fHit3D;
+        }
+
+        {
+            struct Hit2DDiagnostic {
+                const char* selection;
+                int used;
+                int code;
+                const char* reason;
+            };
+            const Hit2DDiagnostic diagnostics[] = {
+                {"homo_2d_used", 1, 0, "used"},
+                {"homo_2d_unused_low_charge", 0, 1, "low_charge"},
+                {"homo_2d_unused_no_spatial_match", 0, 2, "no_spatial_match"},
+                {"homo_2d_unused_missing_coordinate", 0, 3, "missing_coordinate"},
+                {"homo_2d_unused_outside_voxel_grid", 0, 4, "outside_voxel_grid"},
+                {"homo_2d_unused_timing_mismatch", 0, 5, "timing_mismatch"},
+                {"homo_2d_unused_compatible_not_selected", 0, 6,
+                 "compatible_not_selected"},
+                {"homo_2d_unused_other", 0, 7, "other"}
+            };
+            for (const auto& diagnostic: diagnostics) {
+                auto selection = event.GetHitSelection(diagnostic.selection);
+                if (!selection) continue;
+                for (const auto& hit: *selection) {
+                    const auto geomId = hit->GetGeomId();
+                    if (!ND::GeomId::Homo::IsFiber(geomId)) continue;
+                    const auto position = hit->GetPosition();
+                    fX = position.X(); fY = position.Y(); fZ = position.Z();
+                    fTime = hit->GetTime(); fCharge = hit->GetCharge();
+                    fGeomId = geomId.AsInt();
+                    fProjection = ND::GeomId::Homo::GetFiberDirection(geomId);
+                    fHit2DUsed = diagnostic.used;
+                    fHit2DRejectionCode = diagnostic.code;
+                    fHit2DRejectionReason = diagnostic.reason;
+                    fHit2DTree->Fill();
+                }
+            }
+        }
+
+        // In the standard HFGD reconstruction the input fibre measurements
+        // are themselves the 2D hits.  Save all of them and mark whether the
+        // standard three-view/two-view cube builder used each one.
+        if (std::string(inputName) == "hfg" && fibers) {
+            for (const auto& hit: *fibers) {
+                const auto geomId = hit->GetGeomId();
+                if (!ND::GeomId::HFG::IsFiber(geomId)) continue;
+                const auto position
+                    = ND::TGeomInfo::Get().HFG().GetFiber(geomId).GetPosition();
+                fX = position.X(); fY = position.Y(); fZ = position.Z();
+                fTime = hit->GetTime(); fCharge = hit->GetCharge();
+                fGeomId = geomId.AsInt();
+                fProjection = ND::GeomId::HFG::GetFiberProjection(geomId);
+                fHit2DUsed = used2DHits.find(hit) != used2DHits.end();
+                fHit2DRejectionCode = fHit2DUsed ? 0 : 8;
+                fHit2DRejectionReason
+                    = fHit2DUsed ? "used" : "not_used_in_3d";
+                fHit2DTree->Fill();
+            }
         }
 
         auto result = event.GetFit("THFGRecon");
@@ -301,7 +385,7 @@ public:
         }
 
         fMCSegment = 0;
-        if (std::string(inputName) == "homo") {
+        if (std::string(inputName) == "homo" && !fSkipHomoGeometry) {
             auto virtualSegments = event.Get<ND::TG4HitContainer>(
                 "truth/g4Hits/homoVirtualCube");
             if (virtualSegments) for (const auto& baseHit : *virtualSegments) {
@@ -359,7 +443,7 @@ public:
         fOutput->cd();
         fFiberTree->Write();
         fHomoRawTree->Write(); fHomoTruthTree->Write();
-        fHitTree->Write(); fHitViewTree->Write();
+        fHitTree->Write(); fHit2DTree->Write(); fHitViewTree->Write();
         fTrackTree->Write();
         fTrackHitTree->Write();
         fMCTrackTree->Write();
@@ -426,23 +510,25 @@ private:
 
     ND::TParametersOptionManager fOptions;
     std::string fOutputName;
+    bool fSkipHomoGeometry;
     int fEvent, fTrack, fNode, fNodeHit, fHit3D, fProjection, fU, fV;
+    int fHit2DUsed, fHit2DRejectionCode;
     int fFiberCount;
     int fMCTrackId, fMCParentId, fMCPdg, fMCPoint;
     int fMCSegment, fMCDetector, fMCPrimaryId, fMCPrimaryPdg, fMCContributors;
     int fMCCubeX, fMCCubeY, fMCCubeZ;
-    std::string fMCParticle;
+    std::string fMCParticle, fHit2DRejectionReason;
     std::map<int,int> fMCTrackPdgById;
     std::vector<int> fMCContributorTrackIds,fMCContributorPdgs;
     unsigned int fGeomId, fViewGeomId;
     double fX, fY, fZ, fTime, fCharge, fPx, fPy, fPz;
-    double fViewCharge, fFiberChargeSum;
+    double fViewCharge, fViewX, fViewY, fViewZ, fFiberChargeSum;
     double fStartX, fStartY, fStartZ, fStartT;
     double fStopX, fStopY, fStopZ, fStopT;
     double fEnergyDeposit, fMCTrackLength;
     TFile* fOutput;
     TTree *fFiberTree, *fHomoRawTree, *fHomoTruthTree;
-    TTree *fHitTree, *fHitViewTree, *fTrackTree;
+    TTree *fHitTree, *fHit2DTree, *fHitViewTree, *fTrackTree;
     TTree *fTrackHitTree, *fMCTrackTree;
     TTree *fMCSegmentTree;
 };

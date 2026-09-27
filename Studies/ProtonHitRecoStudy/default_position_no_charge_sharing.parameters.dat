@@ -1,0 +1,11 @@
+# Standard HOMO hit construction with the HFG/SFGD cube charge-sharing fit
+# disabled.  This isolates hit topology in the matched single-muon test.
+< hfgRecon.Hits3D.SharingAlgo.homo = 0 >
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 1 >
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 10.0 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 0 >
+< hfgRecon.Hits3D.VoxelPositionMode.homo = 2 >
+< hfgRecon.SelectHits3D.Enable.homo = 1 >
+< hfgRecon.SelectHits3D.ChargeCut.homo = 10.0 >

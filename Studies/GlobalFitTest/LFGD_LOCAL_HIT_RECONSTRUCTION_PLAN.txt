@@ -1,0 +1,107 @@
+LFGD local 3D-hit reconstruction concept
+========================================
+
+Purpose
+-------
+Develop an LFGD-specific replacement for the initial 3D-hit construction,
+while keeping the existing HFGD reconstruction downstream of that step.
+Unlike the SFGD, light in the LFGD is shared across several fibres and is
+correlated along columns, so one virtual cube must not automatically become
+one independent 3D hit.
+
+Proposed reconstruction sequence
+--------------------------------
+
+1. Find a track-like cluster directly from the fibre hits, using DBSCAN or a
+   local straight-line fit. No external or pre-existing track direction is
+   assumed at this stage.
+
+2. Estimate the local main direction of that cluster and select the dominant
+   detector axis. Use the axis whose absolute direction component is largest,
+   with a nominal 45-degree criterion. Directions near the boundary require a
+   fallback or ambiguity treatment.
+
+3. Divide the cluster into slices perpendicular to the dominant axis. Each
+   slice has the width of one fibre pitch (currently 10 mm).
+
+4. In each slice, initially assume that the deposited charge is concentrated
+   at one subvoxel in the plane through the centre of the slice. The coordinate
+   along the dominant axis is assigned to the slice centre. Its intrinsic
+   uncertainty is approximately pitch/sqrt(12), or 2.9 mm for a 10 mm pitch.
+
+5. Use the two fibre views perpendicular to the dominant track axis to
+   reconstruct the two transverse coordinates and the slice charge. The fibre
+   view parallel to the dominant axis is not used for this local position fit;
+   it may later help with charge sharing or ambiguity resolution.
+
+   Example for an x-dominant track:
+
+     - z-oriented fibres constrain y;
+     - y-oriented fibres constrain z;
+     - x-oriented fibres are approximately parallel to the track and are not
+       used for the local transverse position.
+
+6. Implement and compare two reconstruction methods:
+
+   a. Centre-of-gravity method
+
+      Calculate each transverse coordinate from the charge-weighted fibre
+      positions in the corresponding view. Estimate the charge separately in
+      both views after correcting for their collection efficiencies, then
+      combine the two estimates. Do not simply sum both views, because that
+      would count the same deposited charge twice.
+
+   b. Slice-restricted light-map likelihood
+
+      Test the 10 x 10 subvoxel hypotheses in the central plane of the slice.
+      For hypothesis i and fibre f, predict
+
+          mu_f = Q_c * L_fi,
+
+      where L_fi is the light-map fraction/probability and Q_c is the produced
+      slice charge. The sum of measured fibre charges provides the initial
+      charge estimate. For a fixed subvoxel, Q_c can be profiled (for a Poisson
+      model) as
+
+          Q_c_hat(i) = sum_f(q_f) / sum_f(L_fi).
+
+      Select the subvoxel and charge giving the best likelihood or Poisson
+      deviance.
+
+Initial spatial scope: central slice only (plus/minus zero)
+-----------------------------------------------------------
+
+Start with only fibres belonging to the slice being reconstructed (plus/minus
+zero neighbouring slices). The L_fi values are simply the fractions or
+probabilities for this restricted response.
+
+Do not initially include fibres from the neighbouring slices (plus/minus one).
+Their signals can contain light produced by charge deposited in those slices,
+so including them without a simultaneous multi-slice model could bias the
+central-slice position or charge. A plus/minus-one extension should only be
+tested later with the charges of adjacent slices fitted simultaneously, or
+with another explicit treatment of their contributions.
+
+Validation and stored output
+----------------------------
+
+Store both the centre-of-gravity and light-map estimates, including position,
+charge, fit quality/likelihood, uncertainty, selected views, dominant axis,
+slice index, and source cluster identifier. This permits direct validation
+before either estimate is passed to the standard downstream tracking.
+
+The first study should test the point-like central-plane hypothesis for tracks
+up to about 30 degrees from an axis and investigate performance toward 45
+degrees. At larger angles, the charge distribution within one slice can be too
+extended for a single-subvoxel template; a short-segment template would then
+be the natural refinement.
+
+Multiple tracks and delta electrons
+-----------------------------------
+
+Multiple-track charge sharing is deferred. Once local candidates and track
+continuity exist, two nearby tracks can be represented by a sum of two
+light-map templates. The fibre view parallel to the dominant axis may then be
+used to constrain how charge is shared. Forks from delta electrons should be
+identified as local branches rather than forcing all associated fibre hits
+into the main-track candidate.

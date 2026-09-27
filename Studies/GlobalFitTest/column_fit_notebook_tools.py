@@ -1,14 +1,62 @@
 """Interactive analysis helpers for GlobalLightFitColumns outputs."""
 
 from pathlib import Path
+import re
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
+def discover_column_fit_files(base, fit_filename="global_fit_columns_track_aware.root",
+                              include_double_hg=True, include_legacy=False,
+                              scatter_lengths=None):
+    """Discover labelled GlobalFit outputs below a LightmapsStudie maps directory.
+
+    ``include_legacy`` refers to the legacy isotropic/Rayleigh light-map naming,
+    not to an older fit executable.  ``scatter_lengths`` may be ``None`` (all
+    available lengths) or an iterable of lengths in mm.
+    """
+    base = Path(base).expanduser().resolve()
+    requested = None if scatter_lengths is None else [float(x) for x in scatter_lengths]
+    found = {}
+    for path in sorted(base.glob(f"*/{fit_filename}")):
+        directory = path.parent.name
+        double_hg = re.search(r"double_hg_([0-9]+p[0-9]+)mm", directory)
+        if double_hg:
+            if not include_double_hg:
+                continue
+            model = "Double-HG"
+            value = float(double_hg.group(1).replace("p", "."))
+        else:
+            if not include_legacy:
+                continue
+            match = re.search(r"_([0-9]+p[0-9]+)mm(?:_|$)", directory)
+            if match:
+                value = float(match.group(1).replace("p", "."))
+            elif re.search(r"_1mm(?:_|$)", directory):
+                value = 1.0
+            else:
+                continue
+            model = "Legacy"
+        if requested is not None and not any(np.isclose(value, x) for x in requested):
+            continue
+        key = (model, value)
+        # Prefer the current systematic directory name over a dated legacy copy.
+        if key not in found or (found[key].parent.name[:1].isdigit() and
+                                not directory[:1].isdigit()):
+            found[key] = path
+    ordered = sorted(found, key=lambda key: (key[0] != "Double-HG", key[1]))
+    files = {f"{model} {value:g} mm": found[(model, value)] for model, value in ordered}
+    if not files:
+        raise FileNotFoundError(
+            f"No {fit_filename} files matching the selected models/lengths below {base}")
+    return files
+
+
 def _tree_frame(root_file, tree_name, branches=None):
     import ROOT
+    ROOT.PyConfig.StartGuiThread = False
     source = ROOT.TFile.Open(str(root_file), "READ")
     if not source or source.IsZombie():
         raise OSError(f"Cannot open {root_file}")
@@ -108,7 +156,17 @@ def charge_calibration(matched):
 def add_calibrated_residuals(matched, scale=None):
     result = matched.copy()
     if scale is None:
-        scale = charge_calibration(result)
+        # MIP-variant frames carry the fixed independent calibration used by
+        # stage 3.  Reuse it for a fair stage-2/stage-3 comparison instead of
+        # independently rescaling away part of the regularisation effect.
+        scale = np.nan
+        if "charge_per_energy" in result:
+            stored = result.charge_per_energy.to_numpy(float)
+            stored = stored[np.isfinite(stored) & (stored > 0)]
+            if len(stored):
+                scale = float(np.median(stored))
+        if not np.isfinite(scale) or scale <= 0:
+            scale = charge_calibration(result)
     result["charge_per_energy"] = scale
     result["fitted_energy"] = result.fitted_selected_fibre_charge / scale
     result["energy_residual"] = result.fitted_energy - result.mc_energy
@@ -149,6 +207,19 @@ def mip_prior_variants(studies, matched_by_study):
         variants[label] = {"regularized": regularized,
                            "unregularized": unregularized, "scale": scale}
     return variants
+
+
+def column_stage_variants(studies, matched_by_study):
+    """Expand each MIP-enabled study into explicit stage-2/stage-3 curves."""
+    mip = mip_prior_variants(studies, matched_by_study)
+    output = {}
+    for label, matched in matched_by_study.items():
+        if label in mip:
+            output[f"{label} — stage 2 (unregularised)"] = mip[label]["unregularized"]
+            output[f"{label} — stage 3 (MIP prior)"] = mip[label]["regularized"]
+        else:
+            output[label] = matched
+    return output
 
 
 def mip_prior_summary(studies, variants):
@@ -821,7 +892,7 @@ def segment_line_residuals(studies,segments,track_points,maximum_muon_match_dist
     return output
 
 
-def plot_line_residuals(residuals, distance_max=20, signed_fit_range=(-1,1), bins=100):
+def plot_line_residuals(residuals, distance_max=20, signed_fit_range=(-1,1), bins=100, colours=None):
     """Plot residuals and return ROOT-Gaussian signed-component resolutions.
 
     The non-negative perpendicular distance is not Gaussian; its 68% quantile
@@ -835,7 +906,7 @@ def plot_line_residuals(residuals, distance_max=20, signed_fit_range=(-1,1), bin
         for axis, (field, title) in zip(axes.flat, fields):
             values = frame[field].replace([np.inf,-np.inf],np.nan).dropna().to_numpy(float)
             limits = (0, distance_max) if field == "distance" else (-distance_max, distance_max)
-            colour="black" if label.startswith("MC ") else axis._get_lines.get_next_color()
+            colour=(colours or {}).get(label,"black" if label.startswith("MC ") else axis._get_lines.get_next_color())
             linewidth=2.0 if label.startswith("MC ") else 1.5
             histogram_label=label
             if field != "distance":
@@ -900,11 +971,14 @@ def filter_line_residuals(residuals, studies, event="ALL", convergence="column",
     return output, accepted, mc_events
 
 
-def plot_event_profile(studies, matched_by_study, event, labels=None, normalize=False):
+def plot_event_profile(studies, matched_by_study, event, labels=None, normalize=False,
+                       show_mip_variants=True):
     """Plot one event's fitted and MC column-charge profiles without widgets.
 
     This is also the widget-independent fallback for notebook frontends whose
-    JavaScript widget manager is unavailable or stale.
+    JavaScript widget manager is unavailable or stale.  For a file with an
+    enabled MIP prior, the stored second-stage (unregularised) and third-stage
+    (MIP-regularised) profiles are drawn together.
     """
     available = list(studies)
     labels = available if labels is None else list(labels)
@@ -919,14 +993,40 @@ def plot_event_profile(studies, matched_by_study, event, labels=None, normalize=
         if frame.empty:
             continue
         fitted = frame.fitted_selected_fibre_charge.to_numpy(float)
+        unregularized = None
+        mip_enabled = False
+        fit_summary = studies[label]["fit"]
+        if (show_mip_variants and
+                "unregularized_fitted_selected_fibre_charge" in frame and
+                "column_mip_prior_enabled" in fit_summary):
+            mip_enabled = bool(np.any(fit_summary.column_mip_prior_enabled.to_numpy()))
+            if mip_enabled:
+                unregularized = frame.unregularized_fitted_selected_fibre_charge.to_numpy(float)
         truth = frame.mc_energy.to_numpy(float)
         if normalize:
             fitted = fitted / fitted.sum() if fitted.sum() else fitted
+            if unregularized is not None:
+                unregularized = (unregularized / unregularized.sum()
+                                 if unregularized.sum() else unregularized)
             truth = truth / truth.sum() if truth.sum() else truth
         else:
-            fitted = fitted / charge_calibration(matched_by_study[label])
+            scale = charge_calibration(matched_by_study[label])
+            if mip_enabled and "column_mip_prior_charge_per_energy" in fit_summary:
+                stored = fit_summary.column_mip_prior_charge_per_energy.to_numpy(float)
+                stored = stored[np.isfinite(stored) & (stored > 0)]
+                if len(stored):
+                    scale = float(np.median(stored))
+            fitted = fitted / scale
+            if unregularized is not None:
+                unregularized = unregularized / scale
         coordinate = .5 * (frame.column_low + frame.column_high)
-        axis.plot(coordinate, fitted, marker=".", label=f"{label} fit")
+        if unregularized is not None:
+            axis.plot(coordinate, unregularized, marker=".", linestyle="--", alpha=.75,
+                      label=f"{label}: stage 2, no MIP prior")
+            axis.plot(coordinate, fitted, marker=".",
+                      label=f"{label}: stage 3, MIP prior")
+        else:
+            axis.plot(coordinate, fitted, marker=".", label=f"{label} fit")
         if not truth_drawn:
             axis.step(coordinate, truth, where="mid", color="black", lw=2, label="MC truth")
             truth_drawn = True
@@ -952,6 +1052,7 @@ def interactive_event(studies, matched_by_study):
     maps_widget = widgets.SelectMultiple(options=labels, value=tuple(labels), description="Light maps",
                                           layout=widgets.Layout(width="450px", height="120px"))
     normalize_widget = widgets.Checkbox(value=False, description="Normalize profiles")
+    mip_widget = widgets.Checkbox(value=True, description="Show stages 2 and 3")
     output = widgets.Output()
 
     def draw(*_):
@@ -959,9 +1060,10 @@ def interactive_event(studies, matched_by_study):
             output.clear_output(wait=True)
             fig, _ = plot_event_profile(studies, matched_by_study, event_widget.value,
                                         labels=maps_widget.value,
-                                        normalize=normalize_widget.value)
+                                        normalize=normalize_widget.value,
+                                        show_mip_variants=mip_widget.value)
             plt.show()
 
-    event_widget.observe(draw, names="value");maps_widget.observe(draw, names="value");normalize_widget.observe(draw, names="value")
-    display(widgets.VBox([event_widget, maps_widget, normalize_widget]), output);draw()
+    event_widget.observe(draw, names="value");maps_widget.observe(draw, names="value");normalize_widget.observe(draw, names="value");mip_widget.observe(draw, names="value")
+    display(widgets.VBox([event_widget, maps_widget, normalize_widget, mip_widget]), output);draw()
     return output

@@ -1,0 +1,2 @@
+# Standard HFGD reconstruction with only the cube charge-sharing fit disabled.
+< hfgRecon.Hits3D.SharingAlgo = 0 >

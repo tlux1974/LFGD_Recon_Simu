@@ -236,8 +236,39 @@ void WriteMcSegmentBenchmark(TFile& output,TTree& segments,TTree& tracks,
     std::cout<<"MC segment benchmark: "<<fitTree.GetEntries()<<" line fits and "<<residualTree.GetEntries()<<" segment residual rows\n";
 }
 
+struct ViewLine {
+    double cu=0,cv=0,du=1,dv=0,tmin=0,tmax=0,charge=0;
+};
+
+ViewLine FitViewLine(const std::vector<Observation>& input,const std::vector<int>& members) {
+    ViewLine line;if(members.empty())return line;
+    // Cap the weights at the view median: a delta-electron charge spike must
+    // not rotate the geometrical direction of the main track.
+    std::vector<double> q;for(int i:members)q.push_back(input[i].q);
+    const auto middle=q.begin()+q.size()/2;std::nth_element(q.begin(),middle,q.end());const double cap=std::max(1e-9,*middle);
+    double weight=0,suu=0,suv=0,svv=0;
+    for(int i:members){auto uv=Transverse(input[i]);const double w=std::min(input[i].q,cap);weight+=w;line.cu+=w*uv.first;line.cv+=w*uv.second;line.charge+=input[i].q;}
+    line.cu/=weight;line.cv/=weight;
+    for(int i:members){auto uv=Transverse(input[i]);const double w=std::min(input[i].q,cap),u=uv.first-line.cu,v=uv.second-line.cv;suu+=w*u*u;suv+=w*u*v;svv+=w*v*v;}
+    const double angle=.5*std::atan2(2*suv,suu-svv);line.du=std::cos(angle);line.dv=std::sin(angle);
+    line.tmin=std::numeric_limits<double>::max();line.tmax=-line.tmin;
+    for(int i:members){auto uv=Transverse(input[i]);const double t=uv.first*line.du+uv.second*line.dv;line.tmin=std::min(line.tmin,t);line.tmax=std::max(line.tmax,t);}
+    return line;
+}
+
+double ViewLineResidual(const Observation& hit,const ViewLine& line) {
+    const auto uv=Transverse(hit);return std::abs(-(uv.first-line.cu)*line.dv+(uv.second-line.cv)*line.du);
+}
+
+struct TrackAwareSelection {
+    struct Rejected { Observation hit;double residual=0,forkU=0,forkV=0; };
+    std::vector<Observation> observations;
+    std::vector<Rejected> rejected;
+    int clustersFound=0,clustersMerged=0,branchesRejected=0;
+};
+
 // DBSCAN is performed separately in each physical fibre projection. Keeping
-// the highest-charge cluster avoids selecting a small but dense conversion.
+// the highest-charge cluster preserves the historical selection exactly.
 std::vector<Observation> MainDbscanClusters(const std::vector<Observation>& input,
                                             double epsilon,int minPoints) {
     std::vector<Observation> output;const double epsilon2=epsilon*epsilon;
@@ -259,6 +290,44 @@ std::vector<Observation> MainDbscanClusters(const std::vector<Observation>& inpu
         const int keep=std::max_element(charge.begin(),charge.end())-charge.begin();for(int i=0;i<n;++i)if(label[i]==keep)output.push_back(input[index[i]]);
     }
     return output;
+}
+
+TrackAwareSelection TrackAwareClusters(const std::vector<Observation>& input,double epsilon,int minPoints,
+                                        double maximumAngleDegrees,double maximumTransverse,
+                                        double maximumGap,double branchMaximumDistance) {
+    TrackAwareSelection result;const double epsilon2=epsilon*epsilon;
+    for(int projection=0;projection<3;++projection){
+        std::vector<Observation> view;for(const auto& hit:input)if(hit.projection==projection)view.push_back(hit);
+        const int n=view.size();if(!n)continue;std::vector<int> label(n,-1);
+        auto neighbours=[&](int i){std::vector<int> found;const auto a=Transverse(view[i]);for(int j=0;j<n;++j){const auto b=Transverse(view[j]);const double du=a.first-b.first,dv=a.second-b.second;if(du*du+dv*dv<=epsilon2+1e-6)found.push_back(j);}return found;};
+        int count=0;for(int i=0;i<n;++i){if(label[i]!=-1)continue;auto nearby=neighbours(i);if(static_cast<int>(nearby.size())<minPoints){label[i]=-2;continue;}const int cluster=count++;label[i]=cluster;
+            for(size_t cursor=0;cursor<nearby.size();++cursor){const int j=nearby[cursor];if(label[j]==-2)label[j]=cluster;if(label[j]!=-1)continue;label[j]=cluster;auto expanded=neighbours(j);if(static_cast<int>(expanded.size())>=minPoints)for(int k:expanded)if(std::find(nearby.begin(),nearby.end(),k)==nearby.end())nearby.push_back(k);}}
+        result.clustersFound+=count;if(!count)continue;
+        std::vector<std::vector<int>> members(count);for(int i=0;i<n;++i)if(label[i]>=0)members[label[i]].push_back(i);
+        std::vector<ViewLine> lines;for(const auto& m:members)lines.push_back(FitViewLine(view,m));
+        // Longest component is the primary track candidate; charge breaks ties.
+        int primary=0;for(int c=1;c<count;++c)if(std::make_pair(lines[c].tmax-lines[c].tmin,lines[c].charge)>std::make_pair(lines[primary].tmax-lines[primary].tmin,lines[primary].charge))primary=c;
+        std::vector<int> trunk=members[primary];std::vector<bool> merged(count,false);merged[primary]=true;ViewLine axis=lines[primary];
+        bool changed=true;while(changed){changed=false;for(int c=0;c<count;++c)if(!merged[c]){
+            const double cosine=std::clamp(std::abs(axis.du*lines[c].du+axis.dv*lines[c].dv),0.0,1.0);const double angle=std::acos(cosine)*180.0/M_PI;
+            const double transverse=std::abs(-(lines[c].cu-axis.cu)*axis.dv+(lines[c].cv-axis.cv)*axis.du);
+            double cmin=std::numeric_limits<double>::max(),cmax=-cmin;for(int i:members[c]){auto uv=Transverse(view[i]);const double t=uv.first*axis.du+uv.second*axis.dv;cmin=std::min(cmin,t);cmax=std::max(cmax,t);}
+            const double gap=cmin>axis.tmax?cmin-axis.tmax:axis.tmin>cmax?axis.tmin-cmax:0.0;
+            if(angle<=maximumAngleDegrees&&transverse<=maximumTransverse&&gap<=maximumGap){trunk.insert(trunk.end(),members[c].begin(),members[c].end());merged[c]=true;++result.clustersMerged;axis=FitViewLine(view,trunk);changed=true;}}
+        }
+        // Robust line search. The score is capped-charge support inside the
+        // allowed width, with span as a tie breaker. This follows the muon
+        // through gaps and ignores a high-charge departing delta branch.
+        std::vector<double> charges;for(int i:trunk)charges.push_back(view[i].q);auto mid=charges.begin()+charges.size()/2;std::nth_element(charges.begin(),mid,charges.end());const double cap=std::max(1e-9,*mid);
+        ViewLine best=axis;double bestSupport=-1,bestSpan=-1;
+        for(size_t ia=0;ia<trunk.size();++ia)for(size_t ib=ia+1;ib<trunk.size();++ib){auto a=Transverse(view[trunk[ia]]),b=Transverse(view[trunk[ib]]);double du=b.first-a.first,dv=b.second-a.second,norm=std::hypot(du,dv);if(norm<epsilon*.5)continue;ViewLine candidate;candidate.cu=a.first;candidate.cv=a.second;candidate.du=du/norm;candidate.dv=dv/norm;double support=0,tmin=1e99,tmax=-1e99;for(int i:trunk)if(ViewLineResidual(view[i],candidate)<=branchMaximumDistance){auto uv=Transverse(view[i]);double t=uv.first*candidate.du+uv.second*candidate.dv;support+=std::min(view[i].q,cap);tmin=std::min(tmin,t);tmax=std::max(tmax,t);}const double span=tmax-tmin;if(std::make_pair(support,span)>std::make_pair(bestSupport,bestSpan)){bestSupport=support;bestSpan=span;best=candidate;}}
+        std::vector<int> retained;for(int i:trunk)if(ViewLineResidual(view[i],best)<=branchMaximumDistance)retained.push_back(i);
+        // Refit once and apply the same physical-width cut. No synthetic hits
+        // are inserted: bridging means that both aligned sides survive.
+        if(retained.size()>=2)best=FitViewLine(view,retained);
+        for(int i:trunk){const double residual=ViewLineResidual(view[i],best);if(residual<=branchMaximumDistance)result.observations.push_back(view[i]);else{const auto uv=Transverse(view[i]);const double t=(uv.first-best.cu)*best.du+(uv.second-best.cv)*best.dv;++result.branchesRejected;result.rejected.push_back({view[i],residual,best.cu+t*best.du,best.cv+t*best.dv});}}
+    }
+    return result;
 }
 
 std::vector<Observation> LineCorridor(const std::vector<Observation>& input,
@@ -584,9 +653,17 @@ Options:
   TREE=homo_truth|homo_raw|fiber_hits
                                  Fibre input tree (default: homo_truth)
   MIN_CHARGE=10                  Minimum measured fibre charge
-  DBSCAN=0|1                     Enable DBSCAN (default: 1)
+  CLUSTER_METHOD=DBSCAN|TRACK_AWARE|NONE
+                                 Clustering method (default: DBSCAN)
+  DBSCAN=0|1                     Backward-compatible DBSCAN switch
   DBSCAN_EPSILON_MM=14.2         DBSCAN radius; includes diagonal fibres
   DBSCAN_MIN_POINTS=2            Minimum DBSCAN neighbourhood size
+  TRACK_MERGE_MAX_ANGLE_DEG=10   Maximum angle between components to merge
+  TRACK_MERGE_MAX_TRANSVERSE_MM=15
+                                 Maximum extrapolated transverse separation
+  TRACK_MERGE_MAX_GAP_MM=50      Maximum longitudinal gap to bridge
+  TRACK_BRANCH_MAX_DISTANCE_MM=15
+                                 Main-line width; departing branches rejected
   CORRIDOR=0|1                   Enable straight seed corridor (default: 0)
   CORRIDOR_HALF_WIDTH_FIBRES=1   Corridor half-width; 1 means 10.5 mm
   MIN_MAP_FRACTION=0             Ignore smaller light-map fractions
@@ -633,7 +710,7 @@ Truth-assisted seed diagnostic (not reconstruction performance):
     if(argc==1||(argc==2&&std::string(argv[1])=="--help")){usage();return 0;}
     if(argc<4){usage();return 2;}
     try{
-        std::map<std::string,std::string> options;std::set<std::string> allowed={"EVENT","TREE","MIN_CHARGE","DBSCAN","DBSCAN_EPSILON_MM","DBSCAN_MIN_POINTS","CORRIDOR","CORRIDOR_HALF_WIDTH_FIBRES","MIN_MAP_FRACTION","FIT_VIEWS","SEED_DIRECTION","SEED_MEDIAN_FACTOR","MAX_FUNCTION_CALLS","TOLERANCE","FIT_RANGE","FIT_RANGE_QUANTILE","FIT_RANGE_PADDING_MM"};
+        std::map<std::string,std::string> options;std::set<std::string> allowed={"EVENT","TREE","MIN_CHARGE","CLUSTER_METHOD","DBSCAN","DBSCAN_EPSILON_MM","DBSCAN_MIN_POINTS","TRACK_MERGE_MAX_ANGLE_DEG","TRACK_MERGE_MAX_TRANSVERSE_MM","TRACK_MERGE_MAX_GAP_MM","TRACK_BRANCH_MAX_DISTANCE_MM","CORRIDOR","CORRIDOR_HALF_WIDTH_FIBRES","MIN_MAP_FRACTION","FIT_VIEWS","SEED_DIRECTION","SEED_MEDIAN_FACTOR","MAX_FUNCTION_CALLS","TOLERANCE","FIT_RANGE","FIT_RANGE_QUANTILE","FIT_RANGE_PADDING_MM"};
 #ifdef GLOBAL_FIT_COLUMN_MODE
         allowed.insert({"COLUMN_MIP_PRIOR","COLUMN_MIP_FLOOR_ENERGY","COLUMN_MIP_MPV_ENERGY","COLUMN_MIP_STRENGTH","COLUMN_CHARGE_PER_ENERGY","COLUMN_MIP_MIN_PATH_FRACTION","COLUMN_MIP_MAX_ITERATIONS","COLUMN_MIP_CONVERGENCE"});
 #endif
@@ -644,8 +721,14 @@ Truth-assisted seed diagnostic (not reconstruction performance):
         std::string inName=argv[1],outName=argv[2],mapName=argv[3],treeName=get("TREE","homo_truth");
         std::string eventSpec=get("EVENT","0");double cut=std::stod(get("MIN_CHARGE","10"));
         const bool useDbscan=boolean("DBSCAN",true);
+        std::string clusterMethod=get("CLUSTER_METHOD",useDbscan?"DBSCAN":"NONE");for(char& c:clusterMethod)c=std::toupper(static_cast<unsigned char>(c));
+        if(clusterMethod!="DBSCAN"&&clusterMethod!="TRACK_AWARE"&&clusterMethod!="NONE")throw std::runtime_error("CLUSTER_METHOD must be DBSCAN, TRACK_AWARE, or NONE");
         const double dbscanEpsilon=std::stod(get("DBSCAN_EPSILON_MM","14.2"));
         const int dbscanMinPoints=std::stoi(get("DBSCAN_MIN_POINTS","2"));
+        const double trackMergeAngle=std::stod(get("TRACK_MERGE_MAX_ANGLE_DEG","10"));
+        const double trackMergeTransverse=std::stod(get("TRACK_MERGE_MAX_TRANSVERSE_MM","15"));
+        const double trackMergeGap=std::stod(get("TRACK_MERGE_MAX_GAP_MM","50"));
+        const double trackBranchDistance=std::stod(get("TRACK_BRANCH_MAX_DISTANCE_MM","15"));
         const bool useCorridor=boolean("CORRIDOR",false);
         const int corridorHalfWidth=std::stoi(get("CORRIDOR_HALF_WIDTH_FIBRES","1"));
         const double minimumMapFraction=std::stod(get("MIN_MAP_FRACTION","0"));
@@ -667,7 +750,7 @@ Truth-assisted seed diagnostic (not reconstruction performance):
         if(columnPrior.enabled&&columnPrior.strength<=0)throw std::runtime_error("COLUMN_MIP_STRENGTH must be positive when COLUMN_MIP_PRIOR=1");
 #endif
         const auto fitViewSelection=ParseFitViews(get("FIT_VIEWS","ALL"));const auto& fitViews=fitViewSelection.first;const std::string& fitViewsName=fitViewSelection.second;
-        if(dbscanEpsilon<=0||dbscanMinPoints<1||corridorHalfWidth<0||minimumMapFraction<0||maximumFunctionCalls<1||minimizerTolerance<=0||fitRangeQuantile<0||fitRangeQuantile>=0.5||fitRangePadding<0)throw std::runtime_error("Invalid selection, fit-range, or minimizer parameters");
+        if(dbscanEpsilon<=0||dbscanMinPoints<1||trackMergeAngle<0||trackMergeAngle>90||trackMergeTransverse<0||trackMergeGap<0||trackBranchDistance<=0||corridorHalfWidth<0||minimumMapFraction<0||maximumFunctionCalls<1||minimizerTolerance<=0||fitRangeQuantile<0||fitRangeQuantile>=0.5||fitRangePadding<0)throw std::runtime_error("Invalid selection, fit-range, or minimizer parameters");
         if(inName==outName)throw std::runtime_error("Input and output files must differ");
         TFile input(inName.c_str(),"READ");if(input.IsZombie())throw std::runtime_error("Cannot open input");
         auto* tree=dynamic_cast<TTree*>(input.Get(treeName.c_str()));if(!tree)throw std::runtime_error("Missing input tree");
@@ -694,6 +777,11 @@ Truth-assisted seed diagnostic (not reconstruction performance):
         dbscanSelected.Branch("z",&selectedZ);dbscanSelected.Branch("time",&selectedTime);dbscanSelected.Branch("charge",&selectedCharge);
         dbscanSelected.Branch("geom_id",&selectedGeomId);dbscanSelected.Branch("projection",&selectedProjection);
         dbscanSelected.Branch("u",&selectedU);dbscanSelected.Branch("v",&selectedV);
+        int rejectedEvent=0,rejectedProjection=0;unsigned int rejectedGeomId=0;double rejectedX=0,rejectedY=0,rejectedZ=0,rejectedCharge=0,rejectedResidual=0,rejectedForkU=0,rejectedForkV=0;
+        TTree rejectedBranches("global_fit_rejected_branches","Track-aware branch hits and projected fork positions in their view");
+        rejectedBranches.Branch("event",&rejectedEvent);rejectedBranches.Branch("projection",&rejectedProjection);rejectedBranches.Branch("geom_id",&rejectedGeomId);
+        rejectedBranches.Branch("x",&rejectedX);rejectedBranches.Branch("y",&rejectedY);rejectedBranches.Branch("z",&rejectedZ);rejectedBranches.Branch("charge",&rejectedCharge);
+        rejectedBranches.Branch("line_residual_mm",&rejectedResidual);rejectedBranches.Branch("fork_u",&rejectedForkU);rejectedBranches.Branch("fork_v",&rejectedForkV);
 #ifdef GLOBAL_FIT_COLUMN_MODE
         int columnEvent=0,columnAxis=0,columnIndex=0;double columnLow=0,columnHigh=0,columnPathLength=0;
         double columnCharge=0,columnChargePerMm=0,columnResponseScale=0,columnUnregularizedCharge=0,columnUnregularizedScale=0,columnMipFloorCharge=0,columnMipMpvCharge=0;int columnMipEligible=0;
@@ -707,8 +795,11 @@ Truth-assisted seed diagnostic (not reconstruction performance):
         columnCharges.Branch("mip_prior_eligible",&columnMipEligible);columnCharges.Branch("mip_prior_floor_charge",&columnMipFloorCharge);columnCharges.Branch("mip_prior_mpv_charge",&columnMipMpvCharge);
 #endif
         for(int event:events){
-            auto obs=SelectFitViews(Read(*tree,event,cut),fitViews);const int observationsBefore=obs.size();if(useDbscan)obs=MainDbscanClusters(obs,dbscanEpsilon,dbscanMinPoints);
-            const int observationsAfterDbscan=obs.size();if(obs.empty()){std::cerr<<"Skipping event "<<event<<": no observations survive DBSCAN\n";continue;}
+            auto obs=SelectFitViews(Read(*tree,event,cut),fitViews);const int observationsBefore=obs.size();TrackAwareSelection trackSelection;
+            if(clusterMethod=="DBSCAN")obs=MainDbscanClusters(obs,dbscanEpsilon,dbscanMinPoints);
+            else if(clusterMethod=="TRACK_AWARE"){trackSelection=TrackAwareClusters(obs,dbscanEpsilon,dbscanMinPoints,trackMergeAngle,trackMergeTransverse,trackMergeGap,trackBranchDistance);obs=std::move(trackSelection.observations);}
+            const int observationsAfterDbscan=obs.size();if(obs.empty()){std::cerr<<"Skipping event "<<event<<": no observations survive "<<clusterMethod<<" clustering\n";continue;}
+            for(const auto& rejected:trackSelection.rejected){rejectedEvent=event;rejectedProjection=rejected.hit.projection;rejectedGeomId=rejected.hit.geomId;rejectedX=rejected.hit.x;rejectedY=rejected.hit.y;rejectedZ=rejected.hit.z;rejectedCharge=rejected.hit.q;rejectedResidual=rejected.residual;rejectedForkU=rejected.forkU;rejectedForkV=rejected.forkV;rejectedBranches.Fill();}
             for(const auto& hit:obs){selectedEvent=event;selectedX=hit.x;selectedY=hit.y;selectedZ=hit.z;selectedTime=hit.time;selectedCharge=hit.q;
                 selectedGeomId=hit.geomId;selectedProjection=hit.projection;selectedU=hit.u;selectedV=hit.v;dbscanSelected.Fill();}
             const auto fitBounds=useFitRange?DataFitBounds(obs,low,high,fitRangeQuantile,fitRangePadding):std::make_pair(low,high);
@@ -740,7 +831,10 @@ Truth-assisted seed diagnostic (not reconstruction performance):
                 columnUnregularizedScale=column.unregularizedResponseScale;columnMipEligible=column.mipPriorEligible;columnMipFloorCharge=column.mipFloorCharge;columnMipMpvCharge=column.mipMpvCharge;columnCharges.Fill();}
 #endif
             r=GlobalFitResult();r.event=event;r.status=minimizer->Status();r.observations=obs.size();r.observationsBeforeClustering=observationsBefore;r.observationsAfterDbscan=observationsAfterDbscan;
-            r.dbscanEnabled=useDbscan;r.dbscanEpsilon=dbscanEpsilon;r.dbscanMinPoints=dbscanMinPoints;r.minimumCharge=cut;r.nll=minimizer->MinValue();
+            r.dbscanEnabled=clusterMethod!="NONE";r.dbscanEpsilon=dbscanEpsilon;r.dbscanMinPoints=dbscanMinPoints;r.clusterMethod=clusterMethod;
+            r.trackClustersFound=trackSelection.clustersFound;r.trackClustersMerged=trackSelection.clustersMerged;r.trackBranchesRejected=trackSelection.branchesRejected;
+            r.trackMergeMaxAngle=trackMergeAngle;r.trackMergeMaxTransverse=trackMergeTransverse;r.trackMergeMaxGap=trackMergeGap;r.trackBranchMaxDistance=trackBranchDistance;
+            r.minimumCharge=cut;r.nll=minimizer->MinValue();
             r.fitRangeEnabled=useFitRange;r.fitRangeQuantile=fitRangeQuantile;r.fitRangePadding=fitRangePadding;
             r.fitLowX=fitLow[0];r.fitLowY=fitLow[1];r.fitLowZ=fitLow[2];r.fitHighX=fitHigh[0];r.fitHighY=fitHigh[1];r.fitHighZ=fitHigh[2];
             r.edm=minimizer->Edm();r.functionCalls=minimizer->NCalls();r.maximumFunctionCalls=maximumFunctionCalls;r.tolerance=minimizerTolerance;
@@ -772,7 +866,7 @@ Truth-assisted seed diagnostic (not reconstruction performance):
                      <<" eligible columns "<<r.columnMipPriorEligibleColumns<<" penalty "<<r.columnMipPriorPenalty<<" objective "<<r.columnMipPriorObjective<<"\n";
 #endif
         }
-        output.cd();result.Write();selected.Write();dbscanSelected.Write();
+        output.cd();result.Write();selected.Write();dbscanSelected.Write();rejectedBranches.Write();
 #ifdef GLOBAL_FIT_COLUMN_MODE
         columnCharges.Write();
 #endif

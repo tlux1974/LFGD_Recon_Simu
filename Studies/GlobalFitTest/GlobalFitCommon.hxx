@@ -21,6 +21,10 @@ struct GlobalFitResult {
     int dbscanEnabled = 0;
     double dbscanEpsilon = 14.2;
     int dbscanMinPoints = 2;
+    std::string clusterMethod = "DBSCAN";
+    int trackClustersFound = 0, trackClustersMerged = 0, trackBranchesRejected = 0;
+    double trackMergeMaxAngle = 10.0, trackMergeMaxTransverse = 15.0;
+    double trackMergeMaxGap = 50.0, trackBranchMaxDistance = 15.0;
     int corridorEnabled = 0;
     int corridorHalfWidth = 1;
     double minimumMapFraction = 0.0;
@@ -69,6 +73,14 @@ inline void BranchGlobalFit(TTree& tree, GlobalFitResult& r) {
     tree.Branch("dbscan_enabled", &r.dbscanEnabled);
     tree.Branch("dbscan_epsilon", &r.dbscanEpsilon);
     tree.Branch("dbscan_min_points", &r.dbscanMinPoints);
+    tree.Branch("cluster_method", &r.clusterMethod);
+    tree.Branch("track_clusters_found", &r.trackClustersFound);
+    tree.Branch("track_clusters_merged", &r.trackClustersMerged);
+    tree.Branch("track_branches_rejected", &r.trackBranchesRejected);
+    tree.Branch("track_merge_max_angle_deg", &r.trackMergeMaxAngle);
+    tree.Branch("track_merge_max_transverse_mm", &r.trackMergeMaxTransverse);
+    tree.Branch("track_merge_max_gap_mm", &r.trackMergeMaxGap);
+    tree.Branch("track_branch_max_distance_mm", &r.trackBranchMaxDistance);
     tree.Branch("corridor_enabled", &r.corridorEnabled);
     tree.Branch("corridor_half_width", &r.corridorHalfWidth);
     tree.Branch("minimum_map_fraction", &r.minimumMapFraction);
@@ -139,6 +151,10 @@ inline void SetGlobalFitAddresses(TTree& tree, GlobalFitResult& r) {
     GF_ADDRESS("observations_after_dbscan", observationsAfterDbscan);
     GF_ADDRESS("dbscan_enabled", dbscanEnabled); GF_ADDRESS("dbscan_epsilon", dbscanEpsilon);
     GF_ADDRESS("dbscan_min_points", dbscanMinPoints);
+    GF_ADDRESS("track_clusters_found", trackClustersFound); GF_ADDRESS("track_clusters_merged", trackClustersMerged);
+    GF_ADDRESS("track_branches_rejected", trackBranchesRejected);
+    GF_ADDRESS("track_merge_max_angle_deg", trackMergeMaxAngle); GF_ADDRESS("track_merge_max_transverse_mm", trackMergeMaxTransverse);
+    GF_ADDRESS("track_merge_max_gap_mm", trackMergeMaxGap); GF_ADDRESS("track_branch_max_distance_mm", trackBranchMaxDistance);
     GF_ADDRESS("corridor_enabled", corridorEnabled);
     GF_ADDRESS("corridor_half_width", corridorHalfWidth);
     GF_ADDRESS("minimum_map_fraction", minimumMapFraction);

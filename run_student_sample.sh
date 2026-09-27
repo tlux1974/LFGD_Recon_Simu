@@ -16,6 +16,12 @@ CONFIG is one of:
   hfg-standard      HFGD with its standard reconstruction
   lfg-original-low Historical LFGD peak method with 10 PE thresholds
   lfg-best          Local LFGD 2D clustering plus view-average charge (mode 2)
+  lfg-default-position
+                    Standard local 2D clustering, standard charge sharing,
+                    and the current continuous 3D position (study control)
+  lfg-dominant-axis-position
+                    Same chain, changing only the final 3D position to the
+                    dominant-axis/two-perpendicular-view method
 
 Examples:
   ./run_student_sample.sh hfg-standard 100
@@ -71,6 +77,14 @@ case "$configuration" in
         detector=homo
         parameter_file="${SCRIPT_DIR}/student_lfg_best.parameters.dat"
         ;;
+    lfg-default-position)
+        detector=homo
+        parameter_file="${SCRIPT_DIR}/Studies/ProtonHitRecoStudy/default_position.parameters.dat"
+        ;;
+    lfg-dominant-axis-position)
+        detector=homo
+        parameter_file="${SCRIPT_DIR}/Studies/ProtonHitRecoStudy/dominant_axis_position.parameters.dat"
+        ;;
     *)
         echo "Unknown CONFIG: $configuration" >&2
         usage >&2
@@ -93,8 +107,14 @@ export ND280_DOWNLOADS="${ND280_DOWNLOADS:-http://nd280.lancs.ac.uk/downloads}"
 export DETRESPONSESIMROOT="${WORKSPACE_DIR}/SoftProj/detResponseSim"
 export DETRESPONSESIMCONFIG="${ND280_SYSTEM}"
 set +u
+set +e
 source /usr/local/t2k/current/nd280SoftwareMaster_14.36-plusplus.0.3/bin/setup.sh
+setup_status=$?
+set -e
 set -u
+if (( setup_status != 0 )); then
+    echo "Warning: ND280 setup returned $setup_status (usually a harmless read-only template refresh); validating required programs explicitly." >&2
+fi
 
 # Use the coordinated local geometry, response, and reconstruction packages.
 # Set these paths directly so a fresh checkout does not depend on private

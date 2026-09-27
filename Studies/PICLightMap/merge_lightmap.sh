@@ -3,7 +3,7 @@
 set -euo pipefail
 
 study_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-map_exe="$study_dir/../../../SoftProj/nd280Geant4Sim/Linux-AlmaLinux_9.5-gcc_11-x86_64/bin/MAKEHOMOPHOTONMAP.exe"
+map_exe=${LIGHTMAP_MAP_EXE:-$study_dir/../../../SoftProj/nd280Geant4Sim/Linux-AlmaLinux_9.5-gcc_11-x86_64/bin/MAKEHOMOPHOTONMAP.exe}
 
 usage() {
     cat <<EOF
@@ -192,6 +192,11 @@ actual_positions=$(root -l -b "$output" -e 'auto* tree=(TTree*)_file0->Get("posi
     echo "Merged map has $actual_positions valid positions; expected $expected_positions for fibre diameter $fibre_diameter mm" >&2
     exit 4
 }
+total_fibre_hits=$(awk -F, 'NR>1 {sum += $7} END {printf "%.0f",sum}' "$csv")
+(( total_fibre_hits > 0 )) || {
+    echo "Merged map contains zero fibre hits across all $actual_positions positions; refusing invalid light map" >&2
+    exit 4
+}
 
 echo "Merged light map: $output"
-echo "Per-position efficiency: $csv ($actual_positions valid scintillator positions)"
+echo "Per-position efficiency: $csv ($actual_positions valid scintillator positions, $total_fibre_hits fibre hits)"

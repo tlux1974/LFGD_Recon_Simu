@@ -11,7 +11,7 @@ import ROOT
 
 
 TREE_NAMES = ("fiber_hits", "hits3d", "hit3d_views", "track_nodes",
-              "track_node_hits", "mc_virtual_segments")
+              "track_node_hits", "mc_track_points", "mc_virtual_segments")
 AXES = (("z", "x"), ("z", "y"), ("x", "y"))
 
 # Global ND280 coordinates for the baseline-2024-plusplus detector envelopes.
@@ -298,11 +298,12 @@ def transverse_fiber_points_by_event(tree, selected_events, axes,
     return result
 
 
-def mc_tracks_by_event(tree, selected_events, axes):
+def mc_tracks_by_event(tree, selected_events, axes, primary_only=True):
     tracks = defaultdict(lambda: defaultdict(list))
     for row in tree:
         event = int(row.event)
-        if event not in selected_events:
+        if (event not in selected_events
+                or (primary_only and int(row.parent_id) != 0)):
             continue
         tracks[event][int(row.track_id)].append(
             (int(row.point), float(getattr(row, axes[0])),
@@ -1263,6 +1264,8 @@ def main():
         hits_by_event = points_by_event(trees["hits3d"], selected_events, axes)
         tracks_by_event = reco_tracks_by_event(
             trees["track_nodes"], selected_events, axes)
+        truth_tracks_by_event = mc_tracks_by_event(
+            trees["mc_track_points"], selected_events, axes)
         virtual_segments_by_event = mc_virtual_segments_by_event(
             trees["mc_virtual_segments"], selected_events, axes)
 
@@ -1271,6 +1274,8 @@ def main():
             hits = graph(hits_by_event[event], ROOT.kBlue + 1, 20, 0.8)
             tracks = [graph(values, ROOT.kRed + 1, 24, 1.0)
                       for values in tracks_by_event.get(event, [])]
+            truth_tracks = [graph(values, ROOT.kGreen + 2, 20, 0.65)
+                            for values in truth_tracks_by_event.get(event, [])]
             virtual_segments = []
             for start, stop in virtual_segments_by_event[event]:
                 segment = ROOT.TLine(start[0], start[1], stop[0], stop[1])
@@ -1289,10 +1294,28 @@ def main():
                 f"track nodes={counts['track_nodes'][event]};"
                 f"{axes[0]} [mm];{axes[1]} [mm]"
             )
-            canvas.DrawFrame(-3000, -1500, 3000, 1500, title)
-            boundaries = draw_detector_boundaries(axes, detector_name)
+            truth_points = [point for track in truth_tracks_by_event.get(event, [])
+                            for point in track]
+            if truth_points:
+                x_values = [point[0] for point in truth_points]
+                y_values = [point[1] for point in truth_points]
+                x_span = max(x_values) - min(x_values)
+                y_span = max(y_values) - min(y_values)
+                x_margin = max(20.0, 0.08*x_span)
+                y_margin = max(20.0, 0.08*y_span)
+                frame = (min(x_values)-x_margin, min(y_values)-y_margin,
+                         max(x_values)+x_margin, max(y_values)+y_margin)
+            else:
+                frame = (-3000, -1500, 3000, 1500)
+            canvas.DrawFrame(*frame, title)
+            canvas.SetGrid()
+            boundaries = []
             for segment in virtual_segments:
                 segment.Draw("SAME")
+            for truth_track in truth_tracks:
+                if truth_track.GetN():
+                    truth_track.Draw(
+                        ("LP" if truth_track.GetN() > 1 else "P") + " SAME")
             if fibers.GetN():
                 fibers.Draw("P SAME")
             if hits.GetN():
@@ -1308,6 +1331,8 @@ def main():
                 legend.AddEntry(hits, "3D reconstructed hits", "p")
             if tracks:
                 legend.AddEntry(tracks[0], "reconstructed tracks", "lp")
+            if truth_tracks:
+                legend.AddEntry(truth_tracks[0], "primary MC truth", "lp")
             if virtual_segments:
                 legend.AddEntry(
                     virtual_segments[0], "MC virtual-cube segments", "l")

@@ -1,0 +1,1 @@
+/home/tlux/HK/ND280++/LFGD_Recon_Simu/Studies/PICLightMap/lightmaps/homo_response_10bin_5m_double_hg_0p4mm_g-0p5_rfb-0p75_fibre-1p0mm_scin-ri-1p48_100kPhotons.root

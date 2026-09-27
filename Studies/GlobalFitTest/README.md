@@ -308,6 +308,27 @@ diagonally belong to the same neighbourhood. DBSCAN runs independently in XY,
 XZ, and YZ; the cluster with the largest summed charge in each projection is
 retained. For the intended detector-level test:
 
+### Track-aware clustering
+
+`CLUSTER_METHOD=TRACK_AWARE` keeps DBSCAN as the local component finder but
+does not blindly retain only the largest component. In each fibre view it fits
+the component with the longest extent, merges other components whose lines are
+aligned across an acceptable longitudinal gap, and finds the line with the
+largest capped-charge support. Hits departing farther than the configured
+main-track width are classified as delta-like branches. Bridging a gap retains
+the aligned components on both sides; it does not manufacture fibre hits.
+
+```sh
+Studies/GlobalFitTest/global_light_fit_columns flat.root global_fit_track_aware.root lightmap.root EVENT=all TREE=fiber_hits MIN_CHARGE=3 CLUSTER_METHOD=TRACK_AWARE DBSCAN_EPSILON_MM=14.2 DBSCAN_MIN_POINTS=2 TRACK_MERGE_MAX_ANGLE_DEG=10 TRACK_MERGE_MAX_TRANSVERSE_MM=15 TRACK_MERGE_MAX_GAP_MM=50 TRACK_BRANCH_MAX_DISTANCE_MM=15 CORRIDOR=0 SEED_DIRECTION=VIEW_MEDIAN_DIAMETER MAX_FUNCTION_CALLS=5000 TOLERANCE=1e-2
+```
+
+The `global_fit` tree records the method, numbers of components found and
+merged, and number of rejected branch hits. `global_fit_rejected_branches`
+stores each rejected fibre, its line residual, and `fork_u/fork_v`, its
+projection onto the retained trunk in that view. The legacy-named
+`global_fit_dbscan_fibres` tree contains the post-clustering observations for
+both methods.
+
 ```sh
 ./global_light_fit flat.root fibre_fit.root \
   homo_response_250514_10bin_5m_1mm_100kPhotons.root \

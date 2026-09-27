@@ -1,0 +1,16 @@
+# Alternative under study.  The 2D clustering is identical to the baseline.
+# A local 3D PCA chooses a dominant axis.  The position along it is fixed to
+# the slice centre; the two transverse coordinates use only the two fibre
+# views perpendicular to that axis.
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 1 >
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 10.0 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 0 >
+< hfgRecon.Hits3D.VoxelPositionMode.homo = 3 >
+< hfgRecon.Hits3D.PositionDirectionNeighbours.homo = 4 >
+< hfgRecon.Hits3D.PositionMinimumDirectionNeighbours.homo = 2 >
+< hfgRecon.Hits3D.PositionDirectionMaximumDistance.homo = 50.0 mm >
+< hfgRecon.Hits3D.PositionDominantAxisMinimumCosine.homo = 0.70710678 >
+< hfgRecon.SelectHits3D.Enable.homo = 1 >
+< hfgRecon.SelectHits3D.ChargeCut.homo = 10.0 >

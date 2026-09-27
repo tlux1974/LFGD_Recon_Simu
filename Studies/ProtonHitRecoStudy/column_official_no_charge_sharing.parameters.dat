@@ -1,0 +1,11 @@
+# One point per dominant-axis column, followed by the official fitter, with
+# the HFG/SFGD cube charge-sharing fit disabled.
+< hfgRecon.Hits3D.SharingAlgo.homo = 0 >
+< hfgRecon.Hits3D.FindPeaks.homo = 1 >
+< hfgRecon.Hits3D.PeakClusteringMode.homo = 1 >
+< hfgRecon.Hits3D.UsePeakWeightedPosition.homo = 1 >
+< hfgRecon.Hits3D.Min2DHitCharge.homo = 10.0 >
+< hfgRecon.Hits3D.ChargeReconstructionMode.homo = 0 >
+< hfgRecon.Hits3D.VoxelPositionMode.homo = 4 >
+< hfgRecon.SelectHits3D.Enable.homo = 1 >
+< hfgRecon.SelectHits3D.ChargeCut.homo = 10.0 >
